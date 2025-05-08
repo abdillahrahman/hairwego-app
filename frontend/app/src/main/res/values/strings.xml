@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HairWeGo</string>
+    <string name="enter_email">Enter Email\n</string>
+    <string name="enter_valid_email">Enter Valid Email\n</string>
+    <string name="enter_password">Enter Password\n</string>
+    <string name="pass_length">pass length\n</string>
+    <string name="remember_me">Remember me\n</string>
+    <string name="login">Login\n</string>
+    <string name="hello_again">Hello\n</string>
+    <string name="no_account">Don\'t have an account?\n</string>
+    <string name="register_now">Register now\n</string>
+    <string name="enter_username">Username</string>
+    <string name="enter_valid_username">Valid Username\n</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_history">History\n</string>
+</resources>
