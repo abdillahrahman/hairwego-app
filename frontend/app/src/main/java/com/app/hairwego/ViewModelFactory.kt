@@ -13,7 +13,7 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(LoginViewModel::class.java) ->
-                LoginViewModel(tokenManager) as T
+                LoginViewModel(context, tokenManager) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     }

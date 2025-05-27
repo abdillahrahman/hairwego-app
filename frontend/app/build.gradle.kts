@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.androidx.viewpager2)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.activity)
 
     //testing
     testImplementation(libs.junit)
@@ -86,4 +87,12 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation ("androidx.datastore:datastore-preferences:1.1.4")
     implementation("androidx.navigation:navigation-compose:2.6.0")
+
+    implementation(libs.camera.core)
+    implementation(libs.camera.camera2)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
+    implementation(libs.androidx.camera.compose)
+
+    implementation(libs.accompanist.permissions)
 }

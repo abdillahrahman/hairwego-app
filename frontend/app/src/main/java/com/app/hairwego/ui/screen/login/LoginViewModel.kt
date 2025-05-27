@@ -1,5 +1,6 @@
 package com.app.hairwego.ui.screen.login
 
+import android.content.Context
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,7 +20,7 @@ data class LoginUiState(
     val passwordError: String? = null
 )
 
-class LoginViewModel(private val tokenManager: TokenManager) : ViewModel() {
+class LoginViewModel(val context: Context, val tokenManager: TokenManager) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState
@@ -41,11 +42,13 @@ class LoginViewModel(private val tokenManager: TokenManager) : ViewModel() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
             try {
-                val response = ApiConfig.getApiService().login(LoginRequest(email, password))
-                val token = response.access_token
+                val response = ApiConfig.getApiService(context, tokenManager).login(LoginRequest(email, password))
+                val accessToken = response.access_token
+                val refreshToken = response.refresh_token
 
-                if (token != null) {
-                    tokenManager.saveToken(token)
+                if (!accessToken.isNullOrBlank() && !refreshToken.isNullOrBlank()) {
+                    tokenManager.saveToken(accessToken)
+                    tokenManager.saveRefreshToken(refreshToken)
                     if (rememberMe) {
                         tokenManager.setRememberMe(true)
                     }

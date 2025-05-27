@@ -132,6 +132,7 @@ def predict():
         image_path=saved_path,
         face_shape_id=face_shape.id,
     )
+
     db.session.add(new_scan)
     db.session.commit()
 
@@ -170,6 +171,7 @@ def predict():
             {
                 "prediction": predicted_class,
                 "confidence": f"{confidence * 100:.2f}%",
+                "image_scan" : saved_path,
                 "rekomendasi": haircut_list,
             }
         ),

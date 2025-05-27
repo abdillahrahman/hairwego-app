@@ -5,6 +5,7 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.model.RegisterRequest
 import com.app.hairwego.data.remote.retrofit.ApiConfig
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +20,7 @@ data class RegisterUiState(
     val confirmPasswordError: String? = null
 )
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(val context: Context, val tokenManager: TokenManager) : ViewModel() {
     private val _uiState = MutableStateFlow(RegisterUiState())
     val uiState: StateFlow<RegisterUiState> = _uiState
 
@@ -39,7 +40,7 @@ class RegisterViewModel : ViewModel() {
         if (usernameValid && emailValid && passwordValid && confirmPasswordValid) {
             viewModelScope.launch {
                 try {
-                    val response = ApiConfig.getApiService().registerUser(
+                    val response = ApiConfig.getApiService(context,tokenManager ).registerUser(
                         RegisterRequest(username, email, password)
                     )
                     if (response.isSuccessful) {

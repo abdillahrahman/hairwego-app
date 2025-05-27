@@ -119,26 +119,25 @@ class HaircutAdmin(sqla.ModelView):
     form_columns = ["name", "description", "image"]
     column_searchable_list = ["name", "description"]
 
-    # Path folder untuk menyimpan file
-    file_path = os.path.join(os.path.dirname(__file__), '..', 'static', 'uploads')
-    file_path = os.path.abspath(file_path)
+    # 📂 Folder tujuan upload
+    file_path = os.path.join(os.path.dirname(__file__), "..")
 
-    # Pastikan folder uploads sudah ada
-    os.makedirs(file_path, exist_ok=True)
-
-    # Konfigurasi upload gambar
+    # 📤 Upload field
     form_extra_fields = {
-        "image": FileUploadField(
-            "Image",
+        'image': FileUploadField(
+            'Image',
             base_path=file_path,
-            allowed_extensions=["jpg", "jpeg", "png", "gif"]
+            relative_path='static/uploads/',  # simpan di DB sebagai static/upload/namafile
+            allow_overwrite=False
         )
     }
 
-    # Format kolom image agar menampilkan gambar
+    # 🖼️ Format kolom gambar
     def _format_image(self, context, model, name):
         if model.image:
-            image_url = url_for('static', filename=f'uploads/{model.image}')
+            # Remove 'static/uploads/' if present
+            filename = model.image.replace('static/uploads/', '')
+            image_url = url_for('static', filename=f'uploads/{filename}')
             return Markup(f'<img src="{image_url}" style="max-height: 100px;">')
         return ""
 

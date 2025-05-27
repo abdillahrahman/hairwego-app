@@ -1,16 +1,30 @@
 <resources>
     <string name="app_name">HairWeGo</string>
-    <string name="enter_email">Enter Email\n</string>
-    <string name="enter_valid_email">Enter Valid Email\n</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_valid_email">Enter Valid Email</string>
     <string name="enter_password">Enter Password\n</string>
     <string name="pass_length">pass length\n</string>
     <string name="remember_me">Remember me\n</string>
-    <string name="login">Login\n</string>
-    <string name="hello_again">Hello\n</string>
+    <string name="login">Login</string>
+    <string name="hello_again">Hello</string>
     <string name="no_account">Don\'t have an account?\n</string>
-    <string name="register_now">Register now\n</string>
+    <string name="register_now">Register now</string>
     <string name="enter_username">Username</string>
-    <string name="enter_valid_username">Valid Username\n</string>
+    <string name="enter_valid_username">Valid Username</string>
     <string name="menu_home">Home</string>
-    <string name="menu_history">History\n</string>
+    <string name="menu_history">History</string>
+    <string name="back">Back</string>
+    <string name="photos">Photos</string>
+    <string name="take_image">take image</string>
+    <string name="tips">tips</string>
+    <string name="error_capturing">Capturing Error</string>
+    <string name="image_preview">preview image</string>
+    <string name="retake">Retake</string>
+    <string name="choose_again">Chose Again</string>
+    <string name="analyze_image">Analyze image</string>
+    <string name="error_unable_to_load_image">Unable to load image</string>
+    <string name="error_unable_to_process_image">unable to procces image</string>
+    <string name="image_not_find">image not find</string>
+    <string name="error_analyze_image">Cant analyze image</string>
+    <string name="flip_camera">flip_camera</string>
 </resources>
