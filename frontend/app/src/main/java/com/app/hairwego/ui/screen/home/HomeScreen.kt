@@ -1,5 +1,6 @@
 package com.app.hairwego.ui.screen.home
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,6 +21,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import com.app.hairwego.ui.components.MyButton
 import com.app.hairwego.R
+import com.app.hairwego.ui.screen.camera.CameraActivityScreen
+import com.app.hairwego.ui.screen.camera.CameraComposeActivity
 
 @Composable
 fun HomeScreen() {
@@ -36,7 +39,10 @@ fun HomeScreen() {
     }
     homeScreenContent(
         modifier = Modifier,
-        onScanClicked = { }
+        onScanClicked = {
+            val intent = Intent(context, CameraComposeActivity::class.java)
+            context.startActivity(intent)
+        }
     )
 }
 
@@ -77,9 +83,11 @@ fun homeScreenContent(
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyMedium,
             )
-            MyButton(modifier = modifier
-                .padding(horizontal = 20.dp),
-                buttonText = "Start Face Scan", onClick = onScanClicked)
+            MyButton(
+                modifier = modifier.padding(horizontal = 20.dp),
+                buttonText = "Start Face Scan",
+                onClick = onScanClicked // ✅ BENAR: ini memanggil lambda function dari parameter
+            )
 
         }
     }
