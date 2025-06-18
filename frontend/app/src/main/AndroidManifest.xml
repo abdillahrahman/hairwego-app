@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HairWeGo"
         tools:targetApi="31">
+
         <activity android:name=".ui.screen.result.ResultActivityScreen"
             android:exported="false"/>
         <activity

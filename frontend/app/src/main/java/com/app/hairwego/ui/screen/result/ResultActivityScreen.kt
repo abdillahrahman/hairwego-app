@@ -1,10 +1,13 @@
 package com.app.hairwego.ui.screen.result
 
+import android.content.Intent
 import com.app.hairwego.data.model.PredictResponse
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
+import com.app.hairwego.MainActivity
 import com.google.gson.Gson
 
 class ResultActivityScreen : ComponentActivity() {
@@ -30,5 +33,10 @@ class ResultActivityScreen : ComponentActivity() {
                 )
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish() // tutup ResultActivity agar tidak stack
     }
 }

@@ -86,7 +86,7 @@ fun homeScreenContent(
             MyButton(
                 modifier = modifier.padding(horizontal = 20.dp),
                 buttonText = "Start Face Scan",
-                onClick = onScanClicked // ✅ BENAR: ini memanggil lambda function dari parameter
+                onClick = onScanClicked
             )
 
         }

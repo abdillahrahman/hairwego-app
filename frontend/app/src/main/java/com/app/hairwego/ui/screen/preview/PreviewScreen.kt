@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -30,6 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.app.hairwego.R
 
@@ -37,6 +40,7 @@ import com.app.hairwego.R
 fun PreviewScreen(
     imageUri: Uri,
     isFromCamera: Boolean,
+    isLoading: Boolean,
     onRetake: () -> Unit,
     onAnalyzeImage: () -> Unit,
     onShowTips: () -> Unit,
@@ -129,6 +133,29 @@ fun PreviewScreen(
             }
         }
 
+        if (isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(alpha = 0.5f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    CircularProgressIndicator(
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = "Analyzing Your Face...",
+                        fontSize = 20.sp,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color.White
+                    )
+                }
+            }
+        }
+
+
     }
 }
 
@@ -138,6 +165,7 @@ fun PreviewScreenPreview() {
     PreviewScreen(
         imageUri = Uri.parse("android.resource://com.app.hairwego/drawable/ic_placeholder"), // Mock URI
         isFromCamera = true,
+        isLoading = false,
         onRetake = { /* Mock Retake Action */ },
         onAnalyzeImage = { /* Mock Analyze Action */ },
         onShowTips = { /* Mock Show Tips Action */ }

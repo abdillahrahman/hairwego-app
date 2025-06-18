@@ -24,7 +24,7 @@ class RegisterViewModel(val context: Context, val tokenManager: TokenManager) : 
     private val _uiState = MutableStateFlow(RegisterUiState())
     val uiState: StateFlow<RegisterUiState> = _uiState
 
-    fun registerUser(username: String, email: String, password: String, confirmPassword: String, context: Context) {
+    fun registerUser(username: String, email: String, password: String, confirmPassword: String) {
         val usernameValid = username.isNotEmpty()
         val emailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
         val passwordValid = password.length >= 6

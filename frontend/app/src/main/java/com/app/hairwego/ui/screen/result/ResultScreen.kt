@@ -35,6 +35,7 @@ fun ResultScreen(
     faceImage: String,
     recommendations: List<RekomendasiItem>
 ) {
+
     val fullFaceImageUrl = BASE_URL + faceImage
 
     LazyColumn(
