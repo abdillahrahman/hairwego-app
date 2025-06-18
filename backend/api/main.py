@@ -1,5 +1,7 @@
 import os
+import shutil
 import cv2
+from mtcnn import MTCNN
 import numpy as np
 from datetime import datetime
 from flask import Blueprint, request, jsonify
@@ -42,31 +44,51 @@ ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif", "tiff", "webp", "jfif"}
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
+def correct_image_orientation(image_path):
+    try:
+        img = Image.open(image_path)
 
-def detect_face_and_crop(img_path):
-    # Baca gambar menggunakan OpenCV
-    img = cv2.imread(img_path)
-    if img is None:
-        return None, "Gagal memuat gambar"
+        # Cek apakah gambar punya data EXIF
+        exif = img._getexif()
+        if exif is not None:
+            for orientation in ExifTags.TAGS.keys():
+                if ExifTags.TAGS[orientation] == "Orientation":
+                    break
 
-    # Convert gambar ke grayscale untuk deteksi wajah
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+            exif_orientation = exif.get(orientation)
+            if exif_orientation == 3:
+                img = img.rotate(180, expand=True)
+            elif exif_orientation == 6:
+                img = img.rotate(270, expand=True)
+            elif exif_orientation == 8:
+                img = img.rotate(90, expand=True)
 
-    if len(faces) == 0:
-        return None, "Tidak ada wajah terdeteksi di gambar"
+        # Simpan ulang gambar setelah dikoreksi
+        img.save(image_path)
+        img.close()
+    except Exception as e:
+        print(f"Failed to correct orientation: {e}")
 
-    # Ambil wajah pertama yang terdeteksi
-    (x, y, w, h) = faces[0]
-    pad_y = int(0.3 * h)
-    pad_x = int(0.15 * w)
-    y1 = max(y - pad_y, 0)
-    y2 = min(y + h + pad_y, img.shape[0])
-    x1 = max(x - pad_x, 0)
-    x2 = min(x + w + pad_x, img.shape[1])
+detector = MTCNN()
 
-    face_crop = img[y1:y2, x1:x2]
-    return face_crop, None
+def detect_face_and_crop(image_path):
+    image_bgr = cv2.imread(image_path)
+    if image_bgr is None:
+        return None, "Gagal membaca gambar."
+
+    image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+    results = detector.detect_faces(image_rgb)
+
+    if not results:
+        return None, "Tidak ada wajah terdeteksi."
+
+    x, y, w, h = results[0]['box']
+    x = max(0, x)
+    y = max(0, y)
+    cropped_face = image_rgb[y:y+h, x:x+w]
+    cropped_bgr = cv2.cvtColor(cropped_face, cv2.COLOR_RGB2BGR)
+
+    return cropped_bgr, None
 
 
 @api_bp.route("/predict", methods=["POST"])
@@ -93,18 +115,27 @@ def predict():
 
     img_path = os.path.join(UPLOAD_FOLDER, filename)
 
-    # Deteksi wajah dan crop wajah dari gambar
-    face_crop, error_message = detect_face_and_crop(img_path)
-    if face_crop is None:
-        return jsonify({"message": error_message}), 400
+    # Koreksi orientasi pada file upload
+    correct_image_orientation(img_path)
 
-    # Simpan wajah yang sudah dipotong
+    # Simpan hasil orientasi ke path unik dan pastikan portrait
     timestamp = datetime.now().strftime("%d%m%y-%H%M%S")
     saved_path = os.path.join(UPLOAD_FOLDER, f"{timestamp}.png")
-    cv2.imwrite(saved_path, face_crop)
+    with Image.open(img_path) as im:
+        if im.width > im.height:
+            im = im.rotate(90, expand=True)
+        im.save(saved_path)
 
-    # Proses gambar untuk prediksi
-    img = image.load_img(saved_path, target_size=(224, 224))
+    # --- Crop wajah ---
+    cropped_face, error_message = detect_face_and_crop(saved_path)
+    if cropped_face is None:
+        return jsonify({"message": error_message}), 400
+
+    cropped_path = os.path.join(UPLOAD_FOLDER, f"cropped_{timestamp}.png")
+    cv2.imwrite(cropped_path, cropped_face)
+
+    # Proses gambar crop untuk prediksi
+    img = image.load_img(cropped_path, target_size=(224, 224))
     x = image.img_to_array(img)
     x = x / 127.5 - 1  # Normalisasi
     x = np.expand_dims(x, axis=0)
@@ -129,7 +160,7 @@ def predict():
     # Simpan ke face_scan
     new_scan = FaceScan(
         user_id=user.id,
-        image_path=saved_path,
+        image_path=cropped_path,
         face_shape_id=face_shape.id,
     )
 
@@ -227,3 +258,33 @@ def get_history():
         )
 
     return jsonify(history), 200
+
+
+@api_bp.route("/history/<face_scan_id>", methods=["GET"])
+@jwt_required()
+def history_detail(face_scan_id):
+    scan = FaceScan.query.filter_by(id=face_scan_id).first()
+    if not scan:
+        return jsonify({"message": "Face scan not found"}), 404
+
+    face_shape = scan.face_shape.shape_name if scan.face_shape else None
+
+    histories = UserRecommendationHistory.query.filter_by(face_scan_id=scan.id).all()
+    recommendations = []
+    for history in histories:
+        rec = history.haircut_recommendation
+        if rec:
+            for haircut in rec.haircuts:
+                recommendations.append({
+                    "haircut_name": haircut.name,
+                    "description": haircut.description,
+                    "image": haircut.image
+                })
+
+    recommendations = [dict(t) for t in {tuple(d.items()) for d in recommendations}]
+
+    return jsonify({
+        "face_shape": face_shape,
+        "recommendations": recommendations,
+        "scan_image": scan.image_path
+    })

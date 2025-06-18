@@ -25,7 +25,6 @@ interface ApiService {
     @POST("/api/predict")
     suspend fun predict(
         @Part file: MultipartBody.Part,
-        @Header("Authorization") token: String
     ): PredictResponse
 
     @POST("/auth/refresh-token")

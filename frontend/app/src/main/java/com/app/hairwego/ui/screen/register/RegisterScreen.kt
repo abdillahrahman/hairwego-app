@@ -20,10 +20,14 @@ import com.app.hairwego.ui.components.HairWeGoScaffold
 import com.app.hairwego.ui.components.MyButton
 import com.app.hairwego.ui.components.WelcomeText
 import com.app.hairwego.R
+import com.app.hairwego.ViewModelFactory
 
 @Composable
-fun RegisterScreen(navController: NavController, viewModel: RegisterViewModel = viewModel()) {
+fun RegisterScreen(navController: NavController) {
     val context = LocalContext.current
+    val viewModel: RegisterViewModel = viewModel(
+        factory = ViewModelFactory(context)
+    )
 
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -44,7 +48,7 @@ fun RegisterScreen(navController: NavController, viewModel: RegisterViewModel = 
             confirmPassword = confirmPassword,
             onConfirmPasswordChange = { confirmPassword = it },
             onRegisterClick = {
-                viewModel.registerUser(username, email, password, confirmPassword, context) // Pass context here
+                viewModel.registerUser(username, email, password, confirmPassword) // Pass context here
             },
             onLoginClick = {
                 navController.navigate("login")

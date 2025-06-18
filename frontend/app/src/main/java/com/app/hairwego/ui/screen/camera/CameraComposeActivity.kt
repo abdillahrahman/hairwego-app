@@ -63,7 +63,9 @@ class CameraComposeActivity : ComponentActivity() {
                 it.setSurfaceProvider(previewView.surfaceProvider)
             }
 
-            imageCapture = ImageCapture.Builder().build()
+            imageCapture = ImageCapture.Builder()
+                .setTargetRotation(previewView.display.rotation)
+                .build()
 
             val cameraSelector = CameraSelector.Builder()
                 .requireLensFacing(lensFacing)

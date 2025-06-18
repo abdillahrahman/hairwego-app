@@ -43,18 +43,22 @@ class ImageClassifierHelper(
             return
         }
 
-        val reducedImageFile = imageFile.reduceFileImage()
+        val reducedImageFile = imageFile
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val requestBody = reducedImageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val requestBody = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
                 val multipartBody =
-                    MultipartBody.Part.createFormData("file", reducedImageFile.name, requestBody)
+                    MultipartBody.Part.createFormData("file", imageFile.name, requestBody)
+
+                withContext(Dispatchers.Main) {
+                    classifierListener.onResult(Result.Loading)
+                }
 
                 val token = getToken()
                 Log.d("TOKEN_CHECK", "Token: $token")
                 val apiService = ApiConfig.getApiService(context, tokenManager)
-                val response = apiService.predict(multipartBody, "Bearer $token")
+                val response = apiService.predict(multipartBody)
                 Log.d("TOKEN_CHECK", "Token: $token")
 
                 withContext(Dispatchers.Main) {
@@ -65,8 +69,19 @@ class ImageClassifierHelper(
                     }
                 }
             } catch (e: Exception) {
+                val errorMessage = if (e is retrofit2.HttpException) {
+                    val errorBody = e.response()?.errorBody()?.string()
+                    try {
+                        org.json.JSONObject(errorBody).getString("message")
+                    } catch (jsonException: Exception) {
+                        "Gagal memuat hasil prediksi. Kode: ${e.code()}"
+                    }
+                } else {
+                    "Terjadi kesalahan jaringan atau server: ${e.message}"
+                }
+
                 withContext(Dispatchers.Main) {
-                    classifierListener.onResult(Result.Error("Network or server error: ${e.message}"))
+                    classifierListener.onResult(Result.Error(errorMessage))
                 }
             }
         }
