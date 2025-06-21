@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
-import com.ahmetocak.shoppingapp.utils.ComponentPreview
 import com.app.hairwego.R
 
 @Composable
@@ -53,7 +53,7 @@ fun AuthEnterUsernameOtf(
     )
 }
 
-@ComponentPreview
+@Preview
 @Composable
 private fun AuthEnterUsernameOtfPreview() {
     HairwegoAppTheme {
@@ -68,7 +68,7 @@ private fun AuthEnterUsernameOtfPreview() {
     }
 }
 
-@ComponentPreview
+@Preview
 @Composable
 private fun AuthEnterUsernameOtfErrorPreview() {
     HairwegoAppTheme {

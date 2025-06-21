@@ -8,21 +8,26 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
 import com.app.hairwego.MainActivity
+import com.app.hairwego.data.local.HairWeGoDatabase
+import com.app.hairwego.data.local.TokenManager
+import com.app.hairwego.data.repository.HistoryRepository
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class ResultActivityScreen : ComponentActivity() {
+
+    private val applicationScope = CoroutineScope(SupervisorJob())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Ambil string JSON dari intent
         val responseJson = intent.getStringExtra("predictResponse")
 
-        // Parse kembali ke model PredictResponse
         val gson = Gson()
         val predictResponse = gson.fromJson(responseJson, PredictResponse::class.java)
 
-        // Tampilkan UI menggunakan Compose
         setContent {
             HairwegoAppTheme {
                 ResultScreen(
@@ -33,10 +38,22 @@ class ResultActivityScreen : ComponentActivity() {
                 )
             }
         }
+
+        val tokenManager = TokenManager(applicationContext)
+        val dao = HairWeGoDatabase.getDatabase(applicationContext, applicationScope).historyDao()
+        val repository = HistoryRepository(applicationContext, tokenManager)
+
+        applicationScope.launch {
+            try {
+                repository.fetchAndSaveHistory(dao)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
-        finish() // tutup ResultActivity agar tidak stack
+        finish()
     }
 }

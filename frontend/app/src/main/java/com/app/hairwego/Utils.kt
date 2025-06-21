@@ -4,13 +4,21 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.media.ExifInterface
 import android.net.Uri
-import androidx.core.content.FileProvider
-import androidx.exifinterface.media.ExifInterface
+import android.os.Build
+import android.util.Log
+import androidx.annotation.RequiresApi
+import com.app.hairwego.data.local.FaceScanEntity
+import com.app.hairwego.data.local.RecommendationEntity
+import com.app.hairwego.data.model.HistoryResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
+import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -34,6 +42,8 @@ fun saveImageToInternalStorage(context: Context, uri: Uri, fileName: String): St
     }
 }
 
+
+@RequiresApi(Build.VERSION_CODES.Q)
 fun File.reduceFileImage(): File {
     val file = this
     val bitmap = BitmapFactory.decodeFile(file.path).getRotatedBitmap(file)
@@ -50,6 +60,7 @@ fun File.reduceFileImage(): File {
     return file
 }
 
+@RequiresApi(Build.VERSION_CODES.Q)
 fun Bitmap.getRotatedBitmap(file: File): Bitmap? {
     val orientation = ExifInterface(file).getAttributeInt(
         ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
@@ -62,6 +73,7 @@ fun Bitmap.getRotatedBitmap(file: File): Bitmap? {
         else -> this
     }
 }
+
 
 fun rotateImage(source: Bitmap, angle: Float): Bitmap {
     val matrix = Matrix()
@@ -80,4 +92,65 @@ fun createCustomTempFile(context: Context): File {
     val filesDir = context.externalCacheDir
     return File.createTempFile(timeStamp, ".jpg", filesDir)
 }
+
+suspend fun mapToEntities(context: Context, response: HistoryResponse): Pair<List<FaceScanEntity>, List<RecommendationEntity>> {
+    val scanEntities = mutableListOf<FaceScanEntity>()
+    val recommendationEntities = mutableListOf<RecommendationEntity>()
+
+
+    response.forEach { (timestamp, scanList) ->
+        scanList.forEach { dto ->
+            val localPath = downloadAndSaveImage(context, "http://192.168.1.3:5000/${dto.scanImage}")
+            val scanEntity = FaceScanEntity(
+                faceScanId = dto.faceScanId,
+                faceShape = dto.faceShape,
+                scanImage = localPath,
+                scanDate = dto.scanDate
+            )
+            scanEntities.add(scanEntity)
+
+            dto.recommendations.forEach { rec ->
+                val localPath = downloadAndSaveImage(context, "http://192.168.1.3:5000/${rec.image}")
+                val recommendationEntity = RecommendationEntity(
+                    faceScanId = dto.faceScanId,
+                    haircutName = rec.haircutName,
+                    description = rec.description,
+                    image = localPath
+                )
+                recommendationEntities.add(recommendationEntity)
+            }
+        }
+    }
+
+    return Pair(scanEntities, recommendationEntities)
+}
+
+suspend fun downloadAndSaveImage(context: Context, imageUrl: String): String {
+    return withContext(Dispatchers.IO) {
+        try {
+            val url = URL(imageUrl)
+            val connection = url.openConnection()
+            connection.connect()
+
+            val input = connection.getInputStream()
+            val fileName = imageUrl.substringAfterLast("/")
+            val file = File(context.filesDir, fileName)
+
+            val output = FileOutputStream(file)
+            input.copyTo(output)
+            output.close()
+            input.close()
+
+            file.absolutePath
+        } catch (e: Exception) {
+            Log.e("ImageDownload", "Gagal download: $imageUrl", e)
+            e.printStackTrace()
+            "" // fallback, atau bisa return null
+        }
+    }
+}
+
+
+
+
 
