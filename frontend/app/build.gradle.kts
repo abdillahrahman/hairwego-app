@@ -2,9 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
     alias(libs.plugins.ksp)
     id("kotlin-parcelize")
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -84,9 +84,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout.compose) //ConstraintLayout
     implementation(libs.coil.compose) //AsyncImage
 
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
-    implementation ("androidx.datastore:datastore-preferences:1.1.4")
-    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation (libs.androidx.datastore.preferences)
+    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.camera.core)
     implementation(libs.camera.camera2)
@@ -95,4 +95,11 @@ dependencies {
     implementation(libs.androidx.camera.compose)
 
     implementation(libs.accompanist.permissions)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }

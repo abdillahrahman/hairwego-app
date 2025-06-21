@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.app.hairwego.data.local.TokenManager
+import com.app.hairwego.ui.screen.History.HistoryViewModel
 import com.app.hairwego.ui.screen.login.LoginViewModel
 import com.app.hairwego.ui.screen.register.RegisterViewModel
 
@@ -18,6 +19,8 @@ class ViewModelFactory(private val context: Context,
                 LoginViewModel(context, tokenManager) as T
             modelClass.isAssignableFrom(RegisterViewModel::class.java) ->
                 RegisterViewModel(context, tokenManager) as T
+            modelClass.isAssignableFrom(HistoryViewModel::class.java) ->
+                HistoryViewModel(context, tokenManager) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     }

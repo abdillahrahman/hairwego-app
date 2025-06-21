@@ -251,6 +251,7 @@ def get_history():
         history[scan_date].append(
             {
                 "face_scan_id": str(scan.id),
+                "scan_date": scan_date,
                 "scan_image": scan.image_path,
                 "face_shape": scan.face_shape.shape_name if scan.face_shape else "N/A",
                 "recommendations": recommendation_details,

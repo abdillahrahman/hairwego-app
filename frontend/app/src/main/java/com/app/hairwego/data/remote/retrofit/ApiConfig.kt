@@ -14,7 +14,7 @@ object ApiConfig {
         }
 
         val tempRetrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.2.229:5000/")
+            .baseUrl("http://192.168.1.3:5000/")
             /*.baseUrl("http://192.168.1.2:5000/")*/
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -27,7 +27,7 @@ object ApiConfig {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.2.229:5000/")
+            .baseUrl("http://192.168.1.3:5000/")
             /*.baseUrl("http://192.168.1.2:5000/")*/
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)

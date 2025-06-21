@@ -20,8 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
-import com.ahmetocak.shoppingapp.utils.ComponentPreview
 import com.app.hairwego.R
 
 @Composable
@@ -67,7 +67,7 @@ fun AuthEnterPasswordOtf(
     )
 }
 
-@ComponentPreview
+@Preview
 @Composable
 private fun AuthEnterPasswordOtfPreview() {
     HairwegoAppTheme {
@@ -82,7 +82,7 @@ private fun AuthEnterPasswordOtfPreview() {
     }
 }
 
-@ComponentPreview
+@Preview
 @Composable
 private fun AuthEnterPasswordOtfErrorPreview() {
     HairwegoAppTheme {
