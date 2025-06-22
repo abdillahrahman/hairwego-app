@@ -46,6 +46,7 @@ class FaceScan(db.Model):
     id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
     user_id = db.Column(UUIDType(binary=False), db.ForeignKey('users.id'), nullable=False)
     image_path = db.Column(db.String(255), nullable=False)
+    image_path_cropped = db.Column(db.String(255), nullable=False)
     face_shape_id = db.Column(UUIDType(binary=False), db.ForeignKey('face_shape.id'), nullable=False)
     scan_date = db.Column(ArrowType, default=arrow.utcnow)
 

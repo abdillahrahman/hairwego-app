@@ -24,7 +24,7 @@ abstract class HairWeGoDatabase : RoomDatabase() {
                 synchronized(HairWeGoDatabase::class.java) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        HairWeGoDatabase::class.java, "hairwego_database"
+                        HairWeGoDatabase::class.java, "hairwego_database2"
                     )
                         .fallbackToDestructiveMigration()
                         .addCallback(object : Callback() {

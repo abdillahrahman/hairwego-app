@@ -18,5 +18,4 @@ class HistoryRepository (
         scans.forEach { dao.insertFaceScan(it) }
         dao.insertRecommendations(recommendations)
     }
-
 }
