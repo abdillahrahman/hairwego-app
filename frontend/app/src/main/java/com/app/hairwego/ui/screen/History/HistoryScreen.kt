@@ -2,6 +2,7 @@ package com.app.hairwego.ui.screen.History
 
 import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,13 +17,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.app.hairwego.ViewModelFactory
 import com.app.hairwego.data.local.FaceScanWithRecommendations
+import com.app.hairwego.ui.navigation.Screen
 import java.io.File
 
 @Composable
-fun HistoryScreen() {
+fun HistoryScreen(navController: NavController) {
     val context = LocalContext.current
     val viewModel: HistoryViewModel = viewModel(
         factory = ViewModelFactory(context)
@@ -48,7 +51,9 @@ fun HistoryScreen() {
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(historyList) { scan ->
-                    HistoryCard(scan)
+                    HistoryCard(data = scan) { faceScanId ->
+                        navController.navigate(Screen.HistoryDetail.createRoute(faceScanId))
+                    }
                 }
             }
         }
@@ -56,19 +61,23 @@ fun HistoryScreen() {
 }
 
 @Composable
-fun HistoryCard(data: FaceScanWithRecommendations) {
-    val scanImageFile = File(data.faceScan.scanImage)
+fun HistoryCard(
+    data: FaceScanWithRecommendations,
+    onClick: (String) -> Unit
+) {
+    val scanImageFile = File(data.faceScan.scanImageCropped)
 
     Card(
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { onClick(data.faceScan.faceScanId) },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Row(
             modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Log.d("HistoryCard", "scanImage path: ${data.faceScan.scanImage}")
+            Log.d("HistoryCard", "scanImage path: ${data.faceScan.scanImageCropped}")
             Image(
                 painter = rememberAsyncImagePainter(model = scanImageFile),
                 contentDescription = "Scan Image",
@@ -79,9 +88,9 @@ fun HistoryCard(data: FaceScanWithRecommendations) {
             )
 
             Column {
-                Text("Bentuk Wajah: ${data.faceScan.faceShape}", fontSize = 18.sp)
+                Text("Face Shape : ${data.faceScan.faceShape}", fontSize = 18.sp)
                 Spacer(modifier = Modifier.height(50.dp))
-                Text("Waktu Scan: ${data.faceScan.scanDate}", fontSize = 15.sp)
+                Text("Scan Date: ${data.faceScan.scanDate}", fontSize = 15.sp)
             }
         }
     }
@@ -95,10 +104,9 @@ fun PreviewHistoryCard() {
             faceScanId = "1234",
             faceShape = "Round",
             scanImage = "",
-            scanDate = "2025-06-18 17:17:13"
+            scanDate = "2025-06-18 17:17:13",
+            scanImageCropped = ""
         ),
         recommendations = emptyList()
     )
-
-    HistoryCard(data = dummy)
 }

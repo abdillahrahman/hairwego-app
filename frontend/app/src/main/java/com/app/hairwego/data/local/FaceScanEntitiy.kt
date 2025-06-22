@@ -18,5 +18,8 @@ data class FaceScanEntity(
 
     @ColumnInfo(name = "scan_image")
     val scanImage: String,
+
+    @ColumnInfo(name = "scan_image_cropped")
+    val scanImageCropped: String
 )
 

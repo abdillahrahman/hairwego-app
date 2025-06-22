@@ -12,6 +12,9 @@ data class FaceScanDto(
     @SerializedName("scan_image")
     val scanImage: String,
 
+    @SerializedName("scan_image_cropped")
+    val scanImageCropped: String,
+
     @SerializedName("scan_date")
     val scanDate: String,
 

@@ -19,14 +19,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.ui.navigation.NavigationItem
 import com.app.hairwego.ui.navigation.Screen
 import com.app.hairwego.ui.screen.History.HistoryScreen
+import com.app.hairwego.ui.screen.HistoryDetail.HistoryDetailScreen
 import com.app.hairwego.ui.screen.Splash.SplashScreen
 import com.app.hairwego.ui.screen.home.HomeScreen
 import com.app.hairwego.ui.screen.login.LoginScreen
@@ -56,7 +59,12 @@ fun HairWeGoApp(
 
     Scaffold(
         bottomBar = {
-            if (currentRoute != Screen.Login.route && currentRoute != Screen.Register.route && currentRoute != Screen.Splash.route) {
+            if (
+                currentRoute != Screen.Login.route &&
+                currentRoute != Screen.Register.route &&
+                currentRoute != Screen.Splash.route &&
+                currentRoute?.startsWith("history_detail") != true
+            ) {
                 BottomBar(navController)
             }
         },
@@ -80,7 +88,14 @@ fun HairWeGoApp(
                 HomeScreen()
             }
             composable(Screen.History.route) {
-                HistoryScreen()
+                HistoryScreen(navController)
+            }
+            composable(
+                route = Screen.HistoryDetail.route,
+                arguments = listOf(navArgument("faceScanId") { type = NavType.StringType })
+            ) { backStackEntry ->
+                val faceScanId = backStackEntry.arguments?.getString("faceScanId") ?: ""
+                HistoryDetailScreen(navController, faceScanId)
             }
         }
     }

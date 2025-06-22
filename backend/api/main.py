@@ -85,7 +85,57 @@ def detect_face_and_crop(image_path):
     x, y, w, h = results[0]['box']
     x = max(0, x)
     y = max(0, y)
-    cropped_face = image_rgb[y:y+h, x:x+w]
+
+    # Enlarge crop area by a factor (e.g., 1.3)
+    enlarge_factor = 1.3
+    center_x = x + w // 2
+    center_y = y + h // 2
+    new_w = int(w * enlarge_factor)
+    new_h = int(h * enlarge_factor)
+    new_x = max(0, center_x - new_w // 2)
+    new_y = max(0, center_y - new_h // 2)
+    new_x2 = min(image_rgb.shape[1], new_x + new_w)
+    new_y2 = min(image_rgb.shape[0], new_y + new_h)
+
+    cropped_face = image_rgb[new_y:new_y2, new_x:new_x2]
+    cropped_bgr = cv2.cvtColor(cropped_face, cv2.COLOR_RGB2BGR)
+
+    return cropped_bgr, None
+
+def crop_and_save(image_path):
+    image_bgr = cv2.imread(image_path)
+    if image_bgr is None:
+        return None, "Gagal membaca gambar."
+
+    image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+    results = detector.detect_faces(image_rgb)
+
+    if not results:
+        return None, "Tidak ada wajah terdeteksi."
+
+    x, y, w, h = results[0]['box']
+    x = max(0, x)
+    y = max(0, y)
+
+    # Enlarge crop area by a factor (e.g., 1.3)
+    enlarge_factor = 1.3
+    center_x = x + w // 2
+    center_y = y + h // 2
+    new_w = int(w * enlarge_factor)
+    new_h = int(h * enlarge_factor)
+
+    # Offset untuk atas, bawah, kiri, kanan (misal 30% dari tinggi dan lebar wajah)
+    top_offset = int(0.3 * h)
+    bottom_offset = int(0.3 * h)
+    left_offset = int(0.2 * w)
+    right_offset = int(0.2 * w)
+
+    new_y = max(0, center_y - new_h // 2 - top_offset)
+    new_x = max(0, center_x - new_w // 2 - left_offset)
+    new_x2 = min(image_rgb.shape[1], new_x + new_w + left_offset + right_offset)
+    new_y2 = min(image_rgb.shape[0], new_y + new_h + top_offset + bottom_offset)
+
+    cropped_face = image_rgb[new_y:new_y2, new_x:new_x2]
     cropped_bgr = cv2.cvtColor(cropped_face, cv2.COLOR_RGB2BGR)
 
     return cropped_bgr, None
@@ -126,6 +176,13 @@ def predict():
             im = im.rotate(90, expand=True)
         im.save(saved_path)
 
+    cropped_face_extend, error_message = crop_and_save(saved_path)
+    if cropped_face_extend is None:
+        return jsonify({"message": error_message}), 400
+    
+    cropped_path_extend = os.path.join(UPLOAD_FOLDER, f"cropped_extend_{timestamp}.png")
+    cv2.imwrite(cropped_path_extend, cropped_face_extend)
+    
     # --- Crop wajah ---
     cropped_face, error_message = detect_face_and_crop(saved_path)
     if cropped_face is None:
@@ -160,7 +217,8 @@ def predict():
     # Simpan ke face_scan
     new_scan = FaceScan(
         user_id=user.id,
-        image_path=cropped_path,
+        image_path=saved_path,
+        image_path_cropped=cropped_path_extend,
         face_shape_id=face_shape.id,
     )
 
@@ -253,6 +311,7 @@ def get_history():
                 "face_scan_id": str(scan.id),
                 "scan_date": scan_date,
                 "scan_image": scan.image_path,
+                "scan_image_cropped": scan.image_path_cropped,
                 "face_shape": scan.face_shape.shape_name if scan.face_shape else "N/A",
                 "recommendations": recommendation_details,
             }
