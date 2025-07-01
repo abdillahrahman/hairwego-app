@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import android.util.Log
 import com.app.hairwego.R
 import com.app.hairwego.data.model.PredictResponse
@@ -43,11 +44,15 @@ class ImageClassifierHelper(
             return
         }
 
-        val reducedImageFile = imageFile
+        val reducedImageFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            imageFile.reduceFileImage()
+        } else {
+            imageFile
+        }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val requestBody = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val requestBody = reducedImageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
                 val multipartBody =
                     MultipartBody.Part.createFormData("file", imageFile.name, requestBody)
 

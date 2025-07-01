@@ -18,4 +18,14 @@ class HistoryRepository (
         scans.forEach { dao.insertFaceScan(it) }
         dao.insertRecommendations(recommendations)
     }
+
+    fun isHistoryFetched(): Boolean {
+        val prefs = context.getSharedPreferences("history_prefs", Context.MODE_PRIVATE)
+        return prefs.getBoolean("isHistoryFetched", false)
+    }
+
+    fun setHistoryFetched(fetched: Boolean) {
+        val prefs = context.getSharedPreferences("history_prefs", Context.MODE_PRIVATE)
+        prefs.edit().putBoolean("isHistoryFetched", fetched).apply()
+    }
 }

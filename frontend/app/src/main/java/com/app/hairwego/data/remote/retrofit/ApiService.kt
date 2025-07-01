@@ -4,6 +4,7 @@ import com.app.hairwego.data.model.HistoryResponse
 import com.app.hairwego.data.model.LoginRequest
 import com.app.hairwego.data.model.LoginResponse
 import com.app.hairwego.data.model.PredictResponse
+import com.app.hairwego.data.model.ProfileResponse
 import com.app.hairwego.data.model.RegisterRequest
 import com.app.hairwego.data.model.RegisterResponse
 import okhttp3.MultipartBody
@@ -36,4 +37,8 @@ interface ApiService {
 
     @GET("/api/history")
     suspend fun getHistory() : HistoryResponse
+
+    @GET("/api/profile")
+    suspend fun getProfile(
+    ): Response<ProfileResponse>
 }

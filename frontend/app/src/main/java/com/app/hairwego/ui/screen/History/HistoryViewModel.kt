@@ -28,15 +28,20 @@ class HistoryViewModel(
     var fetchError = mutableStateOf<String?>(null)
         private set
 
-    init {
+    fun fetchHistoryIfNeeded() {
         viewModelScope.launch {
-            try {
-                isFetching.value = true
-                repository.fetchAndSaveHistory(dao)
-                fetchError.value = null
-            } catch (e: Exception) {
-                fetchError.value = e.localizedMessage ?: "Gagal memuat data dari server"
-            } finally {
+            if (!repository.isHistoryFetched()) {
+                try {
+                    isFetching.value = true
+                    repository.fetchAndSaveHistory(dao)
+                    repository.setHistoryFetched(true)
+                    fetchError.value = null
+                } catch (e: Exception) {
+                    fetchError.value = e.localizedMessage ?: "Gagal memuat data dari server"
+                } finally {
+                    isFetching.value = false
+                }
+            } else {
                 isFetching.value = false
             }
         }

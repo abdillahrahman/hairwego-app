@@ -27,4 +27,5 @@
     <string name="image_not_find">image not find</string>
     <string name="error_analyze_image">Cant analyze image</string>
     <string name="flip_camera">flip_camera</string>
+    <string name="menu_profile">Profile</string>
 </resources>

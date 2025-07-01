@@ -36,6 +36,12 @@ fun CameraScreenWithPermission(
 ) {
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
 
+    LaunchedEffect(Unit) {
+        if (!cameraPermissionState.status.isGranted) {
+            cameraPermissionState.launchPermissionRequest()
+        }
+    }
+
     if (cameraPermissionState.status.isGranted) {
         CameraActivityScreen(
             onClose = onClose,
@@ -44,29 +50,6 @@ fun CameraScreenWithPermission(
             onFlipCamera = onFlipCamera,
             previewView = previewView
         )
-    } else {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(32.dp)
-                .wrapContentSize()
-                .widthIn(max = 480.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            val rationaleText = if (cameraPermissionState.status.shouldShowRationale) {
-                "Whoops! Looks like we need your camera to work our magic!\n" +
-                        "Don't worry, we just wanna see your pretty face (and maybe some cats).\n\n" +
-                        "Grant us permission and let's get this party started!"
-            } else {
-                "Hi there! We need your camera to work our magic! ✨\n\n" +
-                        "Grant us permission and let's get this party started! 🎉"
-            }
-            Text(text = rationaleText, textAlign = TextAlign.Center)
-            Spacer(Modifier.height(16.dp))
-            Button(onClick = { cameraPermissionState.launchPermissionRequest() }) {
-                Text("Unleash the Camera!")
-            }
-        }
     }
 }
 
