@@ -133,10 +133,10 @@ private val darkColors = darkColorScheme(
 
 @Composable
 fun HairwegoAppTheme(
-    useDarkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    val colors = if (!useDarkTheme) {
+    val colors = if (!darkTheme) {
         lightColors
     } else {
         darkColors

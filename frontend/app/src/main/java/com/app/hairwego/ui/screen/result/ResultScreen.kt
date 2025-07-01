@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.app.hairwego.data.model.RekomendasiItem
 
-private const val BASE_URL = "http://192.168.1.3:5000/"
+private const val BASE_URL = "http://192.168.1.5:5000/"
 
 @Composable
 fun ResultScreen(

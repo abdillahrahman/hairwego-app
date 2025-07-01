@@ -11,7 +11,9 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from flask import Blueprint, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, verify_jwt_in_request
+from flask_jwt_extended.exceptions import NoAuthorizationError
+
 from extensions import db
 from models import (
     FaceShape,
@@ -142,7 +144,6 @@ def crop_and_save(image_path):
 
 
 @api_bp.route("/predict", methods=["POST"])
-@jwt_required()
 def predict():
     if "file" not in request.files:
         return jsonify({"message": "No image in the request"}), 400
@@ -152,7 +153,6 @@ def predict():
     errors = {}
     success = False
 
-    # Simpan gambar yang di-upload
     for file in files:
         if file and allowed_file(file.filename):
             file.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -164,11 +164,8 @@ def predict():
         return jsonify(errors), 400
 
     img_path = os.path.join(UPLOAD_FOLDER, filename)
-
-    # Koreksi orientasi pada file upload
     correct_image_orientation(img_path)
 
-    # Simpan hasil orientasi ke path unik dan pastikan portrait
     timestamp = datetime.now().strftime("%d%m%y-%H%M%S")
     saved_path = os.path.join(UPLOAD_FOLDER, f"{timestamp}.png")
     with Image.open(img_path) as im:
@@ -179,72 +176,73 @@ def predict():
     cropped_face_extend, error_message = crop_and_save(saved_path)
     if cropped_face_extend is None:
         return jsonify({"message": error_message}), 400
-    
     cropped_path_extend = os.path.join(UPLOAD_FOLDER, f"cropped_extend_{timestamp}.png")
     cv2.imwrite(cropped_path_extend, cropped_face_extend)
-    
-    # --- Crop wajah ---
+
     cropped_face, error_message = detect_face_and_crop(saved_path)
     if cropped_face is None:
         return jsonify({"message": error_message}), 400
-
     cropped_path = os.path.join(UPLOAD_FOLDER, f"cropped_{timestamp}.png")
     cv2.imwrite(cropped_path, cropped_face)
 
-    # Proses gambar crop untuk prediksi
+    # --- Prediksi ---
     img = image.load_img(cropped_path, target_size=(224, 224))
     x = image.img_to_array(img)
-    x = x / 127.5 - 1  # Normalisasi
+    x = x / 127.5 - 1
     x = np.expand_dims(x, axis=0)
-
-    # Prediksi menggunakan model CNN
     prediction_array_cnn = modelcnn.predict(x)
+
     class_names = ["ovale", "round", "square"]
     predicted_class = class_names[np.argmax(prediction_array_cnn)]
     confidence = float(np.max(prediction_array_cnn))
 
-    # Kembalikan hasil prediksi
-    user_id = get_jwt_identity()
-    user = User.query.get(user_id)
-    if not user:
-        return jsonify({"message": "User tidak ditemukan"}), 404
+    # Cek apakah user login
+    try:
+        verify_jwt_in_request(optional=True)
+        user_id = get_jwt_identity()
+    except NoAuthorizationError:
+        user_id = None
 
-    # Cari face_shape_id dari tabel FaceShape
+    haircut_list = []
+
+    # Ambil rekomendasi
     face_shape = FaceShape.query.filter_by(shape_name=predicted_class).first()
     if not face_shape:
         return jsonify({"message": "Face shape tidak ditemukan di database"}), 404
 
-    # Simpan ke face_scan
-    new_scan = FaceScan(
-        user_id=user.id,
-        image_path=saved_path,
-        image_path_cropped=cropped_path_extend,
-        face_shape_id=face_shape.id,
-    )
-
-    db.session.add(new_scan)
-    db.session.commit()
-
-    # Ambil rekomendasi berdasarkan face_shape
     recommendations = HaircutRecommendation.query.filter_by(
         face_shape_id=face_shape.id
     ).all()
+
     if not recommendations:
         return jsonify({"message": "Tidak ada rekomendasi untuk bentuk wajah ini"}), 404
 
-    # Save to UserRecommendationHistory for each recommendation
-    for recommendation in recommendations:
-        history = UserRecommendationHistory(
+    # Simpan ke DB hanya jika user login
+    if user_id:
+        user = User.query.get(user_id)
+        if not user:
+            return jsonify({"message": "User tidak ditemukan"}), 404
+
+        new_scan = FaceScan(
             user_id=user.id,
-            haircut_recommendation_id=recommendation.id,  # Use the id of each recommendation
-            face_scan_id=new_scan.id,
+            image_path=saved_path,
+            image_path_cropped=cropped_path_extend,
+            face_shape_id=face_shape.id,
         )
-        db.session.add(history)
+        db.session.add(new_scan)
+        db.session.commit()
 
-    db.session.commit()
+        for recommendation in recommendations:
+            history = UserRecommendationHistory(
+                user_id=user.id,
+                haircut_recommendation_id=recommendation.id,
+                face_scan_id=new_scan.id,
+            )
+            db.session.add(history)
 
-    # Ambil detail haircut dari rekomendasi
-    haircut_list = []
+        db.session.commit()
+
+    # Format hasil untuk semua user (login dan guest)
     for recommendation in recommendations:
         for haircut in recommendation.haircuts:
             haircut_list.append(
@@ -260,8 +258,9 @@ def predict():
             {
                 "prediction": predicted_class,
                 "confidence": f"{confidence * 100:.2f}%",
-                "image_scan" : saved_path,
+                "image_scan": saved_path,
                 "rekomendasi": haircut_list,
+                "mode": "user" if user_id else "guest"
             }
         ),
         200,
@@ -348,3 +347,29 @@ def history_detail(face_scan_id):
         "recommendations": recommendations,
         "scan_image": scan.image_path
     })
+
+@api_bp.route("/profile", methods=["GET"])
+@jwt_required()
+def get_profile():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    
+    if not user:
+        return jsonify({"message": "User not found"}), 404
+    
+    # Get user's scan count
+    scan_count = FaceScan.query.filter_by(user_id=user_id).count()
+    
+    # Get latest scan if exists
+    latest_scan = FaceScan.query.filter_by(user_id=user_id).order_by(FaceScan.scan_date.desc()).first()
+    latest_face_shape = latest_scan.face_shape.shape_name if latest_scan else None
+    
+    return jsonify({
+        "username": user.username,
+        "email": user.email,
+        "created_at": user.created_at.format("YYYY-MM-DD HH:mm:ss"),
+        "total_scans": scan_count,
+        "latest_face_shape": latest_face_shape
+    }), 200
+
+ 

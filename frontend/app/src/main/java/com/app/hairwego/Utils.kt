@@ -100,8 +100,8 @@ suspend fun mapToEntities(context: Context, response: HistoryResponse): Pair<Lis
 
     response.forEach { (timestamp, scanList) ->
         scanList.forEach { dto ->
-            val localPathScanImage = downloadAndSaveImage(context, "http://192.168.1.3:5000/${dto.scanImage}")
-            val localPathScanImageCropped = downloadAndSaveImage(context, "http://192.168.1.3:5000/${dto.scanImageCropped}")
+            val localPathScanImage = downloadAndSaveImage(context, "http://192.168.1.5:5000/${dto.scanImage}")
+            val localPathScanImageCropped = downloadAndSaveImage(context, "http://192.168.1.5:5000/${dto.scanImageCropped}")
             val scanEntity = FaceScanEntity(
                 faceScanId = dto.faceScanId,
                 faceShape = dto.faceShape,
@@ -112,7 +112,7 @@ suspend fun mapToEntities(context: Context, response: HistoryResponse): Pair<Lis
             scanEntities.add(scanEntity)
 
             dto.recommendations.forEach { rec ->
-                val localPath = downloadAndSaveImage(context, "http://192.168.1.3:5000/${rec.image}")
+                val localPath = downloadAndSaveImage(context, "http://192.168.1.5:5000/${rec.image}")
                 val recommendationEntity = RecommendationEntity(
                     faceScanId = dto.faceScanId,
                     haircutName = rec.haircutName,

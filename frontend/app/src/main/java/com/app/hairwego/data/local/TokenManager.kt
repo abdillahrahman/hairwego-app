@@ -17,6 +17,7 @@ class TokenManager(private val context: Context) {
         private val TOKEN_KEY = stringPreferencesKey("jwt_token")
         private val REFRESH_TOKEN_KEY = stringPreferencesKey("refresh_token")
         private val REMEMBER_ME_KEY = booleanPreferencesKey("remember_me")
+        private val IS_GUEST_KEY = booleanPreferencesKey("is_guest")
     }
 
     // Observe token
@@ -40,6 +41,16 @@ class TokenManager(private val context: Context) {
 
     suspend fun getRefreshToken(): String? {
         return context.dataStore.data.first()[REFRESH_TOKEN_KEY]
+    }
+
+    suspend fun setGuest(isGuest: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[IS_GUEST_KEY] = isGuest
+        }
+    }
+
+    suspend fun isGuest(): Boolean {
+        return context.dataStore.data.first()[IS_GUEST_KEY] ?: false
     }
 
     // Clear token

@@ -23,6 +23,7 @@ import com.app.hairwego.MainActivity
 import com.app.hairwego.R
 import com.app.hairwego.createCustomTempFile
 import com.app.hairwego.ui.screen.preview.PreviewComposeActivity
+import android.view.Surface
 
 class CameraComposeActivity : ComponentActivity() {
     private lateinit var previewView: PreviewView
@@ -39,7 +40,12 @@ class CameraComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         previewView = PreviewView(this)
-        startCamera()
+
+        // ⛑️ Tunggu sampai PreviewView sudah attach ke window
+        previewView.post {
+            startCamera()
+        }
+
 
         setContent {
             HairwegoAppTheme {

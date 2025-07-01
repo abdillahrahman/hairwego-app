@@ -1,5 +1,7 @@
 package com.app.hairwego.ui.screen.register
 
+import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.*
@@ -36,17 +38,32 @@ fun RegisterScreen(navController: NavController) {
 
     val uiState by viewModel.uiState.collectAsState()
 
+    LaunchedEffect(uiState.successMessage) {
+        uiState.successMessage?.let {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            navController.navigate("login")
+        }
+    }
+
     HairWeGoScaffold(modifier = Modifier) { paddingValues ->
         AuthBackgroundRegister()
         RegisterScreenContent(
             username = username,
             onUsernameChange = { username = it },
             email = email,
-            onEmailChange = { email = it },
+            onEmailChange = {
+                email = it
+                viewModel.onEmailChanged(it)},
             password = password,
-            onPasswordChange = { password = it },
+            onPasswordChange = {
+                password = it
+                viewModel.onPasswordChanged(it)
+                viewModel.onConfirmPasswordChanged(password, confirmPassword)},
             confirmPassword = confirmPassword,
-            onConfirmPasswordChange = { confirmPassword = it },
+            onConfirmPasswordChange = {
+                confirmPassword = it
+                viewModel.onConfirmPasswordChanged(password, it)
+            },
             onRegisterClick = {
                 viewModel.registerUser(username, email, password, confirmPassword) // Pass context here
             },
@@ -154,6 +171,19 @@ fun RegisterScreenContent(
             Text(text = "Already have an account?")
             TextButton(onClick = onLoginClick) {
                 Text(text = "Login")
+            }
+        }
+
+        if (uiState.isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background.copy(alpha = 0.6f)),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
         }
     }

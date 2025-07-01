@@ -1,9 +1,13 @@
 package com.app.hairwego.ui.screen.login
 
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
@@ -30,6 +34,8 @@ fun LoginScreen(navController: NavHostController) {
     val context = LocalContext.current
     val viewModel: LoginViewModel = viewModel(factory = ViewModelFactory(context))
 
+    val snackbarHostState = remember { SnackbarHostState() }
+
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var rememberMe by remember { mutableStateOf(false) }
@@ -45,30 +51,47 @@ fun LoginScreen(navController: NavHostController) {
         }
     }
 
-    uiState.errorMessage?.let {
-        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+    // ✅ Tampilkan snackbar jika errorMessage ada
+    LaunchedEffect(uiState.errorMessage) {
+        uiState.errorMessage?.let { message ->
+            snackbarHostState.showSnackbar(message)
+        }
     }
 
-    HairWeGoScaffold(modifier = Modifier) { paddingValues ->
+    HairWeGoScaffold(modifier = Modifier, snackbarHost = { SnackbarHost(hostState = snackbarHostState) }) { paddingValues ->
         AuthBackgroundLogin()
+        // In LoginScreen
         LoginScreenContent(
             modifier = Modifier,
             emailValue = email,
-            onEmailValueChange = { email = it },
+            onEmailValueChange = {
+                email = it
+                viewModel.onEmailChanged(it)
+            },
             emailFieldError = uiState.emailError != null,
             emailFieldLabel = "Email",
-            emailErrorText = uiState.emailError, // NEW
-
+            emailErrorText = uiState.emailError,
             passwordValue = password,
-            onPasswordValueChange = { password = it },
+            onPasswordValueChange = {
+                password = it
+                viewModel.onPasswordChanged(it)
+            },
             passwordFieldError = uiState.passwordError != null,
             passwordFieldLabel = "Password",
-            passwordErrorText = uiState.passwordError, // NEW
+            passwordErrorText = uiState.passwordError,
             onLoginClicked = { viewModel.login(email, password, rememberMe) },
             onRegisterClick = { navController.navigate("register") },
+            onGuestLoginClick = {
+                viewModel.setGuestMode(true)
+                navController.navigate("home") {
+                    popUpTo("login") { inclusive = true }
+                }
+            },
+            uiState = uiState
         )
     }
 }
+
 
 @Composable
 private fun LoginScreenContent(
@@ -85,6 +108,9 @@ private fun LoginScreenContent(
     passwordErrorText: String?, // NEW
     onLoginClicked: () -> Unit,
     onRegisterClick: () -> Unit,
+    onGuestLoginClick: () -> Unit,
+    uiState: LoginUiState
+
 ) {
     Column(
         modifier = modifier
@@ -126,7 +152,7 @@ private fun LoginScreenContent(
                 fontSize = 12.sp,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp)
+                    .padding(start = 5.dp)
             )
         }
 
@@ -140,6 +166,31 @@ private fun LoginScreenContent(
             Text(text = stringResource(id = R.string.no_account))
             TextButton(onClick = onRegisterClick) {
                 Text(text = stringResource(id = R.string.register_now))
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text("────────── or ──────────")
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextButton(onClick = onGuestLoginClick) {
+            Text(text = "Login as Guest", fontSize = 16.sp)
+        }
+
+
+
+        if (uiState.isLoading) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background.copy(alpha = 0.6f)),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
         }
     }

@@ -7,10 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.model.LoginRequest
 import com.app.hairwego.data.remote.retrofit.ApiConfig
+import com.app.hairwego.data.repository.LoginRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+
 
 data class LoginUiState(
     val isLoading: Boolean = false,
@@ -20,7 +22,9 @@ data class LoginUiState(
     val passwordError: String? = null
 )
 
-class LoginViewModel(val context: Context, val tokenManager: TokenManager) : ViewModel() {
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState
@@ -29,11 +33,21 @@ class LoginViewModel(val context: Context, val tokenManager: TokenManager) : Vie
         val emailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
         val passwordValid = password.length >= 6
 
+        // Selalu reset error di awal
+        _uiState.update {
+            it.copy(
+                emailError = null,
+                passwordError = null,
+                errorMessage = null
+            )
+        }
+
         if (!emailValid || !passwordValid) {
             _uiState.update {
                 it.copy(
                     emailError = if (!emailValid) "Email tidak valid" else null,
-                    passwordError = if (!passwordValid) "Minimal 6 karakter" else null
+                    passwordError = if (!passwordValid) "Minimal 6 karakter" else null,
+                    errorMessage = "Email atau password tidak valid"
                 )
             }
             return
@@ -41,30 +55,47 @@ class LoginViewModel(val context: Context, val tokenManager: TokenManager) : Vie
 
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
-            try {
-                val response = ApiConfig.getApiService(context, tokenManager).login(LoginRequest(email, password))
-                val accessToken = response.access_token
-                val refreshToken = response.refresh_token
 
-                if (!accessToken.isNullOrBlank() && !refreshToken.isNullOrBlank()) {
-                    tokenManager.saveToken(accessToken)
-                    tokenManager.saveRefreshToken(refreshToken)
-                    if (rememberMe) {
-                        tokenManager.setRememberMe(true)
-                    }
-                    _uiState.update {
-                        it.copy(isLoading = false, isLoginSuccess = true)
-                    }
-                } else {
-                    _uiState.update {
-                        it.copy(isLoading = false, errorMessage = "Token tidak ditemukan")
-                    }
+            val result = loginRepository.login(email, password, rememberMe)
+            result.onSuccess {
+                _uiState.update {
+                    it.copy(isLoading = false, isLoginSuccess = true)
                 }
-            } catch (e: Exception) {
+            }.onFailure { e ->
                 _uiState.update {
                     it.copy(isLoading = false, errorMessage = "Login gagal: ${e.message}")
                 }
             }
         }
     }
+
+
+    fun setGuestMode(isGuest: Boolean) {
+        viewModelScope.launch {
+            loginRepository.setGuestMode(isGuest)
+        }
+    }
+
+    // ✅ Ini valid karena tidak ada pemanggilan @Composable
+    fun onEmailChanged(email: String) {
+        _uiState.update {
+            it.copy(
+                emailError = if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    "Email tidak valid"
+                } else null
+            )
+        }
+    }
+
+
+    fun onPasswordChanged(password: String) {
+        _uiState.update {
+            it.copy(
+                passwordError = if (password.isNotEmpty() && password.length < 6) {
+                    "Minimal 6 karakter"
+                } else null
+            )
+        }
+    }
+
 }

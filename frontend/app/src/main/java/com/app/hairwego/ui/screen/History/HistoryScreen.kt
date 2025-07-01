@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,38 +28,84 @@ import java.io.File
 @Composable
 fun HistoryScreen(navController: NavController) {
     val context = LocalContext.current
-    val viewModel: HistoryViewModel = viewModel(
-        factory = ViewModelFactory(context)
-    )
-
+    val viewModel: HistoryViewModel = viewModel(factory = ViewModelFactory(context))
     val historyList by viewModel.history.observeAsState(emptyList())
     val isFetching by remember { viewModel.isFetching }
     val fetchError by remember { viewModel.fetchError }
 
-    when {
+    // TokenManager untuk cek guest
+    val tokenManager = remember { com.app.hairwego.data.local.TokenManager(context) }
+    val isGuestState = remember { mutableStateOf(false) }
 
-        historyList.isEmpty() && !isFetching -> {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Belum ada riwayat scan")
-            }
+    LaunchedEffect(Unit) {
+        viewModel.fetchHistoryIfNeeded()
+        isGuestState.value = tokenManager.isGuest()
+    }
+
+    if (isFetching) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator()
         }
+    } else {
+        when {
+            isGuestState.value -> {
+                // Tampilan khusus guest
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
 
-        else -> {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(8.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(historyList) { scan ->
-                    HistoryCard(data = scan) { faceScanId ->
-                        navController.navigate(Screen.HistoryDetail.createRoute(faceScanId))
+                        Text(
+                            text = "Login if you want view your scan history.",
+                            fontSize = 18.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Button(onClick = {
+                            navController.navigate(Screen.Login.route)
+                        }) {
+                            Text("Login")
+                        }
+                    }
+                }
+            }
+
+            historyList.isEmpty() && !isFetching -> {
+                // Jika login tapi tidak ada data
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text("No scan history available yet.")
+                }
+            }
+
+            else -> {
+                // Tampilan daftar riwayat
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(historyList) { scan ->
+                        HistoryCard(data = scan) { faceScanId ->
+                            navController.navigate(Screen.HistoryDetail.createRoute(faceScanId))
+                        }
                     }
                 }
             }
         }
     }
+
 }
+
 
 @Composable
 fun HistoryCard(

@@ -35,6 +35,13 @@ def login():
     password = data.get("password")
 
     user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"message": "Email tidak terdaftar"}), 404
+    
+    if not check_password_hash(user.password, password):
+        return jsonify({"message": "Password salah"}), 401
+
+    user = User.query.filter_by(email=email).first()
     if user and check_password_hash(user.password, password):
         user_id = str(user.id)
         access_token = create_access_token(identity=user_id)

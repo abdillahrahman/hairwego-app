@@ -1,15 +1,13 @@
 package com.app.hairwego.ui.screen.register
 
-import android.content.Context
 import android.util.Patterns
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.model.RegisterRequest
-import com.app.hairwego.data.remote.retrofit.ApiConfig
+import com.app.hairwego.data.repository.RegisterRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class RegisterUiState(
@@ -17,10 +15,12 @@ data class RegisterUiState(
     val usernameError: String? = null,
     val emailError: String? = null,
     val passwordError: String? = null,
-    val confirmPasswordError: String? = null
+    val confirmPasswordError: String? = null,
+    val successMessage: String? = null
 )
 
-class RegisterViewModel(val context: Context, val tokenManager: TokenManager) : ViewModel() {
+class RegisterViewModel(private val repository: RegisterRepository) : ViewModel() {
+
     private val _uiState = MutableStateFlow(RegisterUiState())
     val uiState: StateFlow<RegisterUiState> = _uiState
 
@@ -39,19 +39,58 @@ class RegisterViewModel(val context: Context, val tokenManager: TokenManager) : 
 
         if (usernameValid && emailValid && passwordValid && confirmPasswordValid) {
             viewModelScope.launch {
+                _uiState.value = _uiState.value.copy(isLoading = true)
                 try {
-                    val response = ApiConfig.getApiService(context,tokenManager ).registerUser(
-                        RegisterRequest(username, email, password)
-                    )
+                    val response = repository.registerUser(RegisterRequest(username, email, password))
                     if (response.isSuccessful) {
-                        Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT).show()
+                        _uiState.value = RegisterUiState(
+                            isLoading = false,
+                            successMessage = "Registrasi berhasil!"
+                        )
                     } else {
-                        _uiState.value = _uiState.value.copy(emailError = "Email already exists")
+                        _uiState.value = _uiState.value.copy(
+                            isLoading = false,
+                            emailError = "Email sudah digunakan"
+                        )
                     }
                 } catch (e: Exception) {
-                    _uiState.value = _uiState.value.copy(emailError = "Error: ${e.message}")
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = false,
+                        emailError = "Terjadi kesalahan: ${e.message}"
+                    )
                 }
             }
+        }
+    }
+
+    fun onEmailChanged(email: String) {
+        _uiState.update {
+            it.copy(
+                emailError = if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    "Email tidak valid"
+                } else null
+            )
+        }
+    }
+
+
+    fun onPasswordChanged(password: String) {
+        _uiState.update {
+            it.copy(
+                passwordError = if (password.isNotEmpty() && password.length < 6) {
+                    "Minimal 6 karakter"
+                } else null
+            )
+        }
+    }
+
+    fun onConfirmPasswordChanged(password: String, confirmPassword: String) {
+        _uiState.update {
+            it.copy(
+                confirmPasswordError = if (confirmPassword.isNotEmpty() && confirmPassword != password)
+                    "Password tidak cocok"
+                else null
+            )
         }
     }
 }
