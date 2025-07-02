@@ -23,4 +23,23 @@ interface HistoryDao {
     @Transaction
     @Query("SELECT * FROM face_scans WHERE face_scan_id = :faceScanId")
     suspend fun getHistoryDetail(faceScanId: String): FaceScanWithRecommendations?
+
+    @Query("DELETE FROM face_scans")
+    suspend fun clearAllFaceScans()
+
+    @Query("DELETE FROM recommendations")
+    suspend fun clearAllRecommendations()
+
+    @Query("DELETE FROM face_scans WHERE face_scan_id = :id")
+    suspend fun deleteHistoryById(id: String)
+
+    @Query("DELETE FROM recommendations WHERE face_scan_id = :id")
+    suspend fun deleteRecommendationsByScanId(id: String)
+
+    @Transaction
+    suspend fun deleteHistoryAndRecommendations(id: String) {
+        deleteRecommendationsByScanId(id)
+        deleteHistoryById(id)
+    }
+
 }

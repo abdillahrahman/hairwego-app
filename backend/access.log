@@ -1,0 +1,1215 @@
+2025-07-02 16:49:21,642 WARNING  * Debugger is active!
+2025-07-02 16:49:21,649 INFO  * Debugger PIN: 741-891-751
+2025-07-02 16:49:35,515 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\auth.py', reloading
+2025-07-02 16:49:42,526 WARNING  * Debugger is active!
+2025-07-02 16:49:42,531 INFO  * Debugger PIN: 741-891-751
+2025-07-02 16:49:47,421 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\auth.py', reloading
+2025-07-02 16:49:54,147 WARNING  * Debugger is active!
+2025-07-02 16:49:54,153 INFO  * Debugger PIN: 741-891-751
+2025-07-02 16:49:58,717 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\auth.py', reloading
+2025-07-02 16:52:47,533 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 16:52:47,533 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 16:52:47,534 INFO  * Restarting with stat
+2025-07-02 16:52:52,735 WARNING  * Debugger is active!
+2025-07-02 16:52:52,742 INFO  * Debugger PIN: 741-891-751
+2025-07-02 16:54:19,748 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 16:54:19,749 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 16:54:19,750 INFO  * Restarting with stat
+2025-07-02 16:54:25,495 WARNING  * Debugger is active!
+2025-07-02 16:54:25,500 INFO  * Debugger PIN: 741-891-751
+2025-07-02 16:54:26,740 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 127.0.0.1
+2025-07-02 16:54:26,918 INFO 127.0.0.1 - - [02/Jul/2025 16:54:26] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 16:55:06,547 INFO Route: get_profile | User: 161a89ed-e9f6-4f18-8252-4f2f1e3f6703 | Method: GET | Path: /api/profile | IP: 127.0.0.1
+2025-07-02 16:55:06,561 INFO 127.0.0.1 - - [02/Jul/2025 16:55:06] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 18:04:33,787 INFO 192.168.1.3 - - [02/Jul/2025 18:04:33] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 18:04:33,848 INFO Route: refresh_token | User: d885da5e-063d-4552-9d9e-0b9666744045 | Method: POST | Path: /auth/refresh-token | IP: 192.168.1.3
+2025-07-02 18:04:33,852 INFO 192.168.1.3 - - [02/Jul/2025 18:04:33] "POST /auth/refresh-token HTTP/1.1" 200 -
+2025-07-02 18:04:33,893 INFO Route: get_profile | User: d885da5e-063d-4552-9d9e-0b9666744045 | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 18:04:33,963 INFO 192.168.1.3 - - [02/Jul/2025 18:04:33] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 18:13:38,986 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:13:41,937 INFO 192.168.1.3 - - [02/Jul/2025 18:13:41] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:13:42,097 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:13:42,140 INFO 192.168.1.3 - - [02/Jul/2025 18:13:42] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:13:42,347 INFO 192.168.1.3 - - [02/Jul/2025 18:13:42] "GET /static/uploads/020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:13:42,347 INFO 192.168.1.3 - - [02/Jul/2025 18:13:42] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:42,359 INFO 192.168.1.3 - - [02/Jul/2025 18:13:42] "GET /static/uploads/250625-091037.png HTTP/1.1" 200 -
+2025-07-02 18:13:43,293 INFO 192.168.1.3 - - [02/Jul/2025 18:13:43] "GET /static/uploads/cropped_extend_250625-091037.png HTTP/1.1" 200 -
+2025-07-02 18:13:43,807 INFO 192.168.1.3 - - [02/Jul/2025 18:13:43] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:43,855 INFO 192.168.1.3 - - [02/Jul/2025 18:13:43] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:13:43,927 INFO 192.168.1.3 - - [02/Jul/2025 18:13:43] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:44,017 INFO 192.168.1.3 - - [02/Jul/2025 18:13:44] "GET /static/uploads/250625-091142.png HTTP/1.1" 200 -
+2025-07-02 18:13:44,943 INFO 192.168.1.3 - - [02/Jul/2025 18:13:44] "GET /static/uploads/cropped_extend_250625-091142.png HTTP/1.1" 200 -
+2025-07-02 18:13:45,320 INFO 192.168.1.3 - - [02/Jul/2025 18:13:45] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:45,384 INFO 192.168.1.3 - - [02/Jul/2025 18:13:45] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:45,435 INFO 192.168.1.3 - - [02/Jul/2025 18:13:45] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:45,497 INFO 192.168.1.3 - - [02/Jul/2025 18:13:45] "GET /static/uploads/250625-091319.png HTTP/1.1" 200 -
+2025-07-02 18:13:46,556 INFO 192.168.1.3 - - [02/Jul/2025 18:13:46] "GET /static/uploads/cropped_extend_250625-091319.png HTTP/1.1" 200 -
+2025-07-02 18:13:47,083 INFO 192.168.1.3 - - [02/Jul/2025 18:13:47] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:47,534 INFO 192.168.1.3 - - [02/Jul/2025 18:13:47] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:47,582 INFO 192.168.1.3 - - [02/Jul/2025 18:13:47] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:47,635 INFO 192.168.1.3 - - [02/Jul/2025 18:13:47] "GET /static/uploads/250625-091441.png HTTP/1.1" 200 -
+2025-07-02 18:13:48,699 INFO 192.168.1.3 - - [02/Jul/2025 18:13:48] "GET /static/uploads/cropped_extend_250625-091441.png HTTP/1.1" 200 -
+2025-07-02 18:13:49,123 INFO 192.168.1.3 - - [02/Jul/2025 18:13:49] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:49,147 INFO 192.168.1.3 - - [02/Jul/2025 18:13:49] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:49,203 INFO 192.168.1.3 - - [02/Jul/2025 18:13:49] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:49,251 INFO 192.168.1.3 - - [02/Jul/2025 18:13:49] "GET /static/uploads/010725-175724.png HTTP/1.1" 200 -
+2025-07-02 18:13:50,384 INFO 192.168.1.3 - - [02/Jul/2025 18:13:50] "GET /static/uploads/cropped_extend_010725-175724.png HTTP/1.1" 200 -
+2025-07-02 18:13:50,974 INFO 192.168.1.3 - - [02/Jul/2025 18:13:50] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:51,012 INFO 192.168.1.3 - - [02/Jul/2025 18:13:51] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:51,042 INFO 192.168.1.3 - - [02/Jul/2025 18:13:51] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:51,088 INFO 192.168.1.3 - - [02/Jul/2025 18:13:51] "GET /static/uploads/020725-024504.png HTTP/1.1" 200 -
+2025-07-02 18:13:52,386 INFO 192.168.1.3 - - [02/Jul/2025 18:13:52] "GET /static/uploads/cropped_extend_020725-024504.png HTTP/1.1" 200 -
+2025-07-02 18:13:53,057 INFO 192.168.1.3 - - [02/Jul/2025 18:13:53] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:53,134 INFO 192.168.1.3 - - [02/Jul/2025 18:13:53] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:13:53,194 INFO 192.168.1.3 - - [02/Jul/2025 18:13:53] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:53,242 INFO 192.168.1.3 - - [02/Jul/2025 18:13:53] "GET /static/uploads/020725-025242.png HTTP/1.1" 200 -
+2025-07-02 18:13:54,303 INFO 192.168.1.3 - - [02/Jul/2025 18:13:54] "GET /static/uploads/cropped_extend_020725-025242.png HTTP/1.1" 200 -
+2025-07-02 18:13:55,029 INFO 192.168.1.3 - - [02/Jul/2025 18:13:55] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:55,130 INFO 192.168.1.3 - - [02/Jul/2025 18:13:55] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:55,174 INFO 192.168.1.3 - - [02/Jul/2025 18:13:55] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:55,239 INFO 192.168.1.3 - - [02/Jul/2025 18:13:55] "GET /static/uploads/020725-140306.png HTTP/1.1" 200 -
+2025-07-02 18:13:55,844 INFO 192.168.1.3 - - [02/Jul/2025 18:13:55] "GET /static/uploads/cropped_extend_020725-140306.png HTTP/1.1" 200 -
+2025-07-02 18:13:56,011 INFO 192.168.1.3 - - [02/Jul/2025 18:13:56] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:56,055 INFO 192.168.1.3 - - [02/Jul/2025 18:13:56] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:56,091 INFO 192.168.1.3 - - [02/Jul/2025 18:13:56] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:56,132 INFO 192.168.1.3 - - [02/Jul/2025 18:13:56] "GET /static/uploads/020725-141407.png HTTP/1.1" 200 -
+2025-07-02 18:13:57,198 INFO 192.168.1.3 - - [02/Jul/2025 18:13:57] "GET /static/uploads/cropped_extend_020725-141407.png HTTP/1.1" 200 -
+2025-07-02 18:13:57,800 INFO 192.168.1.3 - - [02/Jul/2025 18:13:57] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:57,855 INFO 192.168.1.3 - - [02/Jul/2025 18:13:57] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:57,906 INFO 192.168.1.3 - - [02/Jul/2025 18:13:57] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:57,956 INFO 192.168.1.3 - - [02/Jul/2025 18:13:57] "GET /static/uploads/020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:13:58,249 INFO 192.168.1.3 - - [02/Jul/2025 18:13:58] "GET /static/uploads/cropped_extend_020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:13:58,390 INFO 192.168.1.3 - - [02/Jul/2025 18:13:58] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:58,427 INFO 192.168.1.3 - - [02/Jul/2025 18:13:58] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:13:58,478 INFO 192.168.1.3 - - [02/Jul/2025 18:13:58] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:32,391 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:14:32,753 INFO 192.168.1.3 - - [02/Jul/2025 18:14:32] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:14:32,989 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:14:33,038 INFO 192.168.1.3 - - [02/Jul/2025 18:14:33] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:14:33,108 INFO 192.168.1.3 - - [02/Jul/2025 18:14:33] "GET /static/uploads/250625-091037.png HTTP/1.1" 200 -
+2025-07-02 18:14:33,212 INFO 192.168.1.3 - - [02/Jul/2025 18:14:33] "GET /static/uploads/020725-181432.png HTTP/1.1" 200 -
+2025-07-02 18:14:33,214 INFO 192.168.1.3 - - [02/Jul/2025 18:14:33] "[36mGET /static/uploads/man_bun.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:14:34,454 INFO 192.168.1.3 - - [02/Jul/2025 18:14:34] "GET /static/uploads/cropped_extend_250625-091037.png HTTP/1.1" 200 -
+2025-07-02 18:14:35,118 INFO 192.168.1.3 - - [02/Jul/2025 18:14:35] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:35,175 INFO 192.168.1.3 - - [02/Jul/2025 18:14:35] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:14:35,276 INFO 192.168.1.3 - - [02/Jul/2025 18:14:35] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:35,398 INFO 192.168.1.3 - - [02/Jul/2025 18:14:35] "GET /static/uploads/250625-091142.png HTTP/1.1" 200 -
+2025-07-02 18:14:36,473 INFO 192.168.1.3 - - [02/Jul/2025 18:14:36] "GET /static/uploads/cropped_extend_250625-091142.png HTTP/1.1" 200 -
+2025-07-02 18:14:36,909 INFO 192.168.1.3 - - [02/Jul/2025 18:14:36] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:36,952 INFO 192.168.1.3 - - [02/Jul/2025 18:14:36] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:37,071 INFO 192.168.1.3 - - [02/Jul/2025 18:14:37] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:37,108 INFO 192.168.1.3 - - [02/Jul/2025 18:14:37] "GET /static/uploads/250625-091319.png HTTP/1.1" 200 -
+2025-07-02 18:14:38,288 INFO 192.168.1.3 - - [02/Jul/2025 18:14:38] "GET /static/uploads/cropped_extend_250625-091319.png HTTP/1.1" 200 -
+2025-07-02 18:14:38,342 INFO 192.168.1.3 - - [02/Jul/2025 18:14:38] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:38,449 INFO 192.168.1.3 - - [02/Jul/2025 18:14:38] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:38,498 INFO 192.168.1.3 - - [02/Jul/2025 18:14:38] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:38,539 INFO 192.168.1.3 - - [02/Jul/2025 18:14:38] "GET /static/uploads/250625-091441.png HTTP/1.1" 200 -
+2025-07-02 18:14:39,505 INFO 192.168.1.3 - - [02/Jul/2025 18:14:39] "GET /static/uploads/cropped_extend_250625-091441.png HTTP/1.1" 200 -
+2025-07-02 18:14:39,942 INFO 192.168.1.3 - - [02/Jul/2025 18:14:39] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:39,977 INFO 192.168.1.3 - - [02/Jul/2025 18:14:39] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:40,016 INFO 192.168.1.3 - - [02/Jul/2025 18:14:40] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:40,059 INFO 192.168.1.3 - - [02/Jul/2025 18:14:40] "GET /static/uploads/010725-175724.png HTTP/1.1" 200 -
+2025-07-02 18:14:41,117 INFO 192.168.1.3 - - [02/Jul/2025 18:14:41] "GET /static/uploads/cropped_extend_010725-175724.png HTTP/1.1" 200 -
+2025-07-02 18:14:41,643 INFO 192.168.1.3 - - [02/Jul/2025 18:14:41] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:41,831 INFO 192.168.1.3 - - [02/Jul/2025 18:14:41] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:41,865 INFO 192.168.1.3 - - [02/Jul/2025 18:14:41] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:41,922 INFO 192.168.1.3 - - [02/Jul/2025 18:14:41] "GET /static/uploads/020725-024504.png HTTP/1.1" 200 -
+2025-07-02 18:14:43,115 INFO 192.168.1.3 - - [02/Jul/2025 18:14:43] "GET /static/uploads/cropped_extend_020725-024504.png HTTP/1.1" 200 -
+2025-07-02 18:14:43,891 INFO 192.168.1.3 - - [02/Jul/2025 18:14:43] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:44,004 INFO 192.168.1.3 - - [02/Jul/2025 18:14:44] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:14:44,065 INFO 192.168.1.3 - - [02/Jul/2025 18:14:44] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:44,112 INFO 192.168.1.3 - - [02/Jul/2025 18:14:44] "GET /static/uploads/020725-025242.png HTTP/1.1" 200 -
+2025-07-02 18:14:45,449 INFO 192.168.1.3 - - [02/Jul/2025 18:14:45] "GET /static/uploads/cropped_extend_020725-025242.png HTTP/1.1" 200 -
+2025-07-02 18:14:46,253 INFO 192.168.1.3 - - [02/Jul/2025 18:14:46] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:46,293 INFO 192.168.1.3 - - [02/Jul/2025 18:14:46] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:46,427 INFO 192.168.1.3 - - [02/Jul/2025 18:14:46] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:46,483 INFO 192.168.1.3 - - [02/Jul/2025 18:14:46] "GET /static/uploads/020725-140306.png HTTP/1.1" 200 -
+2025-07-02 18:14:47,259 INFO 192.168.1.3 - - [02/Jul/2025 18:14:47] "GET /static/uploads/cropped_extend_020725-140306.png HTTP/1.1" 200 -
+2025-07-02 18:14:47,493 INFO 192.168.1.3 - - [02/Jul/2025 18:14:47] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:47,552 INFO 192.168.1.3 - - [02/Jul/2025 18:14:47] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:47,617 INFO 192.168.1.3 - - [02/Jul/2025 18:14:47] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:47,656 INFO 192.168.1.3 - - [02/Jul/2025 18:14:47] "GET /static/uploads/020725-141407.png HTTP/1.1" 200 -
+2025-07-02 18:14:49,119 INFO 192.168.1.3 - - [02/Jul/2025 18:14:49] "GET /static/uploads/cropped_extend_020725-141407.png HTTP/1.1" 200 -
+2025-07-02 18:14:49,901 INFO 192.168.1.3 - - [02/Jul/2025 18:14:49] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:49,939 INFO 192.168.1.3 - - [02/Jul/2025 18:14:49] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:49,991 INFO 192.168.1.3 - - [02/Jul/2025 18:14:49] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:50,035 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:14:50,298 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/cropped_extend_020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:14:50,476 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:50,515 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:50,575 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:50,649 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/020725-181432.png HTTP/1.1" 200 -
+2025-07-02 18:14:50,720 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/cropped_extend_020725-181432.png HTTP/1.1" 200 -
+2025-07-02 18:14:50,765 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:50,807 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:14:50,846 INFO 192.168.1.3 - - [02/Jul/2025 18:14:50] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:45,937 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:15:46,548 INFO 192.168.1.3 - - [02/Jul/2025 18:15:46] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:15:46,674 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:15:46,718 INFO 192.168.1.3 - - [02/Jul/2025 18:15:46] "GET /static/uploads/020725-181546.png HTTP/1.1" 200 -
+2025-07-02 18:15:46,731 INFO 192.168.1.3 - - [02/Jul/2025 18:15:46] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:15:46,786 INFO 192.168.1.3 - - [02/Jul/2025 18:15:46] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:46,929 INFO 192.168.1.3 - - [02/Jul/2025 18:15:46] "GET /static/uploads/250625-091037.png HTTP/1.1" 200 -
+2025-07-02 18:15:48,027 INFO 192.168.1.3 - - [02/Jul/2025 18:15:48] "GET /static/uploads/cropped_extend_250625-091037.png HTTP/1.1" 200 -
+2025-07-02 18:15:48,609 INFO 192.168.1.3 - - [02/Jul/2025 18:15:48] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:48,660 INFO 192.168.1.3 - - [02/Jul/2025 18:15:48] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:15:48,730 INFO 192.168.1.3 - - [02/Jul/2025 18:15:48] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:48,840 INFO 192.168.1.3 - - [02/Jul/2025 18:15:48] "GET /static/uploads/250625-091142.png HTTP/1.1" 200 -
+2025-07-02 18:15:49,966 INFO 192.168.1.3 - - [02/Jul/2025 18:15:49] "GET /static/uploads/cropped_extend_250625-091142.png HTTP/1.1" 200 -
+2025-07-02 18:15:50,507 INFO 192.168.1.3 - - [02/Jul/2025 18:15:50] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:50,562 INFO 192.168.1.3 - - [02/Jul/2025 18:15:50] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:50,595 INFO 192.168.1.3 - - [02/Jul/2025 18:15:50] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:50,636 INFO 192.168.1.3 - - [02/Jul/2025 18:15:50] "GET /static/uploads/250625-091319.png HTTP/1.1" 200 -
+2025-07-02 18:15:51,580 INFO 192.168.1.3 - - [02/Jul/2025 18:15:51] "GET /static/uploads/cropped_extend_250625-091319.png HTTP/1.1" 200 -
+2025-07-02 18:15:51,637 INFO 192.168.1.3 - - [02/Jul/2025 18:15:51] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:51,670 INFO 192.168.1.3 - - [02/Jul/2025 18:15:51] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:51,708 INFO 192.168.1.3 - - [02/Jul/2025 18:15:51] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:51,737 INFO 192.168.1.3 - - [02/Jul/2025 18:15:51] "GET /static/uploads/250625-091441.png HTTP/1.1" 200 -
+2025-07-02 18:15:52,980 INFO 192.168.1.3 - - [02/Jul/2025 18:15:52] "GET /static/uploads/cropped_extend_250625-091441.png HTTP/1.1" 200 -
+2025-07-02 18:15:53,413 INFO 192.168.1.3 - - [02/Jul/2025 18:15:53] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:53,446 INFO 192.168.1.3 - - [02/Jul/2025 18:15:53] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:53,533 INFO 192.168.1.3 - - [02/Jul/2025 18:15:53] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:53,575 INFO 192.168.1.3 - - [02/Jul/2025 18:15:53] "GET /static/uploads/010725-175724.png HTTP/1.1" 200 -
+2025-07-02 18:15:54,764 INFO 192.168.1.3 - - [02/Jul/2025 18:15:54] "GET /static/uploads/cropped_extend_010725-175724.png HTTP/1.1" 200 -
+2025-07-02 18:15:55,450 INFO 192.168.1.3 - - [02/Jul/2025 18:15:55] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:55,515 INFO 192.168.1.3 - - [02/Jul/2025 18:15:55] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:55,544 INFO 192.168.1.3 - - [02/Jul/2025 18:15:55] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:55,587 INFO 192.168.1.3 - - [02/Jul/2025 18:15:55] "GET /static/uploads/020725-024504.png HTTP/1.1" 200 -
+2025-07-02 18:15:56,576 INFO 192.168.1.3 - - [02/Jul/2025 18:15:56] "GET /static/uploads/cropped_extend_020725-024504.png HTTP/1.1" 200 -
+2025-07-02 18:15:57,412 INFO 192.168.1.3 - - [02/Jul/2025 18:15:57] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:57,501 INFO 192.168.1.3 - - [02/Jul/2025 18:15:57] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:15:57,579 INFO 192.168.1.3 - - [02/Jul/2025 18:15:57] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:57,653 INFO 192.168.1.3 - - [02/Jul/2025 18:15:57] "GET /static/uploads/020725-025242.png HTTP/1.1" 200 -
+2025-07-02 18:15:59,086 INFO 192.168.1.3 - - [02/Jul/2025 18:15:59] "GET /static/uploads/cropped_extend_020725-025242.png HTTP/1.1" 200 -
+2025-07-02 18:15:59,825 INFO 192.168.1.3 - - [02/Jul/2025 18:15:59] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:59,857 INFO 192.168.1.3 - - [02/Jul/2025 18:15:59] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:15:59,898 INFO 192.168.1.3 - - [02/Jul/2025 18:15:59] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:00,010 INFO 192.168.1.3 - - [02/Jul/2025 18:16:00] "GET /static/uploads/020725-140306.png HTTP/1.1" 200 -
+2025-07-02 18:16:00,732 INFO 192.168.1.3 - - [02/Jul/2025 18:16:00] "GET /static/uploads/cropped_extend_020725-140306.png HTTP/1.1" 200 -
+2025-07-02 18:16:00,915 INFO 192.168.1.3 - - [02/Jul/2025 18:16:00] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:01,245 INFO 192.168.1.3 - - [02/Jul/2025 18:16:01] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:01,301 INFO 192.168.1.3 - - [02/Jul/2025 18:16:01] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:01,348 INFO 192.168.1.3 - - [02/Jul/2025 18:16:01] "GET /static/uploads/020725-141407.png HTTP/1.1" 200 -
+2025-07-02 18:16:02,796 INFO 192.168.1.3 - - [02/Jul/2025 18:16:02] "GET /static/uploads/cropped_extend_020725-141407.png HTTP/1.1" 200 -
+2025-07-02 18:16:03,472 INFO 192.168.1.3 - - [02/Jul/2025 18:16:03] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:03,507 INFO 192.168.1.3 - - [02/Jul/2025 18:16:03] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:03,556 INFO 192.168.1.3 - - [02/Jul/2025 18:16:03] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:03,613 INFO 192.168.1.3 - - [02/Jul/2025 18:16:03] "GET /static/uploads/020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:16:03,861 INFO 192.168.1.3 - - [02/Jul/2025 18:16:03] "GET /static/uploads/cropped_extend_020725-181339.png HTTP/1.1" 200 -
+2025-07-02 18:16:04,012 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:04,044 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:04,093 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:04,139 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/020725-181432.png HTTP/1.1" 200 -
+2025-07-02 18:16:04,560 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/cropped_extend_020725-181432.png HTTP/1.1" 200 -
+2025-07-02 18:16:04,625 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:04,673 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:04,718 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:04,783 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/020725-181546.png HTTP/1.1" 200 -
+2025-07-02 18:16:04,872 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/cropped_extend_020725-181546.png HTTP/1.1" 200 -
+2025-07-02 18:16:04,971 INFO 192.168.1.3 - - [02/Jul/2025 18:16:04] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:16:05,045 INFO 192.168.1.3 - - [02/Jul/2025 18:16:05] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:16:05,132 INFO 192.168.1.3 - - [02/Jul/2025 18:16:05] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:20:26,571 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 18:20:26,876 INFO 192.168.1.3 - - [02/Jul/2025 18:20:26] "[35m[1mPOST /auth/register HTTP/1.1[0m" 500 -
+2025-07-02 18:20:33,245 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 18:20:33,248 INFO 192.168.1.3 - - [02/Jul/2025 18:20:33] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 18:20:57,403 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 18:20:57,529 INFO 192.168.1.3 - - [02/Jul/2025 18:20:57] "[35m[1mPOST /auth/register HTTP/1.1[0m" 500 -
+2025-07-02 18:21:50,987 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 127.0.0.1
+2025-07-02 18:21:50,990 INFO 127.0.0.1 - - [02/Jul/2025 18:21:50] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 18:21:56,109 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 127.0.0.1
+2025-07-02 18:21:56,278 INFO 127.0.0.1 - - [02/Jul/2025 18:21:56] "[35m[1mPOST /auth/register HTTP/1.1[0m" 500 -
+2025-07-02 18:22:24,577 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 18:22:24,703 INFO 192.168.1.3 - - [02/Jul/2025 18:22:24] "[35m[1mPOST /auth/register HTTP/1.1[0m" 500 -
+2025-07-02 18:22:36,333 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 18:22:36,426 INFO 192.168.1.3 - - [02/Jul/2025 18:22:36] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-07-02 18:22:50,481 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 192.168.1.3
+2025-07-02 18:22:50,645 INFO 192.168.1.3 - - [02/Jul/2025 18:22:50] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 18:22:53,380 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:22:53,389 INFO 192.168.1.3 - - [02/Jul/2025 18:22:53] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:22:54,814 INFO Route: get_profile | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 18:22:54,827 INFO 192.168.1.3 - - [02/Jul/2025 18:22:54] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 18:22:59,245 INFO Route: get_profile | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 18:22:59,249 INFO 192.168.1.3 - - [02/Jul/2025 18:22:59] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 18:23:19,575 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:23:35,868 INFO 192.168.1.3 - - [02/Jul/2025 18:23:35] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:24:03,091 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:24:17,394 INFO 192.168.1.3 - - [02/Jul/2025 18:24:17] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:24:51,909 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:25:06,343 INFO 192.168.1.3 - - [02/Jul/2025 18:25:06] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:25:12,168 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 127.0.0.1
+2025-07-02 18:25:12,360 INFO 127.0.0.1 - - [02/Jul/2025 18:25:12] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 18:25:31,735 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 127.0.0.1
+2025-07-02 18:25:36,497 INFO 127.0.0.1 - - [02/Jul/2025 18:25:36] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:27:11,469 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:27:24,908 INFO 192.168.1.3 - - [02/Jul/2025 18:27:24] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:27:54,241 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:28:07,900 INFO 192.168.1.3 - - [02/Jul/2025 18:28:07] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:28:40,876 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 18:28:40,876 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 18:28:40,878 INFO  * Restarting with stat
+2025-07-02 18:28:46,246 WARNING  * Debugger is active!
+2025-07-02 18:28:46,254 INFO  * Debugger PIN: 741-891-751
+2025-07-02 18:29:05,661 INFO Route: get_profile | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 18:29:05,680 INFO 192.168.1.3 - - [02/Jul/2025 18:29:05] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 18:30:06,616 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:30:23,101 INFO 192.168.1.3 - - [02/Jul/2025 18:30:23] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:30:29,913 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 127.0.0.1
+2025-07-02 18:30:34,901 INFO 127.0.0.1 - - [02/Jul/2025 18:30:34] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:30:42,389 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:30:47,249 INFO 192.168.1.3 - - [02/Jul/2025 18:30:47] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:30:47,438 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:30:47,478 INFO 192.168.1.3 - - [02/Jul/2025 18:30:47] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:30:47,574 INFO 192.168.1.3 - - [02/Jul/2025 18:30:47] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:30:47,619 INFO 192.168.1.3 - - [02/Jul/2025 18:30:47] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:30:47,621 INFO 192.168.1.3 - - [02/Jul/2025 18:30:47] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:30:50,886 INFO 192.168.1.3 - - [02/Jul/2025 18:30:50] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:30:52,992 INFO 192.168.1.3 - - [02/Jul/2025 18:30:52] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:30:53,055 INFO 192.168.1.3 - - [02/Jul/2025 18:30:53] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:30:53,163 INFO 192.168.1.3 - - [02/Jul/2025 18:30:53] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:30:53,211 INFO 192.168.1.3 - - [02/Jul/2025 18:30:53] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:30:55,591 INFO 192.168.1.3 - - [02/Jul/2025 18:30:55] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:30:57,638 INFO 192.168.1.3 - - [02/Jul/2025 18:30:57] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:30:57,734 INFO 192.168.1.3 - - [02/Jul/2025 18:30:57] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:30:57,817 INFO 192.168.1.3 - - [02/Jul/2025 18:30:57] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:30:57,874 INFO 192.168.1.3 - - [02/Jul/2025 18:30:57] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:31:00,030 INFO 192.168.1.3 - - [02/Jul/2025 18:31:00] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:31:02,052 INFO 192.168.1.3 - - [02/Jul/2025 18:31:02] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:02,493 INFO 192.168.1.3 - - [02/Jul/2025 18:31:02] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:31:02,577 INFO 192.168.1.3 - - [02/Jul/2025 18:31:02] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:02,639 INFO 192.168.1.3 - - [02/Jul/2025 18:31:02] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:31:04,649 INFO 192.168.1.3 - - [02/Jul/2025 18:31:04] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:31:06,702 INFO 192.168.1.3 - - [02/Jul/2025 18:31:06] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:06,794 INFO 192.168.1.3 - - [02/Jul/2025 18:31:06] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:31:06,852 INFO 192.168.1.3 - - [02/Jul/2025 18:31:06] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:06,898 INFO 192.168.1.3 - - [02/Jul/2025 18:31:06] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:31:09,152 INFO 192.168.1.3 - - [02/Jul/2025 18:31:09] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:31:11,349 INFO 192.168.1.3 - - [02/Jul/2025 18:31:11] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:11,431 INFO 192.168.1.3 - - [02/Jul/2025 18:31:11] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:11,482 INFO 192.168.1.3 - - [02/Jul/2025 18:31:11] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:31:11,538 INFO 192.168.1.3 - - [02/Jul/2025 18:31:11] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:31:13,982 INFO 192.168.1.3 - - [02/Jul/2025 18:31:13] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:31:16,055 INFO 192.168.1.3 - - [02/Jul/2025 18:31:16] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:16,144 INFO 192.168.1.3 - - [02/Jul/2025 18:31:16] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:31:16,307 INFO 192.168.1.3 - - [02/Jul/2025 18:31:16] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:16,360 INFO 192.168.1.3 - - [02/Jul/2025 18:31:16] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:31:17,436 INFO 192.168.1.3 - - [02/Jul/2025 18:31:17] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:31:18,214 INFO 192.168.1.3 - - [02/Jul/2025 18:31:18] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:18,364 INFO 192.168.1.3 - - [02/Jul/2025 18:31:18] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:31:18,431 INFO 192.168.1.3 - - [02/Jul/2025 18:31:18] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:15,730 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:32:20,834 INFO 192.168.1.3 - - [02/Jul/2025 18:32:20] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:32:21,041 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:32:21,081 INFO 192.168.1.3 - - [02/Jul/2025 18:32:21] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:32:21,116 INFO 192.168.1.3 - - [02/Jul/2025 18:32:21] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:32:21,155 INFO 192.168.1.3 - - [02/Jul/2025 18:32:21] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:32:21,171 INFO 192.168.1.3 - - [02/Jul/2025 18:32:21] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:32:23,933 INFO 192.168.1.3 - - [02/Jul/2025 18:32:23] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:32:27,677 INFO 192.168.1.3 - - [02/Jul/2025 18:32:27] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:27,756 INFO 192.168.1.3 - - [02/Jul/2025 18:32:27] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:27,856 INFO 192.168.1.3 - - [02/Jul/2025 18:32:27] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:27,908 INFO 192.168.1.3 - - [02/Jul/2025 18:32:27] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:32:30,323 INFO 192.168.1.3 - - [02/Jul/2025 18:32:30] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:32:32,368 INFO 192.168.1.3 - - [02/Jul/2025 18:32:32] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:32,452 INFO 192.168.1.3 - - [02/Jul/2025 18:32:32] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:32,524 INFO 192.168.1.3 - - [02/Jul/2025 18:32:32] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:32,577 INFO 192.168.1.3 - - [02/Jul/2025 18:32:32] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:32:34,250 INFO 192.168.1.3 - - [02/Jul/2025 18:32:34] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:32:35,934 INFO 192.168.1.3 - - [02/Jul/2025 18:32:35] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:36,009 INFO 192.168.1.3 - - [02/Jul/2025 18:32:36] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:36,259 INFO 192.168.1.3 - - [02/Jul/2025 18:32:36] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:36,312 INFO 192.168.1.3 - - [02/Jul/2025 18:32:36] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:32:39,070 INFO 192.168.1.3 - - [02/Jul/2025 18:32:39] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:32:41,308 INFO 192.168.1.3 - - [02/Jul/2025 18:32:41] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:41,541 INFO 192.168.1.3 - - [02/Jul/2025 18:32:41] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:41,656 INFO 192.168.1.3 - - [02/Jul/2025 18:32:41] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:41,714 INFO 192.168.1.3 - - [02/Jul/2025 18:32:41] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:32:44,198 INFO 192.168.1.3 - - [02/Jul/2025 18:32:44] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:32:46,334 INFO 192.168.1.3 - - [02/Jul/2025 18:32:46] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:46,532 INFO 192.168.1.3 - - [02/Jul/2025 18:32:46] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:46,609 INFO 192.168.1.3 - - [02/Jul/2025 18:32:46] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:46,691 INFO 192.168.1.3 - - [02/Jul/2025 18:32:46] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:32:48,728 INFO 192.168.1.3 - - [02/Jul/2025 18:32:48] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:32:50,146 INFO 192.168.1.3 - - [02/Jul/2025 18:32:50] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:50,223 INFO 192.168.1.3 - - [02/Jul/2025 18:32:50] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:50,274 INFO 192.168.1.3 - - [02/Jul/2025 18:32:50] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:50,314 INFO 192.168.1.3 - - [02/Jul/2025 18:32:50] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:32:51,444 INFO 192.168.1.3 - - [02/Jul/2025 18:32:51] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:32:52,395 INFO 192.168.1.3 - - [02/Jul/2025 18:32:52] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:52,500 INFO 192.168.1.3 - - [02/Jul/2025 18:32:52] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:52,556 INFO 192.168.1.3 - - [02/Jul/2025 18:32:52] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:52,649 INFO 192.168.1.3 - - [02/Jul/2025 18:32:52] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:32:53,917 INFO 192.168.1.3 - - [02/Jul/2025 18:32:53] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:32:54,959 INFO 192.168.1.3 - - [02/Jul/2025 18:32:54] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:32:55,055 INFO 192.168.1.3 - - [02/Jul/2025 18:32:55] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:32:55,187 INFO 192.168.1.3 - - [02/Jul/2025 18:32:55] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:35:45,878 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:35:51,568 INFO 192.168.1.3 - - [02/Jul/2025 18:35:51] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:35:51,765 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:35:51,810 INFO 192.168.1.3 - - [02/Jul/2025 18:35:51] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:35:51,864 INFO 192.168.1.3 - - [02/Jul/2025 18:35:51] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:35:51,872 INFO 192.168.1.3 - - [02/Jul/2025 18:35:51] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:35:51,905 INFO 192.168.1.3 - - [02/Jul/2025 18:35:51] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:35:54,606 INFO 192.168.1.3 - - [02/Jul/2025 18:35:54] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:35:56,759 INFO 192.168.1.3 - - [02/Jul/2025 18:35:56] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:35:56,832 INFO 192.168.1.3 - - [02/Jul/2025 18:35:56] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:35:56,918 INFO 192.168.1.3 - - [02/Jul/2025 18:35:56] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:35:56,967 INFO 192.168.1.3 - - [02/Jul/2025 18:35:56] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:35:59,207 INFO 192.168.1.3 - - [02/Jul/2025 18:35:59] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:36:01,008 INFO 192.168.1.3 - - [02/Jul/2025 18:36:01] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:01,096 INFO 192.168.1.3 - - [02/Jul/2025 18:36:01] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:01,265 INFO 192.168.1.3 - - [02/Jul/2025 18:36:01] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:01,306 INFO 192.168.1.3 - - [02/Jul/2025 18:36:01] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:36:03,362 INFO 192.168.1.3 - - [02/Jul/2025 18:36:03] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:36:05,959 INFO 192.168.1.3 - - [02/Jul/2025 18:36:05] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:06,466 INFO 192.168.1.3 - - [02/Jul/2025 18:36:06] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:06,541 INFO 192.168.1.3 - - [02/Jul/2025 18:36:06] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:06,910 INFO 192.168.1.3 - - [02/Jul/2025 18:36:06] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:36:08,607 INFO 192.168.1.3 - - [02/Jul/2025 18:36:08] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:36:09,921 INFO 192.168.1.3 - - [02/Jul/2025 18:36:09] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:10,048 INFO 192.168.1.3 - - [02/Jul/2025 18:36:10] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:10,117 INFO 192.168.1.3 - - [02/Jul/2025 18:36:10] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:10,167 INFO 192.168.1.3 - - [02/Jul/2025 18:36:10] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:36:12,310 INFO 192.168.1.3 - - [02/Jul/2025 18:36:12] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:36:14,807 INFO 192.168.1.3 - - [02/Jul/2025 18:36:14] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:14,944 INFO 192.168.1.3 - - [02/Jul/2025 18:36:14] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:15,013 INFO 192.168.1.3 - - [02/Jul/2025 18:36:15] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:15,085 INFO 192.168.1.3 - - [02/Jul/2025 18:36:15] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:36:17,472 INFO 192.168.1.3 - - [02/Jul/2025 18:36:17] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:36:19,633 INFO 192.168.1.3 - - [02/Jul/2025 18:36:19] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:19,724 INFO 192.168.1.3 - - [02/Jul/2025 18:36:19] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:19,794 INFO 192.168.1.3 - - [02/Jul/2025 18:36:19] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:19,849 INFO 192.168.1.3 - - [02/Jul/2025 18:36:19] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:36:21,143 INFO 192.168.1.3 - - [02/Jul/2025 18:36:21] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:36:21,821 INFO 192.168.1.3 - - [02/Jul/2025 18:36:21] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:21,923 INFO 192.168.1.3 - - [02/Jul/2025 18:36:21] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:21,976 INFO 192.168.1.3 - - [02/Jul/2025 18:36:21] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:22,051 INFO 192.168.1.3 - - [02/Jul/2025 18:36:22] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:36:23,120 INFO 192.168.1.3 - - [02/Jul/2025 18:36:23] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:36:24,109 INFO 192.168.1.3 - - [02/Jul/2025 18:36:24] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:36:24,181 INFO 192.168.1.3 - - [02/Jul/2025 18:36:24] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:24,284 INFO 192.168.1.3 - - [02/Jul/2025 18:36:24] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:24,340 INFO 192.168.1.3 - - [02/Jul/2025 18:36:24] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:36:25,595 INFO 192.168.1.3 - - [02/Jul/2025 18:36:25] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:36:26,336 INFO 192.168.1.3 - - [02/Jul/2025 18:36:26] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:26,390 INFO 192.168.1.3 - - [02/Jul/2025 18:36:26] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:36:26,476 INFO 192.168.1.3 - - [02/Jul/2025 18:36:26] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:39:29,794 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:39:35,344 INFO 192.168.1.3 - - [02/Jul/2025 18:39:35] "[31m[1mPOST /api/predict HTTP/1.1[0m" 401 -
+2025-07-02 18:39:35,413 INFO Route: refresh_token | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: POST | Path: /auth/refresh-token | IP: 192.168.1.3
+2025-07-02 18:39:35,415 INFO 192.168.1.3 - - [02/Jul/2025 18:39:35] "POST /auth/refresh-token HTTP/1.1" 200 -
+2025-07-02 18:39:35,583 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:39:40,967 INFO 192.168.1.3 - - [02/Jul/2025 18:39:40] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:39:41,171 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:39:41,221 INFO 192.168.1.3 - - [02/Jul/2025 18:39:41] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:39:41,255 INFO 192.168.1.3 - - [02/Jul/2025 18:39:41] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:39:41,292 INFO 192.168.1.3 - - [02/Jul/2025 18:39:41] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:39:41,353 INFO 192.168.1.3 - - [02/Jul/2025 18:39:41] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:39:45,114 INFO 192.168.1.3 - - [02/Jul/2025 18:39:45] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:39:47,489 INFO 192.168.1.3 - - [02/Jul/2025 18:39:47] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:39:47,603 INFO 192.168.1.3 - - [02/Jul/2025 18:39:47] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:39:47,689 INFO 192.168.1.3 - - [02/Jul/2025 18:39:47] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:39:47,730 INFO 192.168.1.3 - - [02/Jul/2025 18:39:47] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:39:49,992 INFO 192.168.1.3 - - [02/Jul/2025 18:39:49] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:39:52,276 INFO 192.168.1.3 - - [02/Jul/2025 18:39:52] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:39:52,775 INFO 192.168.1.3 - - [02/Jul/2025 18:39:52] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:39:52,841 INFO 192.168.1.3 - - [02/Jul/2025 18:39:52] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:39:52,889 INFO 192.168.1.3 - - [02/Jul/2025 18:39:52] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:39:54,959 INFO 192.168.1.3 - - [02/Jul/2025 18:39:54] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:39:57,587 INFO 192.168.1.3 - - [02/Jul/2025 18:39:57] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:39:57,741 INFO 192.168.1.3 - - [02/Jul/2025 18:39:57] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:39:57,844 INFO 192.168.1.3 - - [02/Jul/2025 18:39:57] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:39:57,888 INFO 192.168.1.3 - - [02/Jul/2025 18:39:57] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:40:00,063 INFO 192.168.1.3 - - [02/Jul/2025 18:40:00] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:40:01,756 INFO 192.168.1.3 - - [02/Jul/2025 18:40:01] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:01,828 INFO 192.168.1.3 - - [02/Jul/2025 18:40:01] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:01,903 INFO 192.168.1.3 - - [02/Jul/2025 18:40:01] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:01,959 INFO 192.168.1.3 - - [02/Jul/2025 18:40:01] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:40:03,701 INFO 192.168.1.3 - - [02/Jul/2025 18:40:03] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:40:06,089 INFO 192.168.1.3 - - [02/Jul/2025 18:40:06] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:06,179 INFO 192.168.1.3 - - [02/Jul/2025 18:40:06] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:06,294 INFO 192.168.1.3 - - [02/Jul/2025 18:40:06] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:06,360 INFO 192.168.1.3 - - [02/Jul/2025 18:40:06] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:40:08,397 INFO 192.168.1.3 - - [02/Jul/2025 18:40:08] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:40:10,229 INFO 192.168.1.3 - - [02/Jul/2025 18:40:10] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:10,382 INFO 192.168.1.3 - - [02/Jul/2025 18:40:10] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:10,456 INFO 192.168.1.3 - - [02/Jul/2025 18:40:10] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:10,513 INFO 192.168.1.3 - - [02/Jul/2025 18:40:10] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:40:11,959 INFO 192.168.1.3 - - [02/Jul/2025 18:40:11] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:40:12,865 INFO 192.168.1.3 - - [02/Jul/2025 18:40:12] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:13,344 INFO 192.168.1.3 - - [02/Jul/2025 18:40:13] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:13,393 INFO 192.168.1.3 - - [02/Jul/2025 18:40:13] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:13,499 INFO 192.168.1.3 - - [02/Jul/2025 18:40:13] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:40:14,515 INFO 192.168.1.3 - - [02/Jul/2025 18:40:14] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:40:15,279 INFO 192.168.1.3 - - [02/Jul/2025 18:40:15] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:15,335 INFO 192.168.1.3 - - [02/Jul/2025 18:40:15] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:15,405 INFO 192.168.1.3 - - [02/Jul/2025 18:40:15] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:15,459 INFO 192.168.1.3 - - [02/Jul/2025 18:40:15] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:40:16,687 INFO 192.168.1.3 - - [02/Jul/2025 18:40:16] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:40:17,606 INFO 192.168.1.3 - - [02/Jul/2025 18:40:17] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:17,655 INFO 192.168.1.3 - - [02/Jul/2025 18:40:17] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:17,831 INFO 192.168.1.3 - - [02/Jul/2025 18:40:17] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:17,905 INFO 192.168.1.3 - - [02/Jul/2025 18:40:17] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:40:19,341 INFO 192.168.1.3 - - [02/Jul/2025 18:40:19] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:40:20,098 INFO 192.168.1.3 - - [02/Jul/2025 18:40:20] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:20,188 INFO 192.168.1.3 - - [02/Jul/2025 18:40:20] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:20,240 INFO 192.168.1.3 - - [02/Jul/2025 18:40:20] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:46,462 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:40:51,390 INFO 192.168.1.3 - - [02/Jul/2025 18:40:51] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:40:51,580 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:40:51,597 INFO 192.168.1.3 - - [02/Jul/2025 18:40:51] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:40:51,630 INFO 192.168.1.3 - - [02/Jul/2025 18:40:51] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:40:51,766 INFO 192.168.1.3 - - [02/Jul/2025 18:40:51] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:40:55,132 INFO 192.168.1.3 - - [02/Jul/2025 18:40:55] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:40:57,358 INFO 192.168.1.3 - - [02/Jul/2025 18:40:57] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:40:57,454 INFO 192.168.1.3 - - [02/Jul/2025 18:40:57] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:57,563 INFO 192.168.1.3 - - [02/Jul/2025 18:40:57] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:40:57,635 INFO 192.168.1.3 - - [02/Jul/2025 18:40:57] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:40:59,801 INFO 192.168.1.3 - - [02/Jul/2025 18:40:59] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:41:01,550 INFO 192.168.1.3 - - [02/Jul/2025 18:41:01] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:01,644 INFO 192.168.1.3 - - [02/Jul/2025 18:41:01] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:01,814 INFO 192.168.1.3 - - [02/Jul/2025 18:41:01] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:01,875 INFO 192.168.1.3 - - [02/Jul/2025 18:41:01] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:41:04,124 INFO 192.168.1.3 - - [02/Jul/2025 18:41:04] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:41:06,179 INFO 192.168.1.3 - - [02/Jul/2025 18:41:06] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:06,265 INFO 192.168.1.3 - - [02/Jul/2025 18:41:06] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:06,337 INFO 192.168.1.3 - - [02/Jul/2025 18:41:06] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:06,390 INFO 192.168.1.3 - - [02/Jul/2025 18:41:06] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:41:08,763 INFO 192.168.1.3 - - [02/Jul/2025 18:41:08] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:41:10,763 INFO 192.168.1.3 - - [02/Jul/2025 18:41:10] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:10,897 INFO 192.168.1.3 - - [02/Jul/2025 18:41:10] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:10,998 INFO 192.168.1.3 - - [02/Jul/2025 18:41:10] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:11,053 INFO 192.168.1.3 - - [02/Jul/2025 18:41:11] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:41:13,351 INFO 192.168.1.3 - - [02/Jul/2025 18:41:13] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:41:15,635 INFO 192.168.1.3 - - [02/Jul/2025 18:41:15] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:15,747 INFO 192.168.1.3 - - [02/Jul/2025 18:41:15] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:15,804 INFO 192.168.1.3 - - [02/Jul/2025 18:41:15] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:15,878 INFO 192.168.1.3 - - [02/Jul/2025 18:41:15] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:41:17,661 INFO 192.168.1.3 - - [02/Jul/2025 18:41:17] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:41:20,164 INFO 192.168.1.3 - - [02/Jul/2025 18:41:20] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:20,323 INFO 192.168.1.3 - - [02/Jul/2025 18:41:20] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:20,812 INFO 192.168.1.3 - - [02/Jul/2025 18:41:20] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:20,867 INFO 192.168.1.3 - - [02/Jul/2025 18:41:20] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:41:23,265 INFO 192.168.1.3 - - [02/Jul/2025 18:41:23] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:41:23,951 INFO 192.168.1.3 - - [02/Jul/2025 18:41:23] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:24,058 INFO 192.168.1.3 - - [02/Jul/2025 18:41:24] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:24,206 INFO 192.168.1.3 - - [02/Jul/2025 18:41:24] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:24,281 INFO 192.168.1.3 - - [02/Jul/2025 18:41:24] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:41:25,490 INFO 192.168.1.3 - - [02/Jul/2025 18:41:25] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:41:26,284 INFO 192.168.1.3 - - [02/Jul/2025 18:41:26] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:26,393 INFO 192.168.1.3 - - [02/Jul/2025 18:41:26] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:26,519 INFO 192.168.1.3 - - [02/Jul/2025 18:41:26] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:26,583 INFO 192.168.1.3 - - [02/Jul/2025 18:41:26] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:41:27,934 INFO 192.168.1.3 - - [02/Jul/2025 18:41:27] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:41:28,821 INFO 192.168.1.3 - - [02/Jul/2025 18:41:28] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:28,875 INFO 192.168.1.3 - - [02/Jul/2025 18:41:28] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:28,990 INFO 192.168.1.3 - - [02/Jul/2025 18:41:28] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:29,076 INFO 192.168.1.3 - - [02/Jul/2025 18:41:29] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:41:30,333 INFO 192.168.1.3 - - [02/Jul/2025 18:41:30] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:41:31,234 INFO 192.168.1.3 - - [02/Jul/2025 18:41:31] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:31,298 INFO 192.168.1.3 - - [02/Jul/2025 18:41:31] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:31,350 INFO 192.168.1.3 - - [02/Jul/2025 18:41:31] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:31,455 INFO 192.168.1.3 - - [02/Jul/2025 18:41:31] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:41:32,512 INFO 192.168.1.3 - - [02/Jul/2025 18:41:32] "GET /static/uploads/cropped_extend_020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:41:33,221 INFO 192.168.1.3 - - [02/Jul/2025 18:41:33] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:41:33,276 INFO 192.168.1.3 - - [02/Jul/2025 18:41:33] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:41:33,347 INFO 192.168.1.3 - - [02/Jul/2025 18:41:33] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:44:56,121 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:45:00,863 INFO 192.168.1.3 - - [02/Jul/2025 18:45:00] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:45:01,064 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:45:01,120 INFO 192.168.1.3 - - [02/Jul/2025 18:45:01] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:45:01,154 INFO 192.168.1.3 - - [02/Jul/2025 18:45:01] "GET /static/uploads/020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:45:01,181 INFO 192.168.1.3 - - [02/Jul/2025 18:45:01] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:45:01,255 INFO 192.168.1.3 - - [02/Jul/2025 18:45:01] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:45:04,521 INFO 192.168.1.3 - - [02/Jul/2025 18:45:04] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:45:06,767 INFO 192.168.1.3 - - [02/Jul/2025 18:45:06] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:07,165 INFO 192.168.1.3 - - [02/Jul/2025 18:45:07] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:07,260 INFO 192.168.1.3 - - [02/Jul/2025 18:45:07] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:07,306 INFO 192.168.1.3 - - [02/Jul/2025 18:45:07] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:45:10,398 INFO 192.168.1.3 - - [02/Jul/2025 18:45:10] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:45:12,624 INFO 192.168.1.3 - - [02/Jul/2025 18:45:12] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:12,801 INFO 192.168.1.3 - - [02/Jul/2025 18:45:12] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:13,270 INFO 192.168.1.3 - - [02/Jul/2025 18:45:13] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:13,331 INFO 192.168.1.3 - - [02/Jul/2025 18:45:13] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:45:15,837 INFO 192.168.1.3 - - [02/Jul/2025 18:45:15] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:45:18,818 INFO 192.168.1.3 - - [02/Jul/2025 18:45:18] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:18,999 INFO 192.168.1.3 - - [02/Jul/2025 18:45:18] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:19,141 INFO 192.168.1.3 - - [02/Jul/2025 18:45:19] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:19,191 INFO 192.168.1.3 - - [02/Jul/2025 18:45:19] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:45:21,794 INFO 192.168.1.3 - - [02/Jul/2025 18:45:21] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:45:24,842 INFO 192.168.1.3 - - [02/Jul/2025 18:45:24] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:25,388 INFO 192.168.1.3 - - [02/Jul/2025 18:45:25] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:25,469 INFO 192.168.1.3 - - [02/Jul/2025 18:45:25] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:25,527 INFO 192.168.1.3 - - [02/Jul/2025 18:45:25] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:45:28,280 INFO 192.168.1.3 - - [02/Jul/2025 18:45:28] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:45:30,873 INFO 192.168.1.3 - - [02/Jul/2025 18:45:30] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:30,969 INFO 192.168.1.3 - - [02/Jul/2025 18:45:30] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:31,045 INFO 192.168.1.3 - - [02/Jul/2025 18:45:31] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:31,121 INFO 192.168.1.3 - - [02/Jul/2025 18:45:31] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:45:33,380 INFO 192.168.1.3 - - [02/Jul/2025 18:45:33] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:45:35,931 INFO 192.168.1.3 - - [02/Jul/2025 18:45:35] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:36,033 INFO 192.168.1.3 - - [02/Jul/2025 18:45:36] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:36,125 INFO 192.168.1.3 - - [02/Jul/2025 18:45:36] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:36,400 INFO 192.168.1.3 - - [02/Jul/2025 18:45:36] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:45:37,854 INFO 192.168.1.3 - - [02/Jul/2025 18:45:37] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:45:38,777 INFO 192.168.1.3 - - [02/Jul/2025 18:45:38] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:38,873 INFO 192.168.1.3 - - [02/Jul/2025 18:45:38] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:38,927 INFO 192.168.1.3 - - [02/Jul/2025 18:45:38] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:39,014 INFO 192.168.1.3 - - [02/Jul/2025 18:45:39] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:45:40,247 INFO 192.168.1.3 - - [02/Jul/2025 18:45:40] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:45:41,086 INFO 192.168.1.3 - - [02/Jul/2025 18:45:41] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:41,158 INFO 192.168.1.3 - - [02/Jul/2025 18:45:41] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:41,371 INFO 192.168.1.3 - - [02/Jul/2025 18:45:41] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:41,421 INFO 192.168.1.3 - - [02/Jul/2025 18:45:41] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:45:42,882 INFO 192.168.1.3 - - [02/Jul/2025 18:45:42] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:45:44,037 INFO 192.168.1.3 - - [02/Jul/2025 18:45:44] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:44,093 INFO 192.168.1.3 - - [02/Jul/2025 18:45:44] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:44,218 INFO 192.168.1.3 - - [02/Jul/2025 18:45:44] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:44,314 INFO 192.168.1.3 - - [02/Jul/2025 18:45:44] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:45:45,824 INFO 192.168.1.3 - - [02/Jul/2025 18:45:45] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:45:46,663 INFO 192.168.1.3 - - [02/Jul/2025 18:45:46] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:46,759 INFO 192.168.1.3 - - [02/Jul/2025 18:45:46] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:46,818 INFO 192.168.1.3 - - [02/Jul/2025 18:45:46] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:46,917 INFO 192.168.1.3 - - [02/Jul/2025 18:45:46] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:45:48,081 INFO 192.168.1.3 - - [02/Jul/2025 18:45:48] "GET /static/uploads/cropped_extend_020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:45:48,744 INFO 192.168.1.3 - - [02/Jul/2025 18:45:48] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:48,794 INFO 192.168.1.3 - - [02/Jul/2025 18:45:48] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:45:49,327 INFO 192.168.1.3 - - [02/Jul/2025 18:45:49] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:49,416 INFO 192.168.1.3 - - [02/Jul/2025 18:45:49] "GET /static/uploads/020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:45:50,629 INFO 192.168.1.3 - - [02/Jul/2025 18:45:50] "GET /static/uploads/cropped_extend_020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:45:51,459 INFO 192.168.1.3 - - [02/Jul/2025 18:45:51] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:51,509 INFO 192.168.1.3 - - [02/Jul/2025 18:45:51] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:45:51,582 INFO 192.168.1.3 - - [02/Jul/2025 18:45:51] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:11,951 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:52:13,590 INFO 192.168.1.3 - - [02/Jul/2025 18:52:13] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:52:13,788 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:52:13,846 INFO 192.168.1.3 - - [02/Jul/2025 18:52:13] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:52:13,891 INFO 192.168.1.3 - - [02/Jul/2025 18:52:13] "GET /static/uploads/020725-185212.png HTTP/1.1" 200 -
+2025-07-02 18:52:13,893 INFO 192.168.1.3 - - [02/Jul/2025 18:52:13] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:52:13,983 INFO 192.168.1.3 - - [02/Jul/2025 18:52:13] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:52:16,294 INFO 192.168.1.3 - - [02/Jul/2025 18:52:16] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:52:18,141 INFO 192.168.1.3 - - [02/Jul/2025 18:52:18] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:18,210 INFO 192.168.1.3 - - [02/Jul/2025 18:52:18] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:18,671 INFO 192.168.1.3 - - [02/Jul/2025 18:52:18] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:19,137 INFO 192.168.1.3 - - [02/Jul/2025 18:52:19] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:52:20,990 INFO 192.168.1.3 - - [02/Jul/2025 18:52:20] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:52:23,278 INFO 192.168.1.3 - - [02/Jul/2025 18:52:23] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:23,371 INFO 192.168.1.3 - - [02/Jul/2025 18:52:23] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:23,456 INFO 192.168.1.3 - - [02/Jul/2025 18:52:23] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:23,518 INFO 192.168.1.3 - - [02/Jul/2025 18:52:23] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:52:25,867 INFO 192.168.1.3 - - [02/Jul/2025 18:52:25] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:52:28,133 INFO 192.168.1.3 - - [02/Jul/2025 18:52:28] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:28,221 INFO 192.168.1.3 - - [02/Jul/2025 18:52:28] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:28,292 INFO 192.168.1.3 - - [02/Jul/2025 18:52:28] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:28,345 INFO 192.168.1.3 - - [02/Jul/2025 18:52:28] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:52:30,327 INFO 192.168.1.3 - - [02/Jul/2025 18:52:30] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:52:32,593 INFO 192.168.1.3 - - [02/Jul/2025 18:52:32] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:32,683 INFO 192.168.1.3 - - [02/Jul/2025 18:52:32] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:32,743 INFO 192.168.1.3 - - [02/Jul/2025 18:52:32] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:32,811 INFO 192.168.1.3 - - [02/Jul/2025 18:52:32] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:52:35,000 INFO 192.168.1.3 - - [02/Jul/2025 18:52:35] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:52:37,948 INFO 192.168.1.3 - - [02/Jul/2025 18:52:37] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:38,065 INFO 192.168.1.3 - - [02/Jul/2025 18:52:38] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:38,124 INFO 192.168.1.3 - - [02/Jul/2025 18:52:38] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:38,633 INFO 192.168.1.3 - - [02/Jul/2025 18:52:38] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:52:41,317 INFO 192.168.1.3 - - [02/Jul/2025 18:52:41] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:52:43,870 INFO 192.168.1.3 - - [02/Jul/2025 18:52:43] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:44,368 INFO 192.168.1.3 - - [02/Jul/2025 18:52:44] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:44,450 INFO 192.168.1.3 - - [02/Jul/2025 18:52:44] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:44,506 INFO 192.168.1.3 - - [02/Jul/2025 18:52:44] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:52:45,764 INFO 192.168.1.3 - - [02/Jul/2025 18:52:45] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:52:46,588 INFO 192.168.1.3 - - [02/Jul/2025 18:52:46] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:46,683 INFO 192.168.1.3 - - [02/Jul/2025 18:52:46] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:46,763 INFO 192.168.1.3 - - [02/Jul/2025 18:52:46] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:46,833 INFO 192.168.1.3 - - [02/Jul/2025 18:52:46] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:52:48,005 INFO 192.168.1.3 - - [02/Jul/2025 18:52:48] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:52:48,925 INFO 192.168.1.3 - - [02/Jul/2025 18:52:48] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:49,013 INFO 192.168.1.3 - - [02/Jul/2025 18:52:49] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:49,158 INFO 192.168.1.3 - - [02/Jul/2025 18:52:49] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:49,199 INFO 192.168.1.3 - - [02/Jul/2025 18:52:49] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:52:50,370 INFO 192.168.1.3 - - [02/Jul/2025 18:52:50] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:52:51,199 INFO 192.168.1.3 - - [02/Jul/2025 18:52:51] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:51,256 INFO 192.168.1.3 - - [02/Jul/2025 18:52:51] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:51,336 INFO 192.168.1.3 - - [02/Jul/2025 18:52:51] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:51,405 INFO 192.168.1.3 - - [02/Jul/2025 18:52:51] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:52:52,685 INFO 192.168.1.3 - - [02/Jul/2025 18:52:52] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:52:53,486 INFO 192.168.1.3 - - [02/Jul/2025 18:52:53] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:53,560 INFO 192.168.1.3 - - [02/Jul/2025 18:52:53] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:53,667 INFO 192.168.1.3 - - [02/Jul/2025 18:52:53] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:53,768 INFO 192.168.1.3 - - [02/Jul/2025 18:52:53] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:52:55,062 INFO 192.168.1.3 - - [02/Jul/2025 18:52:55] "GET /static/uploads/cropped_extend_020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:52:55,746 INFO 192.168.1.3 - - [02/Jul/2025 18:52:55] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:55,814 INFO 192.168.1.3 - - [02/Jul/2025 18:52:55] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:55,898 INFO 192.168.1.3 - - [02/Jul/2025 18:52:55] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:55,983 INFO 192.168.1.3 - - [02/Jul/2025 18:52:55] "GET /static/uploads/020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:52:57,092 INFO 192.168.1.3 - - [02/Jul/2025 18:52:57] "GET /static/uploads/cropped_extend_020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:52:57,995 INFO 192.168.1.3 - - [02/Jul/2025 18:52:57] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:58,041 INFO 192.168.1.3 - - [02/Jul/2025 18:52:58] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:58,133 INFO 192.168.1.3 - - [02/Jul/2025 18:52:58] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:52:58,203 INFO 192.168.1.3 - - [02/Jul/2025 18:52:58] "GET /static/uploads/020725-185212.png HTTP/1.1" 200 -
+2025-07-02 18:52:58,587 INFO 192.168.1.3 - - [02/Jul/2025 18:52:58] "GET /static/uploads/cropped_extend_020725-185212.png HTTP/1.1" 200 -
+2025-07-02 18:52:58,853 INFO 192.168.1.3 - - [02/Jul/2025 18:52:58] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:59,078 INFO 192.168.1.3 - - [02/Jul/2025 18:52:59] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:52:59,122 INFO 192.168.1.3 - - [02/Jul/2025 18:52:59] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:53:43,448 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:53:45,918 INFO 192.168.1.3 - - [02/Jul/2025 18:53:45] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:53:46,137 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:53:46,208 INFO 192.168.1.3 - - [02/Jul/2025 18:53:46] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:53:46,248 INFO 192.168.1.3 - - [02/Jul/2025 18:53:46] "GET /static/uploads/020725-185344.png HTTP/1.1" 200 -
+2025-07-02 18:53:46,295 INFO 192.168.1.3 - - [02/Jul/2025 18:53:46] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 18:53:46,297 INFO 192.168.1.3 - - [02/Jul/2025 18:53:46] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:53:49,134 INFO 192.168.1.3 - - [02/Jul/2025 18:53:49] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:53:51,554 INFO 192.168.1.3 - - [02/Jul/2025 18:53:51] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:53:51,618 INFO 192.168.1.3 - - [02/Jul/2025 18:53:51] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:53:51,704 INFO 192.168.1.3 - - [02/Jul/2025 18:53:51] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:53:51,765 INFO 192.168.1.3 - - [02/Jul/2025 18:53:51] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:53:54,037 INFO 192.168.1.3 - - [02/Jul/2025 18:53:54] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:53:56,484 INFO 192.168.1.3 - - [02/Jul/2025 18:53:56] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:53:56,578 INFO 192.168.1.3 - - [02/Jul/2025 18:53:56] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:53:56,648 INFO 192.168.1.3 - - [02/Jul/2025 18:53:56] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:53:57,051 INFO 192.168.1.3 - - [02/Jul/2025 18:53:57] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:53:59,642 INFO 192.168.1.3 - - [02/Jul/2025 18:53:59] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:54:01,734 INFO 192.168.1.3 - - [02/Jul/2025 18:54:01] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:01,852 INFO 192.168.1.3 - - [02/Jul/2025 18:54:01] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:01,961 INFO 192.168.1.3 - - [02/Jul/2025 18:54:01] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:02,015 INFO 192.168.1.3 - - [02/Jul/2025 18:54:02] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:54:04,844 INFO 192.168.1.3 - - [02/Jul/2025 18:54:04] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 18:54:06,935 INFO 192.168.1.3 - - [02/Jul/2025 18:54:06] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:07,062 INFO 192.168.1.3 - - [02/Jul/2025 18:54:07] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:07,148 INFO 192.168.1.3 - - [02/Jul/2025 18:54:07] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:07,204 INFO 192.168.1.3 - - [02/Jul/2025 18:54:07] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:54:09,423 INFO 192.168.1.3 - - [02/Jul/2025 18:54:09] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 18:54:12,461 INFO 192.168.1.3 - - [02/Jul/2025 18:54:12] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:12,591 INFO 192.168.1.3 - - [02/Jul/2025 18:54:12] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:12,651 INFO 192.168.1.3 - - [02/Jul/2025 18:54:12] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:12,753 INFO 192.168.1.3 - - [02/Jul/2025 18:54:12] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:54:15,207 INFO 192.168.1.3 - - [02/Jul/2025 18:54:15] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 18:54:17,238 INFO 192.168.1.3 - - [02/Jul/2025 18:54:17] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:17,342 INFO 192.168.1.3 - - [02/Jul/2025 18:54:17] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:17,413 INFO 192.168.1.3 - - [02/Jul/2025 18:54:17] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:17,472 INFO 192.168.1.3 - - [02/Jul/2025 18:54:17] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:54:18,566 INFO 192.168.1.3 - - [02/Jul/2025 18:54:18] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 18:54:19,344 INFO 192.168.1.3 - - [02/Jul/2025 18:54:19] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:19,793 INFO 192.168.1.3 - - [02/Jul/2025 18:54:19] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:19,850 INFO 192.168.1.3 - - [02/Jul/2025 18:54:19] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:19,917 INFO 192.168.1.3 - - [02/Jul/2025 18:54:19] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:54:21,203 INFO Route: get_profile | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 18:54:21,216 INFO 192.168.1.3 - - [02/Jul/2025 18:54:21] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 18:54:21,216 INFO 192.168.1.3 - - [02/Jul/2025 18:54:21] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 18:54:22,260 INFO 192.168.1.3 - - [02/Jul/2025 18:54:22] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:22,325 INFO 192.168.1.3 - - [02/Jul/2025 18:54:22] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:22,417 INFO 192.168.1.3 - - [02/Jul/2025 18:54:22] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:22,801 INFO 192.168.1.3 - - [02/Jul/2025 18:54:22] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:54:24,271 INFO 192.168.1.3 - - [02/Jul/2025 18:54:24] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 18:54:25,198 INFO 192.168.1.3 - - [02/Jul/2025 18:54:25] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:25,243 INFO 192.168.1.3 - - [02/Jul/2025 18:54:25] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:25,329 INFO 192.168.1.3 - - [02/Jul/2025 18:54:25] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:25,402 INFO 192.168.1.3 - - [02/Jul/2025 18:54:25] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:54:26,975 INFO 192.168.1.3 - - [02/Jul/2025 18:54:26] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 18:54:27,853 INFO 192.168.1.3 - - [02/Jul/2025 18:54:27] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:27,926 INFO 192.168.1.3 - - [02/Jul/2025 18:54:27] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:27,975 INFO 192.168.1.3 - - [02/Jul/2025 18:54:27] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:28,062 INFO 192.168.1.3 - - [02/Jul/2025 18:54:28] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:54:29,354 INFO 192.168.1.3 - - [02/Jul/2025 18:54:29] "GET /static/uploads/cropped_extend_020725-184047.png HTTP/1.1" 200 -
+2025-07-02 18:54:29,967 INFO 192.168.1.3 - - [02/Jul/2025 18:54:29] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:30,034 INFO 192.168.1.3 - - [02/Jul/2025 18:54:30] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:30,128 INFO 192.168.1.3 - - [02/Jul/2025 18:54:30] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:30,262 INFO 192.168.1.3 - - [02/Jul/2025 18:54:30] "GET /static/uploads/020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:54:31,392 INFO 192.168.1.3 - - [02/Jul/2025 18:54:31] "GET /static/uploads/cropped_extend_020725-184457.png HTTP/1.1" 200 -
+2025-07-02 18:54:32,100 INFO 192.168.1.3 - - [02/Jul/2025 18:54:32] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:32,173 INFO 192.168.1.3 - - [02/Jul/2025 18:54:32] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:32,290 INFO 192.168.1.3 - - [02/Jul/2025 18:54:32] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:32,385 INFO 192.168.1.3 - - [02/Jul/2025 18:54:32] "GET /static/uploads/020725-185212.png HTTP/1.1" 200 -
+2025-07-02 18:54:32,816 INFO 192.168.1.3 - - [02/Jul/2025 18:54:32] "GET /static/uploads/cropped_extend_020725-185212.png HTTP/1.1" 200 -
+2025-07-02 18:54:33,239 INFO 192.168.1.3 - - [02/Jul/2025 18:54:33] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:33,346 INFO 192.168.1.3 - - [02/Jul/2025 18:54:33] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:33,397 INFO 192.168.1.3 - - [02/Jul/2025 18:54:33] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:54:33,468 INFO 192.168.1.3 - - [02/Jul/2025 18:54:33] "GET /static/uploads/020725-185344.png HTTP/1.1" 200 -
+2025-07-02 18:54:34,085 INFO 192.168.1.3 - - [02/Jul/2025 18:54:34] "GET /static/uploads/cropped_extend_020725-185344.png HTTP/1.1" 200 -
+2025-07-02 18:54:34,514 INFO 192.168.1.3 - - [02/Jul/2025 18:54:34] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:34,570 INFO 192.168.1.3 - - [02/Jul/2025 18:54:34] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:54:34,671 INFO 192.168.1.3 - - [02/Jul/2025 18:54:34] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:57:41,727 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\main.py', reloading
+2025-07-02 18:57:44,589 INFO  * Restarting with stat
+2025-07-02 18:57:52,059 WARNING  * Debugger is active!
+2025-07-02 18:57:52,068 INFO  * Debugger PIN: 741-891-751
+2025-07-02 18:58:56,284 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\models.py', reloading
+2025-07-02 18:58:57,202 INFO  * Restarting with stat
+2025-07-02 18:59:03,357 WARNING  * Debugger is active!
+2025-07-02 18:59:03,362 INFO  * Debugger PIN: 741-891-751
+2025-07-02 18:59:05,745 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\models.py', reloading
+2025-07-02 18:59:06,770 INFO  * Restarting with stat
+2025-07-02 18:59:12,638 WARNING  * Debugger is active!
+2025-07-02 18:59:12,644 INFO  * Debugger PIN: 741-891-751
+2025-07-02 18:59:36,775 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:59:38,272 INFO 192.168.1.3 - - [02/Jul/2025 18:59:38] "[31m[1mPOST /api/predict HTTP/1.1[0m" 401 -
+2025-07-02 18:59:38,430 INFO Route: refresh_token | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: POST | Path: /auth/refresh-token | IP: 192.168.1.3
+2025-07-02 18:59:38,430 INFO 192.168.1.3 - - [02/Jul/2025 18:59:38] "POST /auth/refresh-token HTTP/1.1" 200 -
+2025-07-02 18:59:38,588 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 18:59:39,995 INFO 192.168.1.3 - - [02/Jul/2025 18:59:39] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 18:59:40,223 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 18:59:40,293 INFO 192.168.1.3 - - [02/Jul/2025 18:59:40] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 18:59:40,296 INFO 192.168.1.3 - - [02/Jul/2025 18:59:40] "GET /static/uploads/020725-185938.png HTTP/1.1" 200 -
+2025-07-02 18:59:40,318 INFO 192.168.1.3 - - [02/Jul/2025 18:59:40] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:40,428 INFO 192.168.1.3 - - [02/Jul/2025 18:59:40] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:59:43,648 INFO 192.168.1.3 - - [02/Jul/2025 18:59:43] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 18:59:46,177 INFO 192.168.1.3 - - [02/Jul/2025 18:59:46] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:59:46,246 INFO 192.168.1.3 - - [02/Jul/2025 18:59:46] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:46,431 INFO 192.168.1.3 - - [02/Jul/2025 18:59:46] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:46,499 INFO 192.168.1.3 - - [02/Jul/2025 18:59:46] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:59:49,024 INFO 192.168.1.3 - - [02/Jul/2025 18:59:49] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 18:59:51,917 INFO 192.168.1.3 - - [02/Jul/2025 18:59:51] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:51,990 INFO 192.168.1.3 - - [02/Jul/2025 18:59:51] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:59:52,048 INFO 192.168.1.3 - - [02/Jul/2025 18:59:52] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:52,087 INFO 192.168.1.3 - - [02/Jul/2025 18:59:52] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:59:54,692 INFO 192.168.1.3 - - [02/Jul/2025 18:59:54] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 18:59:57,406 INFO 192.168.1.3 - - [02/Jul/2025 18:59:57] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:57,541 INFO 192.168.1.3 - - [02/Jul/2025 18:59:57] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 18:59:57,628 INFO 192.168.1.3 - - [02/Jul/2025 18:59:57] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 18:59:57,687 INFO 192.168.1.3 - - [02/Jul/2025 18:59:57] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 19:00:00,465 INFO 192.168.1.3 - - [02/Jul/2025 19:00:00] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 19:00:03,005 INFO 192.168.1.3 - - [02/Jul/2025 19:00:03] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:03,079 INFO 192.168.1.3 - - [02/Jul/2025 19:00:03] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:03,149 INFO 192.168.1.3 - - [02/Jul/2025 19:00:03] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:03,191 INFO 192.168.1.3 - - [02/Jul/2025 19:00:03] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 19:00:06,006 INFO 192.168.1.3 - - [02/Jul/2025 19:00:06] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 19:00:08,193 INFO 192.168.1.3 - - [02/Jul/2025 19:00:08] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:08,328 INFO 192.168.1.3 - - [02/Jul/2025 19:00:08] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:08,379 INFO 192.168.1.3 - - [02/Jul/2025 19:00:08] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:08,468 INFO 192.168.1.3 - - [02/Jul/2025 19:00:08] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 19:00:10,838 INFO 192.168.1.3 - - [02/Jul/2025 19:00:10] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 19:00:13,575 INFO 192.168.1.3 - - [02/Jul/2025 19:00:13] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:13,667 INFO 192.168.1.3 - - [02/Jul/2025 19:00:13] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:13,740 INFO 192.168.1.3 - - [02/Jul/2025 19:00:13] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:14,123 INFO 192.168.1.3 - - [02/Jul/2025 19:00:14] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 19:00:15,559 INFO 192.168.1.3 - - [02/Jul/2025 19:00:15] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 19:00:16,429 INFO 192.168.1.3 - - [02/Jul/2025 19:00:16] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:16,539 INFO 192.168.1.3 - - [02/Jul/2025 19:00:16] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:16,711 INFO 192.168.1.3 - - [02/Jul/2025 19:00:16] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:16,790 INFO 192.168.1.3 - - [02/Jul/2025 19:00:16] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 19:00:18,227 INFO 192.168.1.3 - - [02/Jul/2025 19:00:18] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 19:00:19,339 INFO 192.168.1.3 - - [02/Jul/2025 19:00:19] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:19,402 INFO 192.168.1.3 - - [02/Jul/2025 19:00:19] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:19,485 INFO 192.168.1.3 - - [02/Jul/2025 19:00:19] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:19,542 INFO 192.168.1.3 - - [02/Jul/2025 19:00:19] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 19:00:21,136 INFO 192.168.1.3 - - [02/Jul/2025 19:00:21] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 19:00:22,270 INFO 192.168.1.3 - - [02/Jul/2025 19:00:22] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:22,334 INFO 192.168.1.3 - - [02/Jul/2025 19:00:22] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:23,562 INFO 192.168.1.3 - - [02/Jul/2025 19:00:23] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:23,634 INFO 192.168.1.3 - - [02/Jul/2025 19:00:23] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 19:00:25,420 INFO 192.168.1.3 - - [02/Jul/2025 19:00:25] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 19:00:26,352 INFO 192.168.1.3 - - [02/Jul/2025 19:00:26] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:26,420 INFO 192.168.1.3 - - [02/Jul/2025 19:00:26] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:26,469 INFO 192.168.1.3 - - [02/Jul/2025 19:00:26] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:26,558 INFO 192.168.1.3 - - [02/Jul/2025 19:00:26] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 19:00:28,201 INFO 192.168.1.3 - - [02/Jul/2025 19:00:28] "GET /static/uploads/cropped_extend_020725-184047.png HTTP/1.1" 200 -
+2025-07-02 19:00:29,269 INFO 192.168.1.3 - - [02/Jul/2025 19:00:29] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:29,312 INFO 192.168.1.3 - - [02/Jul/2025 19:00:29] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:29,388 INFO 192.168.1.3 - - [02/Jul/2025 19:00:29] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:29,481 INFO 192.168.1.3 - - [02/Jul/2025 19:00:29] "GET /static/uploads/020725-184457.png HTTP/1.1" 200 -
+2025-07-02 19:00:30,613 INFO 192.168.1.3 - - [02/Jul/2025 19:00:30] "GET /static/uploads/cropped_extend_020725-184457.png HTTP/1.1" 200 -
+2025-07-02 19:00:31,202 INFO 192.168.1.3 - - [02/Jul/2025 19:00:31] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:31,252 INFO 192.168.1.3 - - [02/Jul/2025 19:00:31] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:31,349 INFO 192.168.1.3 - - [02/Jul/2025 19:00:31] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:31,427 INFO 192.168.1.3 - - [02/Jul/2025 19:00:31] "GET /static/uploads/020725-185212.png HTTP/1.1" 200 -
+2025-07-02 19:00:31,845 INFO 192.168.1.3 - - [02/Jul/2025 19:00:31] "GET /static/uploads/cropped_extend_020725-185212.png HTTP/1.1" 200 -
+2025-07-02 19:00:32,106 INFO 192.168.1.3 - - [02/Jul/2025 19:00:32] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:32,229 INFO 192.168.1.3 - - [02/Jul/2025 19:00:32] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:32,274 INFO 192.168.1.3 - - [02/Jul/2025 19:00:32] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:32,346 INFO 192.168.1.3 - - [02/Jul/2025 19:00:32] "GET /static/uploads/020725-185344.png HTTP/1.1" 200 -
+2025-07-02 19:00:32,951 INFO 192.168.1.3 - - [02/Jul/2025 19:00:32] "GET /static/uploads/cropped_extend_020725-185344.png HTTP/1.1" 200 -
+2025-07-02 19:00:33,442 INFO 192.168.1.3 - - [02/Jul/2025 19:00:33] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:33,511 INFO 192.168.1.3 - - [02/Jul/2025 19:00:33] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:33,648 INFO 192.168.1.3 - - [02/Jul/2025 19:00:33] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:00:33,799 INFO 192.168.1.3 - - [02/Jul/2025 19:00:33] "GET /static/uploads/020725-185938.png HTTP/1.1" 200 -
+2025-07-02 19:00:34,161 INFO 192.168.1.3 - - [02/Jul/2025 19:00:34] "GET /static/uploads/cropped_extend_020725-185938.png HTTP/1.1" 200 -
+2025-07-02 19:00:34,390 INFO 192.168.1.3 - - [02/Jul/2025 19:00:34] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:34,425 INFO 192.168.1.3 - - [02/Jul/2025 19:00:34] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:00:34,479 INFO 192.168.1.3 - - [02/Jul/2025 19:00:34] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:08,578 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 19:01:08,578 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 19:01:08,580 INFO  * Restarting with stat
+2025-07-02 19:01:14,135 WARNING  * Debugger is active!
+2025-07-02 19:01:14,142 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:01:35,841 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 19:01:38,466 INFO 192.168.1.3 - - [02/Jul/2025 19:01:38] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 19:01:38,583 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 19:01:38,652 INFO 192.168.1.3 - - [02/Jul/2025 19:01:38] "GET /static/uploads/020725-190136.png HTTP/1.1" 200 -
+2025-07-02 19:01:38,657 INFO 192.168.1.3 - - [02/Jul/2025 19:01:38] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 19:01:38,811 INFO 192.168.1.3 - - [02/Jul/2025 19:01:38] "GET /static/uploads/020725-182322.png HTTP/1.1" 200 -
+2025-07-02 19:01:41,701 INFO 192.168.1.3 - - [02/Jul/2025 19:01:41] "GET /static/uploads/cropped_extend_020725-182322.png HTTP/1.1" 200 -
+2025-07-02 19:01:44,022 INFO 192.168.1.3 - - [02/Jul/2025 19:01:44] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:01:44,098 INFO 192.168.1.3 - - [02/Jul/2025 19:01:44] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:44,223 INFO 192.168.1.3 - - [02/Jul/2025 19:01:44] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:44,270 INFO 192.168.1.3 - - [02/Jul/2025 19:01:44] "GET /static/uploads/020725-182405.png HTTP/1.1" 200 -
+2025-07-02 19:01:46,840 INFO 192.168.1.3 - - [02/Jul/2025 19:01:46] "GET /static/uploads/cropped_extend_020725-182405.png HTTP/1.1" 200 -
+2025-07-02 19:01:49,516 INFO 192.168.1.3 - - [02/Jul/2025 19:01:49] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:49,631 INFO 192.168.1.3 - - [02/Jul/2025 19:01:49] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:01:49,703 INFO 192.168.1.3 - - [02/Jul/2025 19:01:49] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:49,749 INFO 192.168.1.3 - - [02/Jul/2025 19:01:49] "GET /static/uploads/020725-182454.png HTTP/1.1" 200 -
+2025-07-02 19:01:52,123 INFO 192.168.1.3 - - [02/Jul/2025 19:01:52] "GET /static/uploads/cropped_extend_020725-182454.png HTTP/1.1" 200 -
+2025-07-02 19:01:54,291 INFO 192.168.1.3 - - [02/Jul/2025 19:01:54] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:54,474 INFO 192.168.1.3 - - [02/Jul/2025 19:01:54] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:01:54,577 INFO 192.168.1.3 - - [02/Jul/2025 19:01:54] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:54,656 INFO 192.168.1.3 - - [02/Jul/2025 19:01:54] "GET /static/uploads/020725-182713.png HTTP/1.1" 200 -
+2025-07-02 19:01:57,077 INFO 192.168.1.3 - - [02/Jul/2025 19:01:57] "GET /static/uploads/cropped_extend_020725-182713.png HTTP/1.1" 200 -
+2025-07-02 19:01:59,321 INFO 192.168.1.3 - - [02/Jul/2025 19:01:59] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:59,397 INFO 192.168.1.3 - - [02/Jul/2025 19:01:59] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:01:59,453 INFO 192.168.1.3 - - [02/Jul/2025 19:01:59] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:01:59,507 INFO 192.168.1.3 - - [02/Jul/2025 19:01:59] "GET /static/uploads/020725-182756.png HTTP/1.1" 200 -
+2025-07-02 19:02:01,381 INFO 192.168.1.3 - - [02/Jul/2025 19:02:01] "GET /static/uploads/cropped_extend_020725-182756.png HTTP/1.1" 200 -
+2025-07-02 19:02:03,270 INFO 192.168.1.3 - - [02/Jul/2025 19:02:03] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:03,360 INFO 192.168.1.3 - - [02/Jul/2025 19:02:03] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:03,408 INFO 192.168.1.3 - - [02/Jul/2025 19:02:03] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:03,803 INFO 192.168.1.3 - - [02/Jul/2025 19:02:03] "GET /static/uploads/020725-183009.png HTTP/1.1" 200 -
+2025-07-02 19:02:06,031 INFO 192.168.1.3 - - [02/Jul/2025 19:02:06] "GET /static/uploads/cropped_extend_020725-183009.png HTTP/1.1" 200 -
+2025-07-02 19:02:08,269 INFO 192.168.1.3 - - [02/Jul/2025 19:02:08] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:08,360 INFO 192.168.1.3 - - [02/Jul/2025 19:02:08] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:08,435 INFO 192.168.1.3 - - [02/Jul/2025 19:02:08] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:08,492 INFO 192.168.1.3 - - [02/Jul/2025 19:02:08] "GET /static/uploads/020725-183043.png HTTP/1.1" 200 -
+2025-07-02 19:02:09,650 INFO 192.168.1.3 - - [02/Jul/2025 19:02:09] "GET /static/uploads/cropped_extend_020725-183043.png HTTP/1.1" 200 -
+2025-07-02 19:02:10,420 INFO 192.168.1.3 - - [02/Jul/2025 19:02:10] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:10,511 INFO 192.168.1.3 - - [02/Jul/2025 19:02:10] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:10,559 INFO 192.168.1.3 - - [02/Jul/2025 19:02:10] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:10,721 INFO 192.168.1.3 - - [02/Jul/2025 19:02:10] "GET /static/uploads/020725-183217.png HTTP/1.1" 200 -
+2025-07-02 19:02:11,901 INFO 192.168.1.3 - - [02/Jul/2025 19:02:11] "GET /static/uploads/cropped_extend_020725-183217.png HTTP/1.1" 200 -
+2025-07-02 19:02:12,869 INFO 192.168.1.3 - - [02/Jul/2025 19:02:12] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:12,933 INFO 192.168.1.3 - - [02/Jul/2025 19:02:12] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:13,083 INFO 192.168.1.3 - - [02/Jul/2025 19:02:13] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:13,133 INFO 192.168.1.3 - - [02/Jul/2025 19:02:13] "GET /static/uploads/020725-183547.png HTTP/1.1" 200 -
+2025-07-02 19:02:14,678 INFO 192.168.1.3 - - [02/Jul/2025 19:02:14] "GET /static/uploads/cropped_extend_020725-183547.png HTTP/1.1" 200 -
+2025-07-02 19:02:15,828 INFO 192.168.1.3 - - [02/Jul/2025 19:02:15] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:15,890 INFO 192.168.1.3 - - [02/Jul/2025 19:02:15] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:16,033 INFO 192.168.1.3 - - [02/Jul/2025 19:02:16] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:16,136 INFO 192.168.1.3 - - [02/Jul/2025 19:02:16] "GET /static/uploads/020725-183937.png HTTP/1.1" 200 -
+2025-07-02 19:02:17,659 INFO 192.168.1.3 - - [02/Jul/2025 19:02:17] "GET /static/uploads/cropped_extend_020725-183937.png HTTP/1.1" 200 -
+2025-07-02 19:02:18,355 INFO 192.168.1.3 - - [02/Jul/2025 19:02:18] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:18,518 INFO 192.168.1.3 - - [02/Jul/2025 19:02:18] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:18,566 INFO 192.168.1.3 - - [02/Jul/2025 19:02:18] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:18,650 INFO 192.168.1.3 - - [02/Jul/2025 19:02:18] "GET /static/uploads/020725-184047.png HTTP/1.1" 200 -
+2025-07-02 19:02:20,020 INFO 192.168.1.3 - - [02/Jul/2025 19:02:20] "GET /static/uploads/cropped_extend_020725-184047.png HTTP/1.1" 200 -
+2025-07-02 19:02:20,671 INFO 192.168.1.3 - - [02/Jul/2025 19:02:20] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:20,719 INFO 192.168.1.3 - - [02/Jul/2025 19:02:20] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:20,805 INFO 192.168.1.3 - - [02/Jul/2025 19:02:20] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:20,891 INFO 192.168.1.3 - - [02/Jul/2025 19:02:20] "GET /static/uploads/020725-184457.png HTTP/1.1" 200 -
+2025-07-02 19:02:22,192 INFO 192.168.1.3 - - [02/Jul/2025 19:02:22] "GET /static/uploads/cropped_extend_020725-184457.png HTTP/1.1" 200 -
+2025-07-02 19:02:22,979 INFO 192.168.1.3 - - [02/Jul/2025 19:02:22] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:23,048 INFO 192.168.1.3 - - [02/Jul/2025 19:02:23] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:23,157 INFO 192.168.1.3 - - [02/Jul/2025 19:02:23] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:23,242 INFO 192.168.1.3 - - [02/Jul/2025 19:02:23] "GET /static/uploads/020725-185212.png HTTP/1.1" 200 -
+2025-07-02 19:02:23,746 INFO 192.168.1.3 - - [02/Jul/2025 19:02:23] "GET /static/uploads/cropped_extend_020725-185212.png HTTP/1.1" 200 -
+2025-07-02 19:02:24,045 INFO 192.168.1.3 - - [02/Jul/2025 19:02:24] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:24,145 INFO 192.168.1.3 - - [02/Jul/2025 19:02:24] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:24,200 INFO 192.168.1.3 - - [02/Jul/2025 19:02:24] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:24,290 INFO 192.168.1.3 - - [02/Jul/2025 19:02:24] "GET /static/uploads/020725-185344.png HTTP/1.1" 200 -
+2025-07-02 19:02:24,992 INFO 192.168.1.3 - - [02/Jul/2025 19:02:24] "GET /static/uploads/cropped_extend_020725-185344.png HTTP/1.1" 200 -
+2025-07-02 19:02:25,506 INFO 192.168.1.3 - - [02/Jul/2025 19:02:25] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:25,571 INFO 192.168.1.3 - - [02/Jul/2025 19:02:25] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:25,681 INFO 192.168.1.3 - - [02/Jul/2025 19:02:25] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:02:25,763 INFO 192.168.1.3 - - [02/Jul/2025 19:02:25] "GET /static/uploads/020725-185938.png HTTP/1.1" 200 -
+2025-07-02 19:02:26,088 INFO 192.168.1.3 - - [02/Jul/2025 19:02:26] "GET /static/uploads/cropped_extend_020725-185938.png HTTP/1.1" 200 -
+2025-07-02 19:02:26,289 INFO 192.168.1.3 - - [02/Jul/2025 19:02:26] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:26,313 INFO 192.168.1.3 - - [02/Jul/2025 19:02:26] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:26,346 INFO 192.168.1.3 - - [02/Jul/2025 19:02:26] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:26,383 INFO 192.168.1.3 - - [02/Jul/2025 19:02:26] "GET /static/uploads/020725-190136.png HTTP/1.1" 200 -
+2025-07-02 19:02:26,991 INFO 192.168.1.3 - - [02/Jul/2025 19:02:26] "GET /static/uploads/cropped_extend_020725-190136.png HTTP/1.1" 200 -
+2025-07-02 19:02:27,656 INFO 192.168.1.3 - - [02/Jul/2025 19:02:27] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:27,712 INFO 192.168.1.3 - - [02/Jul/2025 19:02:27] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:02:27,743 INFO 192.168.1.3 - - [02/Jul/2025 19:02:27] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:05:02,710 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\main.py', reloading
+2025-07-02 19:05:03,644 INFO  * Restarting with stat
+2025-07-02 19:05:09,398 WARNING  * Debugger is active!
+2025-07-02 19:05:09,403 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:05:20,553 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 19:05:20,553 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 19:05:20,555 INFO  * Restarting with stat
+2025-07-02 19:05:25,690 WARNING  * Debugger is active!
+2025-07-02 19:05:25,696 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:05:41,878 INFO Route: get_profile | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 19:05:41,890 INFO 192.168.1.3 - - [02/Jul/2025 19:05:41] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 19:05:43,385 INFO Route: get_profile | User: cbed6416-c103-4aed-a811-536c0852b9bc | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 19:05:43,389 INFO 192.168.1.3 - - [02/Jul/2025 19:05:43] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 19:05:55,751 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 192.168.1.3
+2025-07-02 19:05:55,915 INFO 192.168.1.3 - - [02/Jul/2025 19:05:55] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 19:06:19,829 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 19:06:21,376 INFO 192.168.1.3 - - [02/Jul/2025 19:06:21] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 19:06:21,541 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 19:06:21,593 INFO 192.168.1.3 - - [02/Jul/2025 19:06:21] "GET /static/uploads/020725-190620.png HTTP/1.1" 200 -
+2025-07-02 19:06:21,603 INFO 192.168.1.3 - - [02/Jul/2025 19:06:21] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 19:06:21,715 INFO 192.168.1.3 - - [02/Jul/2025 19:06:21] "GET /static/uploads/250625-091037.png HTTP/1.1" 200 -
+2025-07-02 19:06:23,285 INFO 192.168.1.3 - - [02/Jul/2025 19:06:23] "GET /static/uploads/cropped_extend_250625-091037.png HTTP/1.1" 200 -
+2025-07-02 19:06:23,885 INFO 192.168.1.3 - - [02/Jul/2025 19:06:23] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:23,935 INFO 192.168.1.3 - - [02/Jul/2025 19:06:23] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:06:24,000 INFO 192.168.1.3 - - [02/Jul/2025 19:06:24] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:24,095 INFO 192.168.1.3 - - [02/Jul/2025 19:06:24] "GET /static/uploads/250625-091142.png HTTP/1.1" 200 -
+2025-07-02 19:06:24,982 INFO 192.168.1.3 - - [02/Jul/2025 19:06:24] "GET /static/uploads/cropped_extend_250625-091142.png HTTP/1.1" 200 -
+2025-07-02 19:06:25,354 INFO 192.168.1.3 - - [02/Jul/2025 19:06:25] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:25,391 INFO 192.168.1.3 - - [02/Jul/2025 19:06:25] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:25,429 INFO 192.168.1.3 - - [02/Jul/2025 19:06:25] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:25,476 INFO 192.168.1.3 - - [02/Jul/2025 19:06:25] "GET /static/uploads/250625-091319.png HTTP/1.1" 200 -
+2025-07-02 19:06:26,379 INFO 192.168.1.3 - - [02/Jul/2025 19:06:26] "GET /static/uploads/cropped_extend_250625-091319.png HTTP/1.1" 200 -
+2025-07-02 19:06:26,430 INFO 192.168.1.3 - - [02/Jul/2025 19:06:26] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:26,466 INFO 192.168.1.3 - - [02/Jul/2025 19:06:26] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:26,508 INFO 192.168.1.3 - - [02/Jul/2025 19:06:26] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:26,532 INFO 192.168.1.3 - - [02/Jul/2025 19:06:26] "GET /static/uploads/250625-091441.png HTTP/1.1" 200 -
+2025-07-02 19:06:27,663 INFO 192.168.1.3 - - [02/Jul/2025 19:06:27] "GET /static/uploads/cropped_extend_250625-091441.png HTTP/1.1" 200 -
+2025-07-02 19:06:28,110 INFO 192.168.1.3 - - [02/Jul/2025 19:06:28] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:28,139 INFO 192.168.1.3 - - [02/Jul/2025 19:06:28] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:28,183 INFO 192.168.1.3 - - [02/Jul/2025 19:06:28] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:28,229 INFO 192.168.1.3 - - [02/Jul/2025 19:06:28] "GET /static/uploads/010725-175724.png HTTP/1.1" 200 -
+2025-07-02 19:06:29,449 INFO 192.168.1.3 - - [02/Jul/2025 19:06:29] "GET /static/uploads/cropped_extend_010725-175724.png HTTP/1.1" 200 -
+2025-07-02 19:06:30,279 INFO 192.168.1.3 - - [02/Jul/2025 19:06:30] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:30,381 INFO 192.168.1.3 - - [02/Jul/2025 19:06:30] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:30,738 INFO 192.168.1.3 - - [02/Jul/2025 19:06:30] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:30,785 INFO 192.168.1.3 - - [02/Jul/2025 19:06:30] "GET /static/uploads/020725-024504.png HTTP/1.1" 200 -
+2025-07-02 19:06:31,834 INFO 192.168.1.3 - - [02/Jul/2025 19:06:31] "GET /static/uploads/cropped_extend_020725-024504.png HTTP/1.1" 200 -
+2025-07-02 19:06:32,837 INFO 192.168.1.3 - - [02/Jul/2025 19:06:32] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:32,987 INFO 192.168.1.3 - - [02/Jul/2025 19:06:32] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:06:33,084 INFO 192.168.1.3 - - [02/Jul/2025 19:06:33] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:33,162 INFO 192.168.1.3 - - [02/Jul/2025 19:06:33] "GET /static/uploads/020725-025242.png HTTP/1.1" 200 -
+2025-07-02 19:06:34,598 INFO 192.168.1.3 - - [02/Jul/2025 19:06:34] "GET /static/uploads/cropped_extend_020725-025242.png HTTP/1.1" 200 -
+2025-07-02 19:06:35,709 INFO 192.168.1.3 - - [02/Jul/2025 19:06:35] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:35,736 INFO 192.168.1.3 - - [02/Jul/2025 19:06:35] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:35,786 INFO 192.168.1.3 - - [02/Jul/2025 19:06:35] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:35,840 INFO 192.168.1.3 - - [02/Jul/2025 19:06:35] "GET /static/uploads/020725-140306.png HTTP/1.1" 200 -
+2025-07-02 19:06:36,664 INFO 192.168.1.3 - - [02/Jul/2025 19:06:36] "GET /static/uploads/cropped_extend_020725-140306.png HTTP/1.1" 200 -
+2025-07-02 19:06:36,970 INFO 192.168.1.3 - - [02/Jul/2025 19:06:36] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:37,031 INFO 192.168.1.3 - - [02/Jul/2025 19:06:37] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:37,089 INFO 192.168.1.3 - - [02/Jul/2025 19:06:37] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:37,139 INFO 192.168.1.3 - - [02/Jul/2025 19:06:37] "GET /static/uploads/020725-141407.png HTTP/1.1" 200 -
+2025-07-02 19:06:38,456 INFO 192.168.1.3 - - [02/Jul/2025 19:06:38] "GET /static/uploads/cropped_extend_020725-141407.png HTTP/1.1" 200 -
+2025-07-02 19:06:39,192 INFO 192.168.1.3 - - [02/Jul/2025 19:06:39] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:39,242 INFO 192.168.1.3 - - [02/Jul/2025 19:06:39] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:39,303 INFO 192.168.1.3 - - [02/Jul/2025 19:06:39] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:39,361 INFO 192.168.1.3 - - [02/Jul/2025 19:06:39] "GET /static/uploads/020725-181339.png HTTP/1.1" 200 -
+2025-07-02 19:06:39,882 INFO 192.168.1.3 - - [02/Jul/2025 19:06:39] "GET /static/uploads/cropped_extend_020725-181339.png HTTP/1.1" 200 -
+2025-07-02 19:06:40,173 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:40,213 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:40,270 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:40,334 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/020725-181432.png HTTP/1.1" 200 -
+2025-07-02 19:06:40,412 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/cropped_extend_020725-181432.png HTTP/1.1" 200 -
+2025-07-02 19:06:40,493 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:40,554 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:40,608 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:40,688 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/020725-181546.png HTTP/1.1" 200 -
+2025-07-02 19:06:40,840 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/cropped_extend_020725-181546.png HTTP/1.1" 200 -
+2025-07-02 19:06:40,929 INFO 192.168.1.3 - - [02/Jul/2025 19:06:40] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 19:06:41,017 INFO 192.168.1.3 - - [02/Jul/2025 19:06:41] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:41,124 INFO 192.168.1.3 - - [02/Jul/2025 19:06:41] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:41,505 INFO 192.168.1.3 - - [02/Jul/2025 19:06:41] "GET /static/uploads/020725-190620.png HTTP/1.1" 200 -
+2025-07-02 19:06:41,965 INFO 192.168.1.3 - - [02/Jul/2025 19:06:41] "GET /static/uploads/cropped_extend_020725-190620.png HTTP/1.1" 200 -
+2025-07-02 19:06:42,157 INFO 192.168.1.3 - - [02/Jul/2025 19:06:42] "GET /static/uploads/tapered_Fade.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:42,200 INFO 192.168.1.3 - - [02/Jul/2025 19:06:42] "GET /static/uploads/buzz-cut-bulat.v1.jpg HTTP/1.1" 200 -
+2025-07-02 19:06:42,252 INFO 192.168.1.3 - - [02/Jul/2025 19:06:42] "GET /static/uploads/man_bun.jpg HTTP/1.1" 200 -
+2025-07-02 19:08:36,569 INFO Route: get_profile | User: d885da5e-063d-4552-9d9e-0b9666744045 | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 19:08:36,573 INFO 192.168.1.3 - - [02/Jul/2025 19:08:36] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 19:10:13,381 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\auth.py', reloading
+2025-07-02 19:10:14,139 INFO  * Restarting with stat
+2025-07-02 19:10:19,295 WARNING  * Debugger is active!
+2025-07-02 19:10:19,301 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:11:06,628 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\auth.py', reloading
+2025-07-02 19:11:07,435 INFO  * Restarting with stat
+2025-07-02 19:11:12,905 WARNING  * Debugger is active!
+2025-07-02 19:11:12,909 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:11:38,437 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 19:11:38,437 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 19:11:38,439 INFO  * Restarting with stat
+2025-07-02 19:11:43,547 WARNING  * Debugger is active!
+2025-07-02 19:11:43,553 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:11:44,747 INFO Route: get_profile | User: d885da5e-063d-4552-9d9e-0b9666744045 | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 19:11:44,758 INFO 192.168.1.3 - - [02/Jul/2025 19:11:44] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 19:12:13,426 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:12:13,431 INFO 192.168.1.3 - - [02/Jul/2025 19:12:13] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:12:24,055 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:12:24,059 INFO 192.168.1.3 - - [02/Jul/2025 19:12:24] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:12:41,691 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\auth.py', reloading
+2025-07-02 19:12:51,327 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 19:12:51,327 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 19:12:51,328 INFO  * Restarting with stat
+2025-07-02 19:12:56,764 WARNING  * Debugger is active!
+2025-07-02 19:12:56,769 INFO  * Debugger PIN: 741-891-751
+2025-07-02 19:17:15,310 INFO 192.168.1.3 - - [02/Jul/2025 19:17:15] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 19:17:41,552 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:17:41,563 INFO 192.168.1.3 - - [02/Jul/2025 19:17:41] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:17:43,242 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:17:43,244 INFO 192.168.1.3 - - [02/Jul/2025 19:17:43] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:17:45,872 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:17:45,874 INFO 192.168.1.3 - - [02/Jul/2025 19:17:45] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:17:46,713 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:17:46,715 INFO 192.168.1.3 - - [02/Jul/2025 19:17:46] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:17:54,247 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:17:54,249 INFO 192.168.1.3 - - [02/Jul/2025 19:17:54] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:18:19,379 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:18:19,381 INFO 192.168.1.3 - - [02/Jul/2025 19:18:19] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:18:20,460 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:18:20,462 INFO 192.168.1.3 - - [02/Jul/2025 19:18:20] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:18:21,208 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:18:21,210 INFO 192.168.1.3 - - [02/Jul/2025 19:18:21] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:18:22,028 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:18:22,030 INFO 192.168.1.3 - - [02/Jul/2025 19:18:22] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:22:00,279 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:22:00,282 INFO 192.168.1.3 - - [02/Jul/2025 19:22:00] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:22:05,978 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:22:05,981 INFO 192.168.1.3 - - [02/Jul/2025 19:22:05] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:22:07,438 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:22:07,441 INFO 192.168.1.3 - - [02/Jul/2025 19:22:07] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:22:11,884 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:22:11,886 INFO 192.168.1.3 - - [02/Jul/2025 19:22:11] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 19:22:17,675 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 19:22:17,764 INFO 192.168.1.3 - - [02/Jul/2025 19:22:17] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-07-02 19:22:42,966 INFO 192.168.1.3 - - [02/Jul/2025 19:22:42] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 19:22:44,951 INFO 192.168.1.3 - - [02/Jul/2025 19:22:44] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 19:22:58,309 INFO 192.168.1.3 - - [02/Jul/2025 19:22:58] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 19:23:41,707 INFO 192.168.1.3 - - [02/Jul/2025 19:23:41] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 19:37:29,211 INFO 192.168.1.3 - - [02/Jul/2025 19:37:29] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 19:37:33,781 INFO 192.168.1.3 - - [02/Jul/2025 19:37:33] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:12,059 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-07-02 22:39:12,059 INFO [33mPress CTRL+C to quit[0m
+2025-07-02 22:39:12,061 INFO  * Restarting with stat
+2025-07-02 22:39:17,997 WARNING  * Debugger is active!
+2025-07-02 22:39:18,001 INFO  * Debugger PIN: 741-891-751
+2025-07-02 22:39:31,936 INFO 192.168.1.3 - - [02/Jul/2025 22:39:31] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:32,816 INFO 192.168.1.3 - - [02/Jul/2025 22:39:32] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:33,631 INFO 192.168.1.3 - - [02/Jul/2025 22:39:33] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:34,298 INFO 192.168.1.3 - - [02/Jul/2025 22:39:34] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:34,875 INFO 192.168.1.3 - - [02/Jul/2025 22:39:34] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:35,364 INFO 192.168.1.3 - - [02/Jul/2025 22:39:35] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:35,959 INFO 192.168.1.3 - - [02/Jul/2025 22:39:35] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:36,507 INFO 192.168.1.3 - - [02/Jul/2025 22:39:36] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:37,130 INFO 192.168.1.3 - - [02/Jul/2025 22:39:37] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:37,707 INFO 192.168.1.3 - - [02/Jul/2025 22:39:37] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:38,135 INFO 192.168.1.3 - - [02/Jul/2025 22:39:38] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:38,659 INFO 192.168.1.3 - - [02/Jul/2025 22:39:38] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:39,170 INFO 192.168.1.3 - - [02/Jul/2025 22:39:39] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:40,125 INFO 192.168.1.3 - - [02/Jul/2025 22:39:40] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:40,594 INFO 192.168.1.3 - - [02/Jul/2025 22:39:40] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:41,039 INFO 192.168.1.3 - - [02/Jul/2025 22:39:41] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:41,526 INFO 192.168.1.3 - - [02/Jul/2025 22:39:41] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:42,036 INFO 192.168.1.3 - - [02/Jul/2025 22:39:42] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:42,575 INFO 192.168.1.3 - - [02/Jul/2025 22:39:42] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:50,276 INFO 192.168.1.3 - - [02/Jul/2025 22:39:50] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:50,468 INFO 192.168.1.3 - - [02/Jul/2025 22:39:50] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:50,665 INFO 192.168.1.3 - - [02/Jul/2025 22:39:50] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:50,819 INFO 192.168.1.3 - - [02/Jul/2025 22:39:50] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:51,104 INFO 192.168.1.3 - - [02/Jul/2025 22:39:51] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:51,420 INFO 192.168.1.3 - - [02/Jul/2025 22:39:51] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:51,642 INFO 192.168.1.3 - - [02/Jul/2025 22:39:51] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:51,829 INFO 192.168.1.3 - - [02/Jul/2025 22:39:51] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:53,583 INFO 192.168.1.3 - - [02/Jul/2025 22:39:53] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:53,861 INFO 192.168.1.3 - - [02/Jul/2025 22:39:53] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:54,061 INFO 192.168.1.3 - - [02/Jul/2025 22:39:54] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:39:54,322 INFO 192.168.1.3 - - [02/Jul/2025 22:39:54] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:00,706 INFO 192.168.1.3 - - [02/Jul/2025 22:40:00] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:01,387 INFO 192.168.1.3 - - [02/Jul/2025 22:40:01] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:01,579 INFO 192.168.1.3 - - [02/Jul/2025 22:40:01] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:01,715 INFO 192.168.1.3 - - [02/Jul/2025 22:40:01] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:01,945 INFO 192.168.1.3 - - [02/Jul/2025 22:40:01] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:02,706 INFO 192.168.1.3 - - [02/Jul/2025 22:40:02] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:02,893 INFO 192.168.1.3 - - [02/Jul/2025 22:40:02] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:03,154 INFO 192.168.1.3 - - [02/Jul/2025 22:40:03] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:03,839 INFO 192.168.1.3 - - [02/Jul/2025 22:40:03] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:04,167 INFO 192.168.1.3 - - [02/Jul/2025 22:40:04] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:04,342 INFO 192.168.1.3 - - [02/Jul/2025 22:40:04] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:05,319 INFO 192.168.1.3 - - [02/Jul/2025 22:40:05] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:05,584 INFO 192.168.1.3 - - [02/Jul/2025 22:40:05] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:07,115 INFO 192.168.1.3 - - [02/Jul/2025 22:40:07] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:40:40,755 INFO 192.168.1.3 - - [02/Jul/2025 22:40:40] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:41:33,581 INFO 192.168.1.3 - - [02/Jul/2025 22:41:33] "[31m[1mGET /api/profile HTTP/1.1[0m" 401 -
+2025-07-02 22:42:12,125 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 22:42:12,141 INFO 192.168.1.3 - - [02/Jul/2025 22:42:12] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-07-02 22:42:20,776 INFO Route: register | User: None | Method: POST | Path: /auth/register | IP: 192.168.1.3
+2025-07-02 22:42:20,864 INFO 192.168.1.3 - - [02/Jul/2025 22:42:20] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-07-02 22:42:39,633 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 192.168.1.3
+2025-07-02 22:42:39,794 INFO 192.168.1.3 - - [02/Jul/2025 22:42:39] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 22:42:55,913 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:42:55,922 INFO 192.168.1.3 - - [02/Jul/2025 22:42:55] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:42:58,181 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:42:58,185 INFO 192.168.1.3 - - [02/Jul/2025 22:42:58] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:43:12,514 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:43:12,525 INFO 192.168.1.3 - - [02/Jul/2025 22:43:12] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:44:47,681 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:44:47,685 INFO 192.168.1.3 - - [02/Jul/2025 22:44:47] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:45:02,711 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 192.168.1.3
+2025-07-02 22:45:02,894 INFO 192.168.1.3 - - [02/Jul/2025 22:45:02] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 22:57:17,678 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:17,688 INFO 192.168.1.3 - - [02/Jul/2025 22:57:17] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:33,111 INFO Route: login | User: None | Method: POST | Path: /auth/login | IP: 192.168.1.3
+2025-07-02 22:57:33,271 INFO 192.168.1.3 - - [02/Jul/2025 22:57:33] "POST /auth/login HTTP/1.1" 200 -
+2025-07-02 22:57:34,667 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 22:57:34,676 INFO 192.168.1.3 - - [02/Jul/2025 22:57:34] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 22:57:38,106 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:38,109 INFO 192.168.1.3 - - [02/Jul/2025 22:57:38] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:39,752 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:39,756 INFO 192.168.1.3 - - [02/Jul/2025 22:57:39] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:40,707 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:40,710 INFO 192.168.1.3 - - [02/Jul/2025 22:57:40] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:40,855 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:40,859 INFO 192.168.1.3 - - [02/Jul/2025 22:57:40] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:41,123 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:41,126 INFO 192.168.1.3 - - [02/Jul/2025 22:57:41] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:41,294 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:41,298 INFO 192.168.1.3 - - [02/Jul/2025 22:57:41] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:57:41,475 INFO Route: get_profile | User: d545a961-2910-4882-a61e-5e75037423ae | Method: GET | Path: /api/profile | IP: 192.168.1.3
+2025-07-02 22:57:41,479 INFO 192.168.1.3 - - [02/Jul/2025 22:57:41] "GET /api/profile HTTP/1.1" 200 -
+2025-07-02 22:59:51,951 INFO Route: predict | User: None | Method: POST | Path: /api/predict | IP: 192.168.1.3
+2025-07-02 22:59:54,646 INFO 192.168.1.3 - - [02/Jul/2025 22:59:54] "POST /api/predict HTTP/1.1" 200 -
+2025-07-02 22:59:54,776 INFO Route: get_history | User: None | Method: GET | Path: /api/history | IP: 192.168.1.3
+2025-07-02 22:59:54,790 INFO 192.168.1.3 - - [02/Jul/2025 22:59:54] "GET /api/history HTTP/1.1" 200 -
+2025-07-02 22:59:54,939 INFO 192.168.1.3 - - [02/Jul/2025 22:59:54] "GET /static/uploads/020725-225952.png HTTP/1.1" 200 -
+2025-07-02 22:59:54,955 INFO 192.168.1.3 - - [02/Jul/2025 22:59:54] "GET /static/uploads/020725-225952.png HTTP/1.1" 200 -
+2025-07-02 22:59:54,972 INFO 192.168.1.3 - - [02/Jul/2025 22:59:54] "[36mGET /static/uploads/slicked_back.jpg HTTP/1.1[0m" 304 -
+2025-07-02 22:59:55,948 INFO 192.168.1.3 - - [02/Jul/2025 22:59:55] "GET /static/uploads/cropped_extend_020725-225952.png HTTP/1.1" 200 -
+2025-07-02 22:59:56,164 INFO 192.168.1.3 - - [02/Jul/2025 22:59:56] "GET /static/uploads/sidepart.jpg HTTP/1.1" 200 -
+2025-07-02 22:59:56,275 INFO 192.168.1.3 - - [02/Jul/2025 22:59:56] "GET /static/uploads/slicked_back.jpg HTTP/1.1" 200 -
+2025-07-02 22:59:56,330 INFO 192.168.1.3 - - [02/Jul/2025 22:59:56] "GET /static/uploads/curtain.png HTTP/1.1" 200 -
+2025-07-02 23:06:15,031 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\main.py', reloading
+2025-07-02 23:06:16,294 INFO  * Restarting with stat
+2025-07-02 23:06:23,835 WARNING  * Debugger is active!
+2025-07-02 23:06:23,842 INFO  * Debugger PIN: 741-891-751
+2025-07-02 23:17:37,348 INFO 192.168.1.3 - - [02/Jul/2025 23:17:37] "[31m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 401 -
+2025-07-02 23:17:37,376 INFO Route: refresh_token | User: d545a961-2910-4882-a61e-5e75037423ae | Method: POST | Path: /auth/refresh-token | IP: 192.168.1.3
+2025-07-02 23:17:37,377 INFO 192.168.1.3 - - [02/Jul/2025 23:17:37] "POST /auth/refresh-token HTTP/1.1" 200 -
+2025-07-02 23:17:37,472 INFO 192.168.1.3 - - [02/Jul/2025 23:17:37] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:17:47,006 INFO 192.168.1.3 - - [02/Jul/2025 23:17:47] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:17:47,611 INFO 192.168.1.3 - - [02/Jul/2025 23:17:47] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:17:48,082 INFO 192.168.1.3 - - [02/Jul/2025 23:17:48] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:17:48,447 INFO 192.168.1.3 - - [02/Jul/2025 23:17:48] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:17:48,650 INFO 192.168.1.3 - - [02/Jul/2025 23:17:48] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:18:02,548 INFO 192.168.1.3 - - [02/Jul/2025 23:18:02] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:18:03,325 INFO 192.168.1.3 - - [02/Jul/2025 23:18:03] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:18:03,804 INFO 192.168.1.3 - - [02/Jul/2025 23:18:03] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:20:38,721 INFO 192.168.1.3 - - [02/Jul/2025 23:20:38] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:20:39,716 INFO 192.168.1.3 - - [02/Jul/2025 23:20:39] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:20:40,164 INFO 192.168.1.3 - - [02/Jul/2025 23:20:40] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:25:58,694 INFO 192.168.1.3 - - [02/Jul/2025 23:25:58] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:26:02,677 INFO 192.168.1.3 - - [02/Jul/2025 23:26:02] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:26:03,103 INFO 192.168.1.3 - - [02/Jul/2025 23:26:03] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:26:03,642 INFO 192.168.1.3 - - [02/Jul/2025 23:26:03] "[35m[1mDELETE /api/history/d9cebcfd-205e-41f8-a16e-3f55b9d9dd2e HTTP/1.1[0m" 500 -
+2025-07-02 23:27:56,839 INFO  * Detected change in 'D:\\Kuliah\\Semester 6\\Capstone\\Project\\backend\\api\\main.py', reloading
+2025-07-02 23:27:57,749 INFO  * Restarting with stat
+2025-07-02 23:28:04,558 WARNING  * Debugger is active!
+2025-07-02 23:28:04,566 INFO  * Debugger PIN: 741-891-751

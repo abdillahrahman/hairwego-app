@@ -28,4 +28,22 @@ class HistoryRepository (
         val prefs = context.getSharedPreferences("history_prefs", Context.MODE_PRIVATE)
         prefs.edit().putBoolean("isHistoryFetched", fetched).apply()
     }
+
+    suspend fun clearLocalHistory(dao: HistoryDao) {
+        dao.clearAllRecommendations()
+        dao.clearAllFaceScans()
+        setHistoryFetched(false)
+    }
+
+    suspend fun deleteHistoryById(id: String, dao: HistoryDao): Boolean {
+        val apiService = ApiConfig.getApiService(context, tokenManager)
+        val response = apiService.deleteHistory(id)
+        return if (response.isSuccessful) {
+            dao.deleteHistoryAndRecommendations(id)
+            true
+        } else {
+            false
+        }
+    }
+
 }

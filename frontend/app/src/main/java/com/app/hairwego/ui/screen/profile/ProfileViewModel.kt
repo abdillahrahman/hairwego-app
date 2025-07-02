@@ -3,6 +3,7 @@ package com.app.hairwego.ui.screen.profile
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import com.app.hairwego.data.local.HistoryDao
 import com.app.hairwego.data.model.ProfileResponse
 import com.app.hairwego.data.repository.ProfileRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -36,9 +37,9 @@ class ProfileViewModel(
         // persist dark mode if needed
     }
 
-    fun logout(navController: NavController) {
+    fun logout(navController: NavController, dao: HistoryDao) {
         viewModelScope.launch {
-            repository.logout()
+            repository.logout(dao)
             navController.navigate("login") {
                 popUpTo(0) { inclusive = true }
             }

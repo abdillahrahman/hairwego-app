@@ -106,6 +106,16 @@ fun RegisterScreenContent(
             isError = uiState.usernameError != null,
             labelText = "Username"
         )
+        if (uiState.usernameError != null) {
+            Text(
+                text = uiState.usernameError ?: "",
+                color = MaterialTheme.colorScheme.error,
+                fontSize = 12.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 5.dp)
+            )
+        }
 
         AuthEnterEmailOtf(
             value = email,

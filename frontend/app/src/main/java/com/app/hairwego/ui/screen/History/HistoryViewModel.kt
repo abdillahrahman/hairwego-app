@@ -46,4 +46,14 @@ class HistoryViewModel(
             }
         }
     }
+
+    fun deleteHistory(id: String) {
+        viewModelScope.launch {
+            val success = repository.deleteHistoryById(id, dao)
+            if (!success) {
+                fetchError.value = "Failed to delete history"
+            }
+        }
+    }
+
 }

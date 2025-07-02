@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 data class RegisterUiState(
     val isLoading: Boolean = false,
@@ -48,9 +49,17 @@ class RegisterViewModel(private val repository: RegisterRepository) : ViewModel(
                             successMessage = "Registrasi berhasil!"
                         )
                     } else {
+                        val errorBody = response.errorBody()?.string()
+                        val errorMessage = try {
+                            JSONObject(errorBody).getString("message")
+                        } catch (e: Exception) {
+                            "Terjadi kesalahan"
+                        }
+
                         _uiState.value = _uiState.value.copy(
                             isLoading = false,
-                            emailError = "Email sudah digunakan"
+                            usernameError = if (errorMessage.contains("Username", ignoreCase = true)) errorMessage else null,
+                            emailError = if (errorMessage.contains("Email", ignoreCase = true)) errorMessage else null
                         )
                     }
                 } catch (e: Exception) {

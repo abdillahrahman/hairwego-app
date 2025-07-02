@@ -24,6 +24,13 @@ import com.app.hairwego.R
 import com.app.hairwego.createCustomTempFile
 import com.app.hairwego.ui.screen.preview.PreviewComposeActivity
 import android.view.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.unit.sp
+import com.app.hairwego.ui.theme.HairwegoThemeWrapper
+import androidx.compose.material3.AlertDialog
 
 class CameraComposeActivity : ComponentActivity() {
     private lateinit var previewView: PreviewView
@@ -41,21 +48,49 @@ class CameraComposeActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         previewView = PreviewView(this)
 
-        // ⛑️ Tunggu sampai PreviewView sudah attach ke window
         previewView.post {
             startCamera()
         }
 
-
         setContent {
-            HairwegoAppTheme {
+            HairwegoThemeWrapper(context = applicationContext) {
+
+                val showTipsDialog = remember { mutableStateOf(false) }
+
                 CameraScreenWithPermission(
                     onClose = { finish() },
                     onTakePicture = { takePhoto() },
                     onOpenGallery = { openGallery() },
                     onFlipCamera = { flipCamera() },
+                    onShowTips = { showTipsDialog.value = true },
                     previewView = previewView
                 )
+
+                if (showTipsDialog.value) {
+                    AlertDialog(
+                        onDismissRequest = { showTipsDialog.value = false },
+                        confirmButton = {
+                            TextButton(onClick = { showTipsDialog.value = false }) {
+                                Text("OK", fontSize = 17.sp)
+                            }
+                        },
+                        title = { Text("Snap Tips") },
+                        text = {
+                            Text(
+                                """
+                                Tips for Taking a Good Face Photo:
+                                
+                                • Make sure only one face is clearly visible in the frame.
+                                • Ensure proper lighting (avoid shadows).
+                                • Do not use blurry or pixelated images.
+                                • Face the camera directly, avoid tilting.
+                                • Remove accessories like sunglasses or masks.
+                                """.trimIndent(),
+                                fontSize = 16.sp
+                            )
+                        }
+                    )
+                }
             }
         }
     }

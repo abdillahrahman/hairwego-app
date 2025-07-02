@@ -24,6 +24,7 @@ import com.app.hairwego.data.Result
 import com.app.hairwego.data.local.TokenManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import androidx.core.graphics.scale
 
 class ImageClassifierHelper(
     private val context: Context,
@@ -38,23 +39,30 @@ class ImageClassifierHelper(
             return
         }
 
-        val imageFile = bitmapToFile(bitmap, "temp_image.jpg")
+        val scaledBitmap = bitmap.scale(1024, (1024 * bitmap.height / bitmap.width))
+
+        val imageFile = bitmapToFile(scaledBitmap, "temp_image.jpg")
         if (imageFile == null) {
             classifierListener.onError(context.getString(R.string.error_unable_to_process_image))
             return
         }
 
-        val reducedImageFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        val reducedFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             imageFile.reduceFileImage()
         } else {
-            imageFile
+            TODO("VERSION.SDK_INT < Q")
         }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val requestBody = reducedImageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
-                val multipartBody =
-                    MultipartBody.Part.createFormData("file", imageFile.name, requestBody)
+                val requestBody = reducedFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val multipartBody = MultipartBody.Part.createFormData(
+                    "file",
+                    reducedFile.name,
+                    requestBody
+                )
+
+                Log.d("REDUCE_SIZE", "Before: ${imageFile.length()}, After: ${reducedFile.length()}")
 
                 withContext(Dispatchers.Main) {
                     classifierListener.onResult(Result.Loading)

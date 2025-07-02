@@ -16,6 +16,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.app.hairwego.data.local.TokenManager
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -58,9 +63,13 @@ fun homeScreenContent(
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                painter = painterResource(id = R.drawable.face_shape_home),
-                contentDescription = null,
+
+            val composition by rememberLottieComposition(LottieCompositionSpec.Asset("scan_face.json"))
+            val progress by animateLottieCompositionAsState(composition, iterations = LottieConstants.IterateForever)
+
+            LottieAnimation(
+                composition = composition,
+                progress = { progress },
                 modifier = Modifier
                     .size(200.dp)
                     .clip(RoundedCornerShape(10.dp))

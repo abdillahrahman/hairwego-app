@@ -45,20 +45,34 @@ fun saveImageToInternalStorage(context: Context, uri: Uri, fileName: String): St
 
 @RequiresApi(Build.VERSION_CODES.Q)
 fun File.reduceFileImage(): File {
-    val file = this
-    val bitmap = BitmapFactory.decodeFile(file.path).getRotatedBitmap(file)
+    val originalFile = this
+    val rotatedBitmap = BitmapFactory.decodeFile(originalFile.path)?.getRotatedBitmap(originalFile)
+
+    if (rotatedBitmap == null) {
+        Log.e("REDUCE_ERROR", "Failed to decode or rotate bitmap")
+        return originalFile // fallback
+    }
+
     var compressQuality = 100
     var streamLength: Int
+    var compressedBytes: ByteArray
+
     do {
         val bmpStream = ByteArrayOutputStream()
-        bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
-        val bmpPicByteArray = bmpStream.toByteArray()
-        streamLength = bmpPicByteArray.size
+        rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+        compressedBytes = bmpStream.toByteArray()
+        streamLength = compressedBytes.size
         compressQuality -= 5
-    } while (streamLength > MAXIMAL_SIZE)
-    bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
-    return file
+    } while (streamLength > MAXIMAL_SIZE && compressQuality > 5)
+
+    val reducedFile = File(originalFile.parent, "reduced_${originalFile.name}")
+    FileOutputStream(reducedFile).use { it.write(compressedBytes) }
+
+    Log.d("REDUCE_DEBUG", "Compressed ${originalFile.length()} → ${reducedFile.length()} bytes (quality: $compressQuality)")
+
+    return reducedFile
 }
+
 
 @RequiresApi(Build.VERSION_CODES.Q)
 fun Bitmap.getRotatedBitmap(file: File): Bitmap? {

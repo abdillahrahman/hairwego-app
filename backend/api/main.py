@@ -24,9 +24,33 @@ from models import (
     Haircut,
 )
 import uuid
+import logging
+from functools import wraps
 
 
 api_bp = Blueprint("api", __name__)
+
+logging.basicConfig(
+    filename='access.log',  # atau None untuk ke console
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s'
+)
+
+def log_access(route_name):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            user_id = None
+            try:
+                user_id = get_jwt_identity()
+            except Exception:
+                pass
+            logging.info(
+                f"Route: {route_name} | User: {user_id} | Method: {request.method} | Path: {request.path} | IP: {request.remote_addr}"
+            )
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
 
 
 # Load model once
@@ -144,6 +168,7 @@ def crop_and_save(image_path):
 
 
 @api_bp.route("/predict", methods=["POST"])
+@log_access("predict")
 def predict():
     if "file" not in request.files:
         return jsonify({"message": "No image in the request"}), 400
@@ -228,6 +253,7 @@ def predict():
             image_path=saved_path,
             image_path_cropped=cropped_path_extend,
             face_shape_id=face_shape.id,
+            
         )
         db.session.add(new_scan)
         db.session.commit()
@@ -268,6 +294,7 @@ def predict():
 
 
 @api_bp.route("/history", methods=["GET"])
+@log_access("get_history")
 @jwt_required()
 def get_history():
     user_id = get_jwt_identity()
@@ -284,7 +311,8 @@ def get_history():
 
     history = {}
     for scan in face_scans:
-        scan_date = scan.scan_date.format("YYYY-MM-DD HH:mm:ss")  # Format scan_date
+        # Pastikan waktu dalam zona Asia/Jakarta (UTC+7)
+        scan_date = scan.scan_date.to('Asia/Jakarta').format("YYYY-MM-DD HH:mm:ss")
         if scan_date not in history:
             history[scan_date] = []
 
@@ -318,38 +346,29 @@ def get_history():
 
     return jsonify(history), 200
 
-
-@api_bp.route("/history/<face_scan_id>", methods=["GET"])
+@api_bp.route("/history/<uuid:face_scan_id>", methods=["DELETE"])
 @jwt_required()
-def history_detail(face_scan_id):
-    scan = FaceScan.query.filter_by(id=face_scan_id).first()
-    if not scan:
-        return jsonify({"message": "Face scan not found"}), 404
+def delete_history(face_scan_id):
+    user_id = get_jwt_identity()
 
-    face_shape = scan.face_shape.shape_name if scan.face_shape else None
+    # Validasi kepemilikan scan
+    face_scan = FaceScan.query.filter_by(id=face_scan_id, user_id=user_id).first()
+    if not face_scan:
+        return jsonify({"message": "History not found or unauthorized"}), 404
 
-    histories = UserRecommendationHistory.query.filter_by(face_scan_id=scan.id).all()
-    recommendations = []
-    for history in histories:
-        rec = history.haircut_recommendation
-        if rec:
-            for haircut in rec.haircuts:
-                recommendations.append({
-                    "haircut_name": haircut.name,
-                    "description": haircut.description,
-                    "image": haircut.image
-                })
+    # Hapus semua rekomendasi terkait
+    UserRecommendationHistory.query.filter_by(face_scan_id=face_scan_id).delete()
 
-    recommendations = [dict(t) for t in {tuple(d.items()) for d in recommendations}]
+    # Hapus face_scan
+    db.session.delete(face_scan)
+    db.session.commit()
 
-    return jsonify({
-        "face_shape": face_shape,
-        "recommendations": recommendations,
-        "scan_image": scan.image_path
-    })
+    return jsonify({"message": "History deleted successfully"}), 200
+
 
 @api_bp.route("/profile", methods=["GET"])
 @jwt_required()
+@log_access("get_profile")
 def get_profile():
     user_id = get_jwt_identity()
     user = User.query.get(user_id)
@@ -372,4 +391,3 @@ def get_profile():
         "latest_face_shape": latest_face_shape
     }), 200
 
- 

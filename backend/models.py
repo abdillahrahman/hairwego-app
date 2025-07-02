@@ -40,6 +40,9 @@ class FaceShape(db.Model):
     def __repr__(self):
         return f"<FaceShape(shape_name={self.shape_name})>"
 
+def jakarta_now():
+    return arrow.utcnow().to('Asia/Jakarta')
+
 class FaceScan(db.Model):
     __tablename__ = 'face_scan'
 
@@ -48,7 +51,7 @@ class FaceScan(db.Model):
     image_path = db.Column(db.String(255), nullable=False)
     image_path_cropped = db.Column(db.String(255), nullable=False)
     face_shape_id = db.Column(UUIDType(binary=False), db.ForeignKey('face_shape.id'), nullable=False)
-    scan_date = db.Column(ArrowType, default=arrow.utcnow)
+    scan_date = db.Column(ArrowType, default=jakarta_now)
 
     user = db.relationship('User', backref=db.backref('face_scans', lazy=True))
     face_shape = db.relationship('FaceShape', backref=db.backref('face_scans', lazy=True))

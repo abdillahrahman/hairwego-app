@@ -11,6 +11,7 @@ import com.app.hairwego.MainActivity
 import com.app.hairwego.data.local.HairWeGoDatabase
 import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.repository.HistoryRepository
+import com.app.hairwego.ui.theme.HairwegoThemeWrapper
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -29,7 +30,7 @@ class ResultActivityScreen : ComponentActivity() {
         val predictResponse = gson.fromJson(responseJson, PredictResponse::class.java)
 
         setContent {
-            HairwegoAppTheme {
+            HairwegoThemeWrapper(context = applicationContext) {
                 ResultScreen(
                     faceShape = predictResponse.prediction,
                     predictionConfidence = predictResponse.confidence,

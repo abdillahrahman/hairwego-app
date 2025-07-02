@@ -32,6 +32,7 @@ fun CameraScreenWithPermission(
     onTakePicture: () -> Unit,
     onOpenGallery: () -> Unit,
     onFlipCamera : () -> Unit,
+    onShowTips: () -> Unit,
     previewView: PreviewView
 ) {
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
@@ -48,6 +49,7 @@ fun CameraScreenWithPermission(
             onTakePicture = onTakePicture,
             onOpenGallery = onOpenGallery,
             onFlipCamera = onFlipCamera,
+            onShowTips = onShowTips,
             previewView = previewView
         )
     }
@@ -59,6 +61,7 @@ fun CameraActivityScreen(
     onTakePicture: () -> Unit,
     onOpenGallery: () -> Unit,
     onFlipCamera : () -> Unit,
+    onShowTips: () -> Unit,
     previewView: PreviewView
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -155,7 +158,7 @@ fun CameraActivityScreen(
                     contentAlignment = Alignment.CenterStart
                 ) {
                     IconButton(
-                        onClick = { /* TODO: tips click */ },
+                        onClick = onShowTips,
                         modifier = Modifier
                             .padding(start = 20.dp)
                     ) {
@@ -180,6 +183,7 @@ fun CameraScreenPreview() {
         onTakePicture = {},
         onOpenGallery = {},
         onFlipCamera = {},
+        onShowTips = {},
         previewView = PreviewView(LocalContext.current) // Ini tidak valid dalam @Preview
     )
 }

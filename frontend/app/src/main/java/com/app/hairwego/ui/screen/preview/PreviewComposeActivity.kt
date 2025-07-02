@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.sp
 import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
@@ -23,6 +24,7 @@ import com.app.hairwego.data.model.PredictResponse
 import com.app.hairwego.helper.ImageClassifierHelper
 import com.app.hairwego.ui.screen.camera.CameraComposeActivity
 import com.app.hairwego.ui.screen.result.ResultActivityScreen
+import com.app.hairwego.ui.theme.HairwegoThemeWrapper
 import com.google.gson.Gson
 import kotlin.getOrThrow
 
@@ -54,7 +56,9 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
         isFromCamera = intent.getBooleanExtra("isFromCamera", false)
 
         setContent {
-            HairwegoAppTheme {
+            HairwegoThemeWrapper(context = applicationContext) {
+                val showTipsDialog = remember { mutableStateOf(false) }
+
                 imageUri?.let { uri ->
                     PreviewScreen(
                         imageUri = uri,
@@ -62,8 +66,35 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
                         isLoading = isLoading,
                         onRetake = { handleRetake() },
                         onAnalyzeImage = { analyzeImage(imageUri!!)},
-                        onShowTips = { showSnapTipsDialog() }
+                        onShowTips = { showTipsDialog.value = true },
                     )
+
+                    if (showTipsDialog.value) {
+                        AlertDialog(
+                            onDismissRequest = { showTipsDialog.value = false },
+                            confirmButton = {
+                                TextButton(onClick = { showTipsDialog.value = false }) {
+                                    Text("OK", fontSize = 17.sp)
+                                }
+                            },
+                            title = { Text("Snap Tips") },
+                            text = {
+                                Text(
+                                    """
+                                    Tips for Taking a Good Face Photo:
+                                    
+                                    • Make sure only one face is clearly visible in the frame.
+                                    • Ensure proper lighting (avoid shadows).
+                                    • Do not use blurry or pixelated images.
+                                    • Face the camera directly, avoid tilting.
+                                    • Remove accessories like sunglasses or masks.
+                                    """.trimIndent(),
+                                    fontSize = 16.sp
+                                )
+                            }
+                        )
+                    }
+
                     if (showErrorDialog) {
                         AlertDialog(
                             onDismissRequest = { showErrorDialog = false },
@@ -114,33 +145,20 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
         finish()
     }
 
-    fun flipBitmapHorizontally(bitmap: Bitmap): Bitmap {
-        val matrix = Matrix().apply { preScale(-1f, 1f) }
-        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-    }
-
-    /*override fun onError(error: String) {
-        showNoInternetDialog()
-    }*/
-
-    /*private fun isInternetAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val network = connectivityManager.activeNetwork
-        val capabilities = connectivityManager.getNetworkCapabilities(network)
-        return capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-    }*/
-
-    private fun showNoInternetDialog() {
-        // Use Compose Dialog or keep using AlertDialog with View.inflate
-    }
-
     private fun showSnapTipsDialog() {
-        // Use Compose AlertDialog
+        errorMessage = """
+        Tips for Taking a Good Face Photo:
+        
+        • Make sure only one face is clearly visible in the frame.
+        • Ensure proper lighting (avoid shadows).
+        • Do not use blurry or pixelated images.
+        • Face the camera directly, avoid tilting.
+        • Remove accessories like sunglasses or masks.
+    """.trimIndent()
+        showErrorDialog = true
     }
 
-    private fun showLowConfidenceDialog() {
-        // Use Compose AlertDialog
-    }
+
 
     override fun onResult(result: Result<PredictResponse>) {
         when (result) {
