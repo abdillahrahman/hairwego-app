@@ -22,33 +22,37 @@ class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
-    username = db.Column(db.String(50), nullable=False, unique=True)
+    username = db.Column(db.String(32), nullable=False, unique=True)         
+    full_name = db.Column(db.String(32), nullable=False)                    
     email = db.Column(EmailType, nullable=False, unique=True)
-    password = db.Column(db.String(255), nullable=False)
+    password = db.Column(db.String(128), nullable=False)                    
     created_at = db.Column(ArrowType, default=arrow.utcnow)
 
     def __repr__(self):
-        return f"<User(username={self.username}, email={self.email})>"
+        return f"<User(username={self.username}, email={self.email}, full_name={self.full_name})>"
 
 class FaceShape(db.Model):
     __tablename__ = 'face_shape'
 
     id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
-    shape_name = db.Column(db.String(50), nullable=False, unique=True)
+    shape_name = db.Column(db.String(32), nullable=False)
     description = db.Column(db.Text, nullable=True)
 
     def __repr__(self):
         return f"<FaceShape(shape_name={self.shape_name})>"
+
+def jakarta_now():
+    return arrow.utcnow().to('Asia/Jakarta')
 
 class FaceScan(db.Model):
     __tablename__ = 'face_scan'
 
     id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
     user_id = db.Column(UUIDType(binary=False), db.ForeignKey('users.id'), nullable=False)
-    image_path = db.Column(db.String(255), nullable=False)
-    image_path_cropped = db.Column(db.String(255), nullable=False)
+    image_path = db.Column(db.String(64), nullable=False)                   
+    image_path_cropped = db.Column(db.String(64), nullable=False)
     face_shape_id = db.Column(UUIDType(binary=False), db.ForeignKey('face_shape.id'), nullable=False)
-    scan_date = db.Column(ArrowType, default=arrow.utcnow)
+    scan_date = db.Column(ArrowType, default=jakarta_now)
 
     user = db.relationship('User', backref=db.backref('face_scans', lazy=True))
     face_shape = db.relationship('FaceShape', backref=db.backref('face_scans', lazy=True))
@@ -60,12 +64,12 @@ class Haircut(db.Model):
     __tablename__ = 'haircut'
 
     id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
-    name = db.Column(db.String(100), nullable=False)
+    haircut_name = db.Column(db.String(32), nullable=False)
     description = db.Column(db.Text, nullable=True)
-    image = db.Column(db.String(255), nullable=True)
+    image_path = db.Column(db.String(64), nullable=True)                        
 
     def __repr__(self):
-        return f"<Haircut(name={self.name})>"
+        return f"<Haircut(name={self.haircut_name})>"
     
 haircut_recommendation_assoc = db.Table(
     'haircut_recommendation_assoc',

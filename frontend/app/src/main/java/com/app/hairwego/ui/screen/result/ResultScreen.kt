@@ -3,8 +3,8 @@ package com.app.hairwego.ui.screen.result
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.app.hairwego.data.model.RekomendasiItem
 
-private const val BASE_URL = "http://192.168.1.5:5000/"
+private const val BASE_URL = "http://10.13.149.196:5000/"
 
 @Composable
 fun ResultScreen(
@@ -42,10 +42,12 @@ fun ResultScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+            .padding(start = 16.dp, end = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(bottom = 16.dp, top = 16.dp)
     ) {
-        item {
+        item(
+        ) {
             Card(
                 shape = RoundedCornerShape(16.dp),
                 modifier = Modifier.fillMaxWidth(),
@@ -92,7 +94,7 @@ fun ResultScreen(
 @Composable
 fun HaircutCard(recommendation: RekomendasiItem) {
 
-    val fullImageUrl = BASE_URL + recommendation.image
+    val fullImageUrl = BASE_URL + recommendation.image_path
 
     Card(
         shape = RoundedCornerShape(16.dp),
@@ -101,14 +103,14 @@ fun HaircutCard(recommendation: RekomendasiItem) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = recommendation.name,
+                text = recommendation.haircut_name,
                 fontSize = 16.sp,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
             AsyncImage(
                 model = fullImageUrl,
-                contentDescription = recommendation.name,
+                contentDescription = recommendation.haircut_name,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(250.dp)

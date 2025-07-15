@@ -3,7 +3,6 @@ package com.app.hairwego.data.repository
 import android.content.Context
 import com.app.hairwego.data.local.FaceScanWithRecommendations
 import com.app.hairwego.data.local.HairWeGoDatabase
-import com.app.hairwego.data.local.HistoryDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

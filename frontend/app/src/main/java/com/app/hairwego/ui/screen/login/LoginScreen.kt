@@ -44,23 +44,24 @@ fun LoginScreen(navController: NavHostController) {
 
     LaunchedEffect(uiState.isLoginSuccess) {
         if (uiState.isLoginSuccess) {
-            Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Login Succes", Toast.LENGTH_SHORT).show()
             navController.navigate("home") {
                 popUpTo("login") { inclusive = true }
             }
         }
     }
 
-    // ✅ Tampilkan snackbar jika errorMessage ada
     LaunchedEffect(uiState.errorMessage) {
         uiState.errorMessage?.let { message ->
             snackbarHostState.showSnackbar(message)
         }
     }
 
-    HairWeGoScaffold(modifier = Modifier, snackbarHost = { SnackbarHost(hostState = snackbarHostState) }) { paddingValues ->
+    HairWeGoScaffold(
+        modifier = Modifier,
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) }) { paddingValues ->
         AuthBackgroundLogin()
-        // In LoginScreen
+
         LoginScreenContent(
             modifier = Modifier,
             emailValue = email,
@@ -102,10 +103,10 @@ private fun LoginScreenContent(
     onPasswordValueChange: (String) -> Unit,
     emailFieldError: Boolean,
     emailFieldLabel: String,
-    emailErrorText: String?, // NEW
+    emailErrorText: String?,
     passwordFieldError: Boolean,
     passwordFieldLabel: String,
-    passwordErrorText: String?, // NEW
+    passwordErrorText: String?,
     onLoginClicked: () -> Unit,
     onRegisterClick: () -> Unit,
     onGuestLoginClick: () -> Unit,

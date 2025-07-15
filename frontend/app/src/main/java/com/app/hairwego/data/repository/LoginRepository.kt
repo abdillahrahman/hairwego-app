@@ -12,7 +12,7 @@ class LoginRepository(
     private val context: Context,
     private val tokenManager: TokenManager
 ) {
-    suspend fun login(email: String, password: String, rememberMe: Boolean): Result<Unit> {
+    suspend fun login(email: String, password: String): Result<Unit> {
         return try {
             val response = ApiConfig.getApiService(context, tokenManager)
                 .login(LoginRequest(email, password))
@@ -24,19 +24,16 @@ class LoginRepository(
                 tokenManager.saveToken(accessToken)
                 tokenManager.saveRefreshToken(refreshToken)
                 tokenManager.setGuest(false)
-                if (rememberMe) {
-                    tokenManager.setRememberMe(true)
-                }
                 Result.success(Unit)
             } else {
-                Result.failure(Exception("Token tidak ditemukan"))
+                Result.failure(Exception("Login Invalid"))
             }
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorMessage = try {
                 JSONObject(errorBody ?: "").getString("message")
             } catch (_: Exception) {
-                "Login gagal"
+                "Login Failed"
             }
             Result.failure(Exception(errorMessage))
         } catch (e: Exception) {

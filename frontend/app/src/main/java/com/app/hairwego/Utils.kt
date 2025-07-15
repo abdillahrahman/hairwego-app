@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.ExifInterface
-import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -17,7 +16,6 @@ import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.io.InputStream
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -28,37 +26,39 @@ private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"
 private val timeStamp: String = SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(Date())
 
 
-fun saveImageToInternalStorage(context: Context, uri: Uri, fileName: String): String? {
-    return try {
-        val inputStream: InputStream? = context.contentResolver.openInputStream(uri)
-        val file = File(context.filesDir, fileName)
-        FileOutputStream(file).use { outputStream ->
-            inputStream?.copyTo(outputStream)
-        }
-        file.absolutePath
-    } catch (e: Exception) {
-        e.printStackTrace()
-        null
-    }
-}
-
-
 @RequiresApi(Build.VERSION_CODES.Q)
 fun File.reduceFileImage(): File {
-    val file = this
-    val bitmap = BitmapFactory.decodeFile(file.path).getRotatedBitmap(file)
+    val originalFile = this
+    val rotatedBitmap = BitmapFactory.decodeFile(originalFile.path)?.getRotatedBitmap(originalFile)
+
+    if (rotatedBitmap == null) {
+        Log.e("REDUCE_ERROR", "Failed to decode or rotate bitmap")
+        return originalFile // fallback
+    }
+
     var compressQuality = 100
     var streamLength: Int
+    var compressedBytes: ByteArray
+
     do {
         val bmpStream = ByteArrayOutputStream()
-        bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
-        val bmpPicByteArray = bmpStream.toByteArray()
-        streamLength = bmpPicByteArray.size
+        rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+        compressedBytes = bmpStream.toByteArray()
+        streamLength = compressedBytes.size
         compressQuality -= 5
-    } while (streamLength > MAXIMAL_SIZE)
-    bitmap?.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
-    return file
+    } while (streamLength > MAXIMAL_SIZE && compressQuality > 5)
+
+    val reducedFile = File(originalFile.parent, "reduced_${originalFile.name}")
+    FileOutputStream(reducedFile).use { it.write(compressedBytes) }
+
+    Log.d(
+        "REDUCE_DEBUG",
+        "Compressed ${originalFile.length()} → ${reducedFile.length()} bytes (quality: $compressQuality)"
+    )
+
+    return reducedFile
 }
+
 
 @RequiresApi(Build.VERSION_CODES.Q)
 fun Bitmap.getRotatedBitmap(file: File): Bitmap? {
@@ -83,25 +83,26 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap {
     )
 }
 
-fun formatToIndonesianTime(timestamp: Long): String{
-    val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale("id", "ID"))
-    return dateFormat.format(timestamp)
-}
 
 fun createCustomTempFile(context: Context): File {
     val filesDir = context.externalCacheDir
     return File.createTempFile(timeStamp, ".jpg", filesDir)
 }
 
-suspend fun mapToEntities(context: Context, response: HistoryResponse): Pair<List<FaceScanEntity>, List<RecommendationEntity>> {
+suspend fun mapToEntities(
+    context: Context,
+    response: HistoryResponse
+): Pair<List<FaceScanEntity>, List<RecommendationEntity>> {
     val scanEntities = mutableListOf<FaceScanEntity>()
     val recommendationEntities = mutableListOf<RecommendationEntity>()
 
 
     response.forEach { (timestamp, scanList) ->
         scanList.forEach { dto ->
-            val localPathScanImage = downloadAndSaveImage(context, "http://192.168.1.5:5000/${dto.scanImage}")
-            val localPathScanImageCropped = downloadAndSaveImage(context, "http://192.168.1.5:5000/${dto.scanImageCropped}")
+            val localPathScanImage =
+                downloadAndSaveImage(context, "http://10.13.149.196:5000/${dto.scanImage}")
+            val localPathScanImageCropped =
+                downloadAndSaveImage(context, "http://10.13.149.196:5000/${dto.scanImageCropped}")
             val scanEntity = FaceScanEntity(
                 faceScanId = dto.faceScanId,
                 faceShape = dto.faceShape,
@@ -112,7 +113,8 @@ suspend fun mapToEntities(context: Context, response: HistoryResponse): Pair<Lis
             scanEntities.add(scanEntity)
 
             dto.recommendations.forEach { rec ->
-                val localPath = downloadAndSaveImage(context, "http://192.168.1.5:5000/${rec.image}")
+                val localPath =
+                    downloadAndSaveImage(context, "http://10.13.149.196:5000/${rec.imagePath}")
                 val recommendationEntity = RecommendationEntity(
                     faceScanId = dto.faceScanId,
                     haircutName = rec.haircutName,
@@ -147,7 +149,7 @@ suspend fun downloadAndSaveImage(context: Context, imageUrl: String): String {
         } catch (e: Exception) {
             Log.e("ImageDownload", "Gagal download: $imageUrl", e)
             e.printStackTrace()
-            "" // fallback, atau bisa return null
+            ""
         }
     }
 }

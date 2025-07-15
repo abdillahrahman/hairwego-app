@@ -1,10 +1,8 @@
 package com.app.hairwego.ui.screen.camera
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,14 +14,17 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
-import androidx.compose.ui.tooling.PreviewActivity
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
-import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
-import com.app.hairwego.MainActivity
 import com.app.hairwego.R
 import com.app.hairwego.createCustomTempFile
 import com.app.hairwego.ui.screen.preview.PreviewComposeActivity
-import android.view.Surface
+import com.app.hairwego.ui.theme.HairwegoThemeWrapper
 
 class CameraComposeActivity : ComponentActivity() {
     private lateinit var previewView: PreviewView
@@ -41,21 +42,49 @@ class CameraComposeActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         previewView = PreviewView(this)
 
-        // ⛑️ Tunggu sampai PreviewView sudah attach ke window
         previewView.post {
             startCamera()
         }
 
-
         setContent {
-            HairwegoAppTheme {
+            HairwegoThemeWrapper(context = applicationContext) {
+
+                val showTipsDialog = remember { mutableStateOf(false) }
+
                 CameraScreenWithPermission(
                     onClose = { finish() },
                     onTakePicture = { takePhoto() },
                     onOpenGallery = { openGallery() },
                     onFlipCamera = { flipCamera() },
+                    onShowTips = { showTipsDialog.value = true },
                     previewView = previewView
                 )
+
+                if (showTipsDialog.value) {
+                    AlertDialog(
+                        onDismissRequest = { showTipsDialog.value = false },
+                        confirmButton = {
+                            TextButton(onClick = { showTipsDialog.value = false }) {
+                                Text("OK", fontSize = 17.sp)
+                            }
+                        },
+                        title = { Text("Snap Tips") },
+                        text = {
+                            Text(
+                                """
+                                Tips for Taking a Good Face Photo:
+                                
+                                • Make sure only one face is clearly visible in the frame.
+                                • Ensure proper lighting (avoid shadows).
+                                • Do not use blurry or pixelated images.
+                                • Face the camera directly, avoid tilting.
+                                • Remove accessories like sunglasses or masks.
+                                """.trimIndent(),
+                                fontSize = 16.sp
+                            )
+                        }
+                    )
+                }
             }
         }
     }
@@ -132,13 +161,5 @@ class CameraComposeActivity : ComponentActivity() {
         startActivity(intent)
     }
 
-
-    fun onSupportNavigateUp(): Boolean {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-        return true
-    }
-    // ...fungsi takePhoto(), openGallery(), showSnapTipsDialog() bisa digunakan seperti sebelumnya
 }
 

@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.app.hairwego.data.local.TokenManager
+import com.app.hairwego.data.repository.HistoryRepository
 import com.app.hairwego.data.repository.LoginRepository
 import com.app.hairwego.data.repository.ProfileRepository
 import com.app.hairwego.data.repository.RegisterRepository
@@ -22,11 +23,12 @@ class ViewModelFactory(private val context: Context,
     private val loginRepository = LoginRepository(context, tokenManager)
     private val registerRepository = RegisterRepository(context, tokenManager)
     private val profileRepository = ProfileRepository(context, tokenManager)
+    private val historyRepository = HistoryRepository(context, tokenManager)
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(LoginViewModel::class.java) ->
-                LoginViewModel(loginRepository) as T
+                LoginViewModel(context, loginRepository, historyRepository) as T
             modelClass.isAssignableFrom(RegisterViewModel::class.java) ->
                 RegisterViewModel(registerRepository) as T
             modelClass.isAssignableFrom(HistoryViewModel::class.java) ->

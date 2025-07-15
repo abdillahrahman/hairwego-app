@@ -1,6 +1,6 @@
 import os
 from datetime import timedelta
-# Secret key untuk session (tetap)
+
 SECRET_KEY = "123456790"
 
 SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:@localhost/db_capstone"

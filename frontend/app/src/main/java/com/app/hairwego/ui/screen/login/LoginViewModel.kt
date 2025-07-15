@@ -4,10 +4,11 @@ import android.content.Context
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.hairwego.data.local.TokenManager
-import com.app.hairwego.data.model.LoginRequest
-import com.app.hairwego.data.remote.retrofit.ApiConfig
+import com.app.hairwego.data.local.HairWeGoDatabase
+import com.app.hairwego.data.repository.HistoryRepository
 import com.app.hairwego.data.repository.LoginRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -23,17 +24,22 @@ data class LoginUiState(
 )
 
 class LoginViewModel(
-    private val loginRepository: LoginRepository
+    context: Context,
+    private val loginRepository: LoginRepository,
+    private val historyRepository: HistoryRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState
 
+    val applicationScope = CoroutineScope(SupervisorJob())
+    val database by lazy { HairWeGoDatabase.getDatabase(context , applicationScope) }
+    val dao = database.historyDao()
+
     fun login(email: String, password: String, rememberMe: Boolean) {
         val emailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        val passwordValid = password.length >= 6
+        val passwordValid = password.length >= 8
 
-        // Selalu reset error di awal
         _uiState.update {
             it.copy(
                 emailError = null,
@@ -46,7 +52,7 @@ class LoginViewModel(
             _uiState.update {
                 it.copy(
                     emailError = if (!emailValid) "Email tidak valid" else null,
-                    passwordError = if (!passwordValid) "Minimal 6 karakter" else null,
+                    passwordError = if (!passwordValid) "Minimal 8 karakter" else null,
                     errorMessage = "Email atau password tidak valid"
                 )
             }
@@ -56,11 +62,12 @@ class LoginViewModel(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
 
-            val result = loginRepository.login(email, password, rememberMe)
+            val result = loginRepository.login(email, password)
             result.onSuccess {
                 _uiState.update {
                     it.copy(isLoading = false, isLoginSuccess = true)
                 }
+                historyRepository.clearLocalHistory(dao)
             }.onFailure { e ->
                 _uiState.update {
                     it.copy(isLoading = false, errorMessage = "Login gagal: ${e.message}")
@@ -76,12 +83,11 @@ class LoginViewModel(
         }
     }
 
-    // ✅ Ini valid karena tidak ada pemanggilan @Composable
     fun onEmailChanged(email: String) {
         _uiState.update {
             it.copy(
                 emailError = if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    "Email tidak valid"
+                    "Email not valid"
                 } else null
             )
         }
@@ -91,8 +97,8 @@ class LoginViewModel(
     fun onPasswordChanged(password: String) {
         _uiState.update {
             it.copy(
-                passwordError = if (password.isNotEmpty() && password.length < 6) {
-                    "Minimal 6 karakter"
+                passwordError = if (password.isNotEmpty() && password.length < 8) {
+                    "Minimal 8 karakter"
                 } else null
             )
         }

@@ -44,7 +44,7 @@ fun MyButton(
 private fun ShoppingButtonPreview() {
     HairwegoAppTheme {
         Surface {
-           MyButton(onClick = {}, buttonText = "Click")
+            MyButton(onClick = {}, buttonText = "Click")
         }
     }
 }

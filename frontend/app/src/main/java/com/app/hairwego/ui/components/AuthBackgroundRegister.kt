@@ -41,7 +41,7 @@ fun AuthBackgroundRegister() {
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(LocalConfiguration.current.screenHeightDp.dp /2)
+                .height(LocalConfiguration.current.screenHeightDp.dp / 2)
                 .onGloballyPositioned { sizeImage = it.size },
             painter = painterResource(id = R.drawable.background_auth),
             contentDescription = null,

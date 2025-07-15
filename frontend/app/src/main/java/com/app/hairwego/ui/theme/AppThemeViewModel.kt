@@ -1,6 +1,5 @@
 package com.app.hairwego.ui.theme
 
-// AppThemeViewModel.kt
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +14,6 @@ class AppThemeViewModel(application: Application) : AndroidViewModel(application
     val isDarkMode: StateFlow<Boolean> = _isDarkMode
 
     init {
-        // Ambil dark mode dari DataStore saat inisialisasi
         viewModelScope.launch {
             appPreferences.isDarkModeEnabled.collect {
                 _isDarkMode.value = it

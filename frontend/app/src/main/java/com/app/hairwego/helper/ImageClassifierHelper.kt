@@ -1,4 +1,3 @@
-
 package com.app.hairwego.helper
 
 import android.content.Context
@@ -6,24 +5,22 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import android.util.Log
+import androidx.core.graphics.scale
 import com.app.hairwego.R
+import com.app.hairwego.data.Result
+import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.model.PredictResponse
 import com.app.hairwego.data.remote.retrofit.ApiConfig
 import com.app.hairwego.reduceFileImage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.FileOutputStream
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import com.app.hairwego.data.Result
-import com.app.hairwego.data.local.TokenManager
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 
 class ImageClassifierHelper(
     private val context: Context,
@@ -38,33 +35,36 @@ class ImageClassifierHelper(
             return
         }
 
-        val imageFile = bitmapToFile(bitmap, "temp_image.jpg")
+        val scaledBitmap = bitmap.scale(1024, (1024 * bitmap.height / bitmap.width))
+
+        val imageFile = bitmapToFile(scaledBitmap, "temp_image.jpg")
         if (imageFile == null) {
             classifierListener.onError(context.getString(R.string.error_unable_to_process_image))
             return
         }
 
-        val reducedImageFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        val reducedFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             imageFile.reduceFileImage()
         } else {
-            imageFile
+            TODO("VERSION.SDK_INT < Q")
         }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val requestBody = reducedImageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
-                val multipartBody =
-                    MultipartBody.Part.createFormData("file", imageFile.name, requestBody)
+                val requestBody = reducedFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val multipartBody = MultipartBody.Part.createFormData(
+                    "file",
+                    reducedFile.name,
+                    requestBody
+                )
 
                 withContext(Dispatchers.Main) {
                     classifierListener.onResult(Result.Loading)
                 }
 
-                val token = getToken()
-                Log.d("TOKEN_CHECK", "Token: $token")
                 val apiService = ApiConfig.getApiService(context, tokenManager)
                 val response = apiService.predict(multipartBody)
-                Log.d("TOKEN_CHECK", "Token: $token")
+
 
                 withContext(Dispatchers.Main) {
                     try {
@@ -111,7 +111,6 @@ class ImageClassifierHelper(
                 BitmapFactory.decodeStream(inputStream)
             }
         } catch (e: Exception) {
-            Log.e("ImageClassifierHelper", "uriToBitmap: Failed to load image. ${e.message}")
             null
         }
     }
@@ -121,7 +120,4 @@ class ImageClassifierHelper(
         fun onError(error: String)
     }
 
-    private suspend fun getToken(): String {
-        return tokenManager.getToken() ?: ""
-    }
 }

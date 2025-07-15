@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
 from flask_babel import Babel
-from extensions import db  # Jangan inisialisasi lagi di sini
+from extensions import db  
 
 babel = Babel()
 

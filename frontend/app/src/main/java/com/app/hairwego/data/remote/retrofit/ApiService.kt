@@ -1,5 +1,6 @@
 package com.app.hairwego.data.remote.retrofit
 
+import com.app.hairwego.data.model.DeleteHistoryResponse
 import com.app.hairwego.data.model.HistoryResponse
 import com.app.hairwego.data.model.LoginRequest
 import com.app.hairwego.data.model.LoginResponse
@@ -10,11 +11,13 @@ import com.app.hairwego.data.model.RegisterResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 
 interface ApiService {
     @POST("/auth/register")
@@ -41,4 +44,8 @@ interface ApiService {
     @GET("/api/profile")
     suspend fun getProfile(
     ): Response<ProfileResponse>
+
+    @DELETE("/api/history/{id}")
+    suspend fun deleteHistory(@Path("id") id: String): Response<DeleteHistoryResponse>
+
 }

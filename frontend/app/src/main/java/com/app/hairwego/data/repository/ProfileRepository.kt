@@ -1,6 +1,7 @@
 package com.app.hairwego.data.repository
 
 import android.content.Context
+import com.app.hairwego.data.local.HistoryDao
 import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.model.ProfileResponse
 import com.app.hairwego.data.remote.retrofit.ApiConfig
@@ -22,7 +23,8 @@ class ProfileRepository(private val context: Context, private val tokenManager: 
         }
     }
 
-    suspend fun logout() {
+    suspend fun logout(dao: HistoryDao) {
         tokenManager.clearAllTokens()
+        HistoryRepository(context, tokenManager).clearLocalHistory(dao)
     }
 }
