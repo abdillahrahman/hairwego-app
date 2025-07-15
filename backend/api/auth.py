@@ -10,7 +10,7 @@ from functools import wraps
 auth_bp = Blueprint("auth", __name__)
 
 logging.basicConfig(
-    filename='access.log',  # atau None untuk ke console
+    filename='access.log', 
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s'
 )
@@ -35,19 +35,20 @@ def log_access(route_name):
 @log_access("register")
 def register():
     data = request.json
+    fullname = data.get("fullname")
     username = data.get("username")
     email = data.get("email")
     password = data.get("password")
 
     if User.query.filter_by(username=username).first():
-        return jsonify({"message": "Username sudah terdaftar"}), 409
+        return jsonify({"message": "Username already exists"}), 409
 
     if User.query.filter_by(email=email).first():
-        return jsonify({"message": "Email sudah terdaftar"}), 409
-
+        return jsonify({"message": "Email already registered"}), 409
 
     new_user = User(
         id=uuid.uuid4(),
+        full_name=fullname,
         username=username,
         email=email,
         password=generate_password_hash(password),
@@ -55,7 +56,8 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({"message": "User berhasil terdaftar"}), 201
+    return jsonify({"message": "User registered successfully"}), 201
+
 
 @auth_bp.route("/login", methods=["POST"])
 @log_access("login")
@@ -66,25 +68,22 @@ def login():
 
     user = User.query.filter_by(email=email).first()
     if not user:
-        return jsonify({"message": "Email tidak terdaftar"}), 404
+        return jsonify({"message": "Email not found"}), 404
     
     if not check_password_hash(user.password, password):
-        return jsonify({"message": "Password salah"}), 401
+        return jsonify({"message": "Incorrect password"}), 401
 
-    user = User.query.filter_by(email=email).first()
-    if user and check_password_hash(user.password, password):
-        user_id = str(user.id)
-        access_token = create_access_token(identity=user_id)
-        refresh_token = create_refresh_token(identity=user_id)
-        return jsonify({
-            "access_token": access_token,
-            "refresh_token": refresh_token
-        }), 200
+    user_id = str(user.id)
+    access_token = create_access_token(identity=user_id)
+    refresh_token = create_refresh_token(identity=user_id)
+    return jsonify({
+        "access_token": access_token,
+        "refresh_token": refresh_token
+    }), 200
 
-    return jsonify({"message": "Login gagal"}), 401
 
 @auth_bp.route("/refresh-token", methods=["POST"])
-@jwt_required(refresh=True)  # HANYA boleh pakai refresh token!
+@jwt_required(refresh=True)
 @log_access("refresh_token")
 def refresh_token():    
     current_user = get_jwt_identity()

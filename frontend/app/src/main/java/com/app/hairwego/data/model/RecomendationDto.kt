@@ -9,7 +9,7 @@ data class RecommendationDto(
     @SerializedName("haircut_name")
     val haircutName: String,
 
-    @SerializedName("image")
-    val image: String
+    @SerializedName("image_path")
+    val imagePath: String
 )
 

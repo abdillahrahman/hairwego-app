@@ -26,14 +26,14 @@ class LoginRepository(
                 tokenManager.setGuest(false)
                 Result.success(Unit)
             } else {
-                Result.failure(Exception("Token tidak ditemukan"))
+                Result.failure(Exception("Login Invalid"))
             }
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorMessage = try {
                 JSONObject(errorBody ?: "").getString("message")
             } catch (_: Exception) {
-                "Login gagal"
+                "Login Failed"
             }
             Result.failure(Exception(errorMessage))
         } catch (e: Exception) {

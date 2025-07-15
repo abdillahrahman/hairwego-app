@@ -1,6 +1,5 @@
 package com.app.hairwego
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -16,7 +15,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -40,14 +38,10 @@ import com.app.hairwego.ui.screen.HistoryDetail.HistoryDetailScreen
 import com.app.hairwego.ui.screen.Splash.SplashScreen
 import com.app.hairwego.ui.screen.home.HomeScreen
 import com.app.hairwego.ui.screen.login.LoginScreen
-import com.app.hairwego.ui.screen.login.LoginViewModel
 import com.app.hairwego.ui.screen.profile.ProfileScreen
 import com.app.hairwego.ui.screen.register.RegisterScreen
 import com.app.hairwego.ui.theme.AppThemeViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 @Composable
@@ -64,7 +58,7 @@ fun HairWeGoApp(
 
     HairwegoAppTheme(darkTheme = isDarkMode) {
         LaunchedEffect(Unit) {
-            delay(3000) // Splash 3 detik
+            delay(3000)
             val token = tokenManager.getToken()
             val isGuest = tokenManager.isGuest()
 
@@ -78,20 +72,9 @@ fun HairWeGoApp(
                 popUpTo(0) { inclusive = true }
             }
 
-            /*CoroutineScope(Dispatchers.Main).launch {
-                val isGuest = tokenManager.isGuest()
-                Toast.makeText(context, "Guest mode: $isGuest", Toast.LENGTH_SHORT).show()
-            }*/
         }
-
-
-
 
         val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
-
-        val isGuest by produceState(initialValue = false) {
-            value = tokenManager.isGuest()
-        }
 
         Scaffold(
             bottomBar = {
@@ -136,13 +119,12 @@ fun HairWeGoApp(
                     arguments = listOf(navArgument("faceScanId") { type = NavType.StringType })
                 ) { backStackEntry ->
                     val faceScanId = backStackEntry.arguments?.getString("faceScanId") ?: ""
-                    HistoryDetailScreen(navController, faceScanId)
+                    HistoryDetailScreen(faceScanId)
                 }
             }
         }
     }
 }
-
 
 
 @Composable

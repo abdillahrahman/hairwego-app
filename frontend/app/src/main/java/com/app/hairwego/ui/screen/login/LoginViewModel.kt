@@ -5,9 +5,6 @@ import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.hairwego.data.local.HairWeGoDatabase
-import com.app.hairwego.data.local.TokenManager
-import com.app.hairwego.data.model.LoginRequest
-import com.app.hairwego.data.remote.retrofit.ApiConfig
 import com.app.hairwego.data.repository.HistoryRepository
 import com.app.hairwego.data.repository.LoginRepository
 import kotlinx.coroutines.CoroutineScope
@@ -41,9 +38,8 @@ class LoginViewModel(
 
     fun login(email: String, password: String, rememberMe: Boolean) {
         val emailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        val passwordValid = password.length >= 6
+        val passwordValid = password.length >= 8
 
-        // Selalu reset error di awal
         _uiState.update {
             it.copy(
                 emailError = null,
@@ -56,7 +52,7 @@ class LoginViewModel(
             _uiState.update {
                 it.copy(
                     emailError = if (!emailValid) "Email tidak valid" else null,
-                    passwordError = if (!passwordValid) "Minimal 6 karakter" else null,
+                    passwordError = if (!passwordValid) "Minimal 8 karakter" else null,
                     errorMessage = "Email atau password tidak valid"
                 )
             }
@@ -87,12 +83,11 @@ class LoginViewModel(
         }
     }
 
-    // ✅ Ini valid karena tidak ada pemanggilan @Composable
     fun onEmailChanged(email: String) {
         _uiState.update {
             it.copy(
                 emailError = if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    "Email tidak valid"
+                    "Email not valid"
                 } else null
             )
         }
@@ -102,8 +97,8 @@ class LoginViewModel(
     fun onPasswordChanged(password: String) {
         _uiState.update {
             it.copy(
-                passwordError = if (password.isNotEmpty() && password.length < 6) {
-                    "Minimal 6 karakter"
+                passwordError = if (password.isNotEmpty() && password.length < 8) {
+                    "Minimal 8 karakter"
                 } else null
             )
         }

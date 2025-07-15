@@ -24,6 +24,7 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.app.hairwego.ViewModelFactory
 import com.app.hairwego.data.local.FaceScanWithRecommendations
+import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.ui.navigation.Screen
 import java.io.File
 
@@ -33,10 +34,8 @@ fun HistoryScreen(navController: NavController) {
     val viewModel: HistoryViewModel = viewModel(factory = ViewModelFactory(context))
     val historyList by viewModel.history.observeAsState(emptyList())
     val isFetching by remember { viewModel.isFetching }
-    val fetchError by remember { viewModel.fetchError }
 
-    // TokenManager untuk cek guest
-    val tokenManager = remember { com.app.hairwego.data.local.TokenManager(context) }
+    val tokenManager = remember { TokenManager(context) }
     val isGuestState = remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
@@ -54,7 +53,6 @@ fun HistoryScreen(navController: NavController) {
     } else {
         when {
             isGuestState.value -> {
-                // Tampilan khusus guest
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -82,14 +80,12 @@ fun HistoryScreen(navController: NavController) {
             }
 
             historyList.isEmpty() && !isFetching -> {
-                // Jika login tapi tidak ada data
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text("No scan history available yet.")
                 }
             }
 
             else -> {
-                // Tampilan daftar riwayat
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxSize()
@@ -171,31 +167,34 @@ fun HistoryCard(
             }
         }
 
-        // Alert Dialog
         if (showDialog) {
             AlertDialog(
                 onDismissRequest = { showDialog = false },
-                text = { Text(text = "Are you sure you want to delete this history?", style = MaterialTheme.typography.bodyLarge) },
+                text = {
+                    Text(
+                        text = "Are you sure you want to delete this history?",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                },
                 confirmButton = {
                     TextButton(onClick = {
                         onDelete(data.faceScan.faceScanId)
                         showDialog = false
                     }) {
-                        Text(text ="Yes", style = MaterialTheme.typography.titleMedium)
+                        Text(text = "Yes", style = MaterialTheme.typography.titleMedium)
                     }
                 },
                 dismissButton = {
                     TextButton(onClick = {
                         showDialog = false
                     }) {
-                        Text(text="Cancel", style = MaterialTheme.typography.titleMedium)
+                        Text(text = "Cancel", style = MaterialTheme.typography.titleMedium)
                     }
                 }
             )
         }
     }
 }
-
 
 
 @Preview(showBackground = true)

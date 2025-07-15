@@ -17,5 +17,8 @@ data class ProfileResponse(
 	val email: String? = null,
 
 	@field:SerializedName("username")
-	val username: String? = null
+	val username: String? = null,
+
+	@field:SerializedName("fullname")
+	val fullname: String? = null
 )

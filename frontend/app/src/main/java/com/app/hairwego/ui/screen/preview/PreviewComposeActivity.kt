@@ -1,8 +1,6 @@
 package com.app.hairwego.ui.screen.preview
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +14,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.sp
-import com.ahmetocak.shoppingapp.presentation.designsystem.theme.HairwegoAppTheme
 import com.app.hairwego.R
 import com.app.hairwego.data.Result
 import com.app.hairwego.data.local.TokenManager
@@ -26,7 +23,6 @@ import com.app.hairwego.ui.screen.camera.CameraComposeActivity
 import com.app.hairwego.ui.screen.result.ResultActivityScreen
 import com.app.hairwego.ui.theme.HairwegoThemeWrapper
 import com.google.gson.Gson
-import kotlin.getOrThrow
 
 
 class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.ClassifierListener {
@@ -34,7 +30,6 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
     private var imageUri: Uri? = null
     private var isFromCamera: Boolean = false
     private lateinit var imageClassifierHelper: ImageClassifierHelper
-    private var tokenManager: TokenManager? = null
 
     var isLoading by mutableStateOf(false)
         private set
@@ -65,7 +60,7 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
                         isFromCamera = isFromCamera,
                         isLoading = isLoading,
                         onRetake = { handleRetake() },
-                        onAnalyzeImage = { analyzeImage(imageUri!!)},
+                        onAnalyzeImage = { analyzeImage(imageUri!!) },
                         onShowTips = { showTipsDialog.value = true },
                     )
 
@@ -100,30 +95,29 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
                             onDismissRequest = { showErrorDialog = false },
                             confirmButton = {
                                 TextButton(onClick = { showErrorDialog = false }) {
-                                   Text("OK", fontSize = 17.sp)
+                                    Text("OK", fontSize = 17.sp)
                                 }
                             },
                             title = {
                                 Text("An Error Occurred")
                             },
                             text = {
-                                Text(errorMessage,
-                                    fontSize = 16.sp)
+                                Text(
+                                    errorMessage,
+                                    fontSize = 16.sp
+                                )
                             }
                         )
                     }
                 } ?: run {
-                    Toast.makeText(this, getString(R.string.image_not_find), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.image_not_find), Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
     }
 
     private fun analyzeImage(uri: Uri) {
-        /*if (!isInternetAvailable()) {
-            showNoInternetDialog()
-            return
-        }*/
         try {
             imageClassifierHelper.classifyImage(uri)
         } catch (e: Exception) {
@@ -145,26 +139,13 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
         finish()
     }
 
-    private fun showSnapTipsDialog() {
-        errorMessage = """
-        Tips for Taking a Good Face Photo:
-        
-        • Make sure only one face is clearly visible in the frame.
-        • Ensure proper lighting (avoid shadows).
-        • Do not use blurry or pixelated images.
-        • Face the camera directly, avoid tilting.
-        • Remove accessories like sunglasses or masks.
-    """.trimIndent()
-        showErrorDialog = true
-    }
-
-
 
     override fun onResult(result: Result<PredictResponse>) {
         when (result) {
             is Result.Loading -> {
                 isLoading = true
             }
+
             is Result.Success -> {
                 isLoading = false
                 val predictResponse = result.data
@@ -176,6 +157,7 @@ class PreviewComposeActivity : ComponentActivity(), ImageClassifierHelper.Classi
                 }
                 startActivity(intent)
             }
+
             is Result.Error -> {
                 isLoading = false
                 errorMessage = "${result.message}"

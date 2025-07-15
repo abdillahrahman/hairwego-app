@@ -20,13 +20,11 @@ class TokenManager(private val context: Context) {
         private val IS_GUEST_KEY = booleanPreferencesKey("is_guest")
     }
 
-    // Observe token
     val token: Flow<String?> = context.dataStore.data
         .map { preferences ->
             preferences[TOKEN_KEY]
         }
 
-    // Save token
     suspend fun saveToken(token: String) {
         context.dataStore.edit { preferences ->
             preferences[TOKEN_KEY] = token
@@ -53,7 +51,6 @@ class TokenManager(private val context: Context) {
         return context.dataStore.data.first()[IS_GUEST_KEY] ?: false
     }
 
-    // Clear token
     suspend fun clearAllTokens() {
         context.dataStore.edit { preferences ->
             preferences.remove(TOKEN_KEY)
@@ -62,20 +59,8 @@ class TokenManager(private val context: Context) {
         }
     }
 
-    // Set "Remember Me"
-    suspend fun setRememberMe(value: Boolean) {
-        context.dataStore.edit { preferences ->
-            preferences[REMEMBER_ME_KEY] = value
-        }
-    }
-
-    // ✅ Get token (non-reactive, once-off call)
     suspend fun getToken(): String? {
         return context.dataStore.data.first()[TOKEN_KEY]
     }
 
-    // ✅ Get Remember Me value
-    suspend fun getRememberMe(): Boolean {
-        return context.dataStore.data.first()[REMEMBER_ME_KEY] ?: false
-    }
 }

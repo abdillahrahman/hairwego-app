@@ -54,17 +54,10 @@ class FaceScanAdmin(sqla.ModelView):
     def _format_user(self, context, model, name):
         return model.user.username if model.user else "N/A"
 
-    # def _format_image(self, context, model, name):
-    #     if model.image_path:
-    #         image_url = url_for('static', filename=f'uploads/{model.image_path}')
-    #         return Markup(f'<img src="{image_url}" style="max-height: 100px;">')
-    #     return ""
-
-
+   
     column_formatters = {
         "face_shape": _format_face_shape,
         "user": _format_user,
-        # "image_path": _format_image,
     }
 
     def __repr__(self):
@@ -77,7 +70,8 @@ class HaircutRecommendationAdmin(sqla.ModelView):
     column_searchable_list = ["face_shape.shape_name"]
 
     def _list_haircuts(view, context, model, name):
-        return ", ".join([haircut.name for haircut in model.haircuts])
+        # Ganti haircut.name menjadi haircut.haircut_name
+        return ", ".join([haircut.haircut_name for haircut in model.haircuts])
     
     def _format_face_shape(view, context, model, name):
         return model.face_shape.shape_name if model.face_shape else "N/A"
@@ -94,16 +88,14 @@ class UserRecommendationHistoryAdmin(sqla.ModelView):
     form_columns = ["user", "haircut_recommendation", "face_scan"]
     column_searchable_list = ["user.username", "haircut_recommendation.id"]
 
-    # Format the user and haircut_recommendation columns
     def _format_user(view, context, model, name):
         return model.user.username if model.user else "N/A"
 
     def _format_haircut_recommendation(view, context, model, name):
-        # Display the names of associated haircuts
-        return ", ".join([haircut.name for haircut in model.haircut_recommendation.haircuts]) if model.haircut_recommendation else "N/A"
+        # Ganti haircut.name menjadi haircut.haircut_name
+        return ", ".join([haircut.haircut_name for haircut in model.haircut_recommendation.haircuts]) if model.haircut_recommendation else "N/A"
 
     def _format_face_scan(view, context, model, name):
-        # Display only the face_scan ID
         return str(model.face_scan.id) if model.face_scan else "N/A"
     
     column_formatters = {
@@ -115,43 +107,43 @@ class UserRecommendationHistoryAdmin(sqla.ModelView):
 
 # Customized Haircut model admin
 class HaircutAdmin(sqla.ModelView):
-    column_list = ["name", "description", "image"]
-    form_columns = ["name", "description", "image"]
-    column_searchable_list = ["name", "description"]
+    column_list = ["haircut_name", "description", "image_path"]
+    form_columns = ["haircut_name", "description", "image_path"]
+    column_searchable_list = ["haircut_name", "description"]
 
     # 📂 Folder tujuan upload
     file_path = os.path.join(os.path.dirname(__file__), "..")
 
     # 📤 Upload field
     form_extra_fields = {
-        'image': FileUploadField(
+        'image_path': FileUploadField(
             'Image',
             base_path=file_path,
-            relative_path='static/uploads/',  # simpan di DB sebagai static/upload/namafile
+            relative_path='static/uploads/',  
             allow_overwrite=False
         )
     }
 
     # 🖼️ Format kolom gambar
     def _format_image(self, context, model, name):
-        if model.image:
+        if model.image_path:
             # Remove 'static/uploads/' if present
-            filename = model.image.replace('static/uploads/', '')
+            filename = model.image_path.replace('static/uploads/', '')
             image_url = url_for('static', filename=f'uploads/{filename}')
             return Markup(f'<img src="{image_url}" style="max-height: 100px;">')
         return ""
 
     column_formatters = {
-        "image": _format_image
+        "image_path": _format_image
     }
 
     def __repr__(self):
-        return f"<HaircutAdmin(name={self.name})>"
+        return f"<HaircutAdmin(haircut_name={self.haircut_name})>"
 
 # Create Admin instance
 admin_site = Admin(
     name="Admin Panel",
-    theme=Bootstrap4Theme(swatch="default"),  # Set the base URL for the admin interface
+    theme=Bootstrap4Theme(swatch="default"),  
 )
 
 # Add views for each model
@@ -171,4 +163,4 @@ admin_bp = Blueprint("admin_bp", __name__)
 def index():
     return redirect(
         url_for("admin.index")
-    )  
+    )

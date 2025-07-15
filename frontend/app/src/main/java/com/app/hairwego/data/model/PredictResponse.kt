@@ -19,11 +19,11 @@ data class PredictResponse(
 
 data class RekomendasiItem(
 
-	@field:SerializedName("image")
-	val image: String,
+	@field:SerializedName("image_path")
+	val image_path: String,
 
-	@field:SerializedName("name")
-	val name: String,
+	@field:SerializedName("haircut_name")
+	val haircut_name: String,
 
 	@field:SerializedName("description")
 	val description: String

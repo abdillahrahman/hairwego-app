@@ -31,7 +31,7 @@ from functools import wraps
 api_bp = Blueprint("api", __name__)
 
 logging.basicConfig(
-    filename='access.log',  # atau None untuk ke console
+    filename='access.log',  
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s'
 )
@@ -74,7 +74,6 @@ def correct_image_orientation(image_path):
     try:
         img = Image.open(image_path)
 
-        # Cek apakah gambar punya data EXIF
         exif = img._getexif()
         if exif is not None:
             for orientation in ExifTags.TAGS.keys():
@@ -89,7 +88,7 @@ def correct_image_orientation(image_path):
             elif exif_orientation == 8:
                 img = img.rotate(90, expand=True)
 
-        # Simpan ulang gambar setelah dikoreksi
+
         img.save(image_path)
         img.close()
     except Exception as e:
@@ -112,7 +111,6 @@ def detect_face_and_crop(image_path):
     x = max(0, x)
     y = max(0, y)
 
-    # Enlarge crop area by a factor (e.g., 1.3)
     enlarge_factor = 1.3
     center_x = x + w // 2
     center_y = y + h // 2
@@ -143,14 +141,12 @@ def crop_and_save(image_path):
     x = max(0, x)
     y = max(0, y)
 
-    # Enlarge crop area by a factor (e.g., 1.3)
     enlarge_factor = 1.3
     center_x = x + w // 2
     center_y = y + h // 2
     new_w = int(w * enlarge_factor)
     new_h = int(h * enlarge_factor)
 
-    # Offset untuk atas, bawah, kiri, kanan (misal 30% dari tinggi dan lebar wajah)
     top_offset = int(0.3 * h)
     bottom_offset = int(0.3 * h)
     left_offset = int(0.2 * w)
@@ -217,7 +213,7 @@ def predict():
     x = np.expand_dims(x, axis=0)
     prediction_array_cnn = modelcnn.predict(x)
 
-    class_names = ["ovale", "round", "square"]
+    class_names = ["Ovale", "Round", "Square"]
     predicted_class = class_names[np.argmax(prediction_array_cnn)]
     confidence = float(np.max(prediction_array_cnn))
 
@@ -273,9 +269,9 @@ def predict():
         for haircut in recommendation.haircuts:
             haircut_list.append(
                 {
-                    "name": haircut.name,
+                    "haircut_name": haircut.haircut_name,  # ubah dari name ke haircut_name
                     "description": haircut.description,
-                    "image": haircut.image,
+                    "image_path": haircut.image_path,
                 }
             )
 
@@ -311,7 +307,6 @@ def get_history():
 
     history = {}
     for scan in face_scans:
-        # Pastikan waktu dalam zona Asia/Jakarta (UTC+7)
         scan_date = scan.scan_date.to('Asia/Jakarta').format("YYYY-MM-DD HH:mm:ss")
         if scan_date not in history:
             history[scan_date] = []
@@ -327,9 +322,9 @@ def get_history():
                 for haircut in haircut_recommendation.haircuts:
                     recommendation_details.append(
                         {
-                            "haircut_name": haircut.name,
+                            "haircut_name": haircut.haircut_name, 
                             "description": haircut.description,
-                            "image": haircut.image,
+                            "image_path": haircut.image_path,
                         }
                     )
 
@@ -351,7 +346,6 @@ def get_history():
 def delete_history(face_scan_id):
     user_id = get_jwt_identity()
 
-    # Validasi kepemilikan scan
     face_scan = FaceScan.query.filter_by(id=face_scan_id, user_id=user_id).first()
     if not face_scan:
         return jsonify({"message": "History not found or unauthorized"}), 404
@@ -376,14 +370,13 @@ def get_profile():
     if not user:
         return jsonify({"message": "User not found"}), 404
     
-    # Get user's scan count
     scan_count = FaceScan.query.filter_by(user_id=user_id).count()
     
-    # Get latest scan if exists
     latest_scan = FaceScan.query.filter_by(user_id=user_id).order_by(FaceScan.scan_date.desc()).first()
     latest_face_shape = latest_scan.face_shape.shape_name if latest_scan else None
     
     return jsonify({
+        "fullname": user.full_name,
         "username": user.username,
         "email": user.email,
         "created_at": user.created_at.format("YYYY-MM-DD HH:mm:ss"),

@@ -1,28 +1,40 @@
 package com.app.hairwego.ui.screen.camera
 
 
+import android.Manifest
 import androidx.camera.view.PreviewView
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.*
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import android.Manifest
-import androidx.compose.foundation.BorderStroke
 import com.app.hairwego.R
 import com.app.hairwego.R.string.flip_camera
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
-import com.google.accompanist.permissions.shouldShowRationale
 
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -31,7 +43,7 @@ fun CameraScreenWithPermission(
     onClose: () -> Unit,
     onTakePicture: () -> Unit,
     onOpenGallery: () -> Unit,
-    onFlipCamera : () -> Unit,
+    onFlipCamera: () -> Unit,
     onShowTips: () -> Unit,
     previewView: PreviewView
 ) {
@@ -60,18 +72,17 @@ fun CameraActivityScreen(
     onClose: () -> Unit,
     onTakePicture: () -> Unit,
     onOpenGallery: () -> Unit,
-    onFlipCamera : () -> Unit,
+    onFlipCamera: () -> Unit,
     onShowTips: () -> Unit,
     previewView: PreviewView
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
-        // Camera PreviewView
+
         AndroidView(
             factory = { context -> previewView },
             modifier = Modifier.fillMaxSize()
         )
 
-        // Close Button
         IconButton(
             onClick = onClose,
             modifier = Modifier
@@ -100,7 +111,6 @@ fun CameraActivityScreen(
             )
         }
 
-        // Bottom panel
         Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -121,7 +131,6 @@ fun CameraActivityScreen(
                         .padding(start = 30.dp),
                     contentAlignment = Alignment.CenterStart
                 ) {
-                    // Tombol Gallery di kiri
                     OutlinedButton(
                         onClick = onOpenGallery,
                         border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
@@ -133,7 +142,6 @@ fun CameraActivityScreen(
                     }
                 }
 
-                // Tombol ambil foto di tengah
                 Box(
                     modifier = Modifier
                         .weight(1f),
@@ -151,7 +159,6 @@ fun CameraActivityScreen(
                     }
                 }
 
-                // Tombol tips di kanan
                 Box(
                     modifier = Modifier
                         .weight(1f),
@@ -184,6 +191,6 @@ fun CameraScreenPreview() {
         onOpenGallery = {},
         onFlipCamera = {},
         onShowTips = {},
-        previewView = PreviewView(LocalContext.current) // Ini tidak valid dalam @Preview
+        previewView = PreviewView(LocalContext.current)
     )
 }

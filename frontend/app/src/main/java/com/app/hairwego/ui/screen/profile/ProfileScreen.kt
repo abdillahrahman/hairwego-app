@@ -2,20 +2,37 @@ package com.app.hairwego.ui.screen.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.ExitToApp
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.*
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.runtime.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,10 +45,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.app.hairwego.R
 import com.app.hairwego.ViewModelFactory
 import com.app.hairwego.data.local.HairWeGoDatabase
+import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.ui.navigation.Screen
 import com.app.hairwego.ui.theme.AppThemeViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -45,8 +64,9 @@ fun ProfileScreen(navController: NavController) {
     val isDarkMode by appViewModel.isDarkMode.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
 
-    // Tambahkan token manager dan pengecekan guest
-    val tokenManager = remember { com.app.hairwego.data.local.TokenManager(context) }
+    val showLogoutDialog = remember { mutableStateOf(false) }
+
+    val tokenManager = remember { TokenManager(context) }
     val isGuestState = remember { mutableStateOf(false) }
 
     val applicationScope = CoroutineScope(SupervisorJob())
@@ -57,6 +77,34 @@ fun ProfileScreen(navController: NavController) {
     LaunchedEffect(Unit) {
         viewModel.fetchProfile()
         isGuestState.value = tokenManager.isGuest()
+    }
+
+    if (showLogoutDialog.value) {
+        AlertDialog(
+            onDismissRequest = { showLogoutDialog.value = false },
+            title = { Text("Confirm Logout") },
+            text = {
+                Text(
+                    "Are you sure you want to logout?",
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.logout(navController, dao)
+                    showLogoutDialog.value = false
+                }) {
+                    Text("Yes", style = MaterialTheme.typography.titleMedium)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = {
+                    showLogoutDialog.value = false
+                }) {
+                    Text("Cancel", style = MaterialTheme.typography.titleMedium)
+                }
+            }
+        )
     }
 
     if (isGuestState.value) {
@@ -83,17 +131,15 @@ fun ProfileScreen(navController: NavController) {
             }
         }
     } else {
-        // Tampilan untuk pengguna yang login
         ProfileContent(
             uiState = uiState,
             isDarkMode = isDarkMode,
             onToggleDarkMode = { appViewModel.toggleDarkMode(it) },
-            onLogout = { viewModel.logout(navController, dao) },
-            onEditProfile = { /* TODO: Navigate to edit profile screen */ }
+            onAbout = { navController.navigate(Screen.History.route) },
+            onLogout = { showLogoutDialog.value = true },
         )
     }
 }
-
 
 
 @Composable
@@ -101,11 +147,10 @@ fun ProfileContent(
     uiState: ProfileUiState,
     isDarkMode: Boolean,
     onToggleDarkMode: (Boolean) -> Unit,
+    onAbout: () -> Unit = {},
     onLogout: () -> Unit,
-    onEditProfile: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
-        // Header
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -129,7 +174,7 @@ fun ProfileContent(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = uiState.profile?.username ?: "Loading...",
+                    text = uiState.profile?.fullname ?: "Guest User",
                     color = Color.White,
                     style = MaterialTheme.typography.titleLarge
                 )
@@ -140,6 +185,7 @@ fun ProfileContent(
 
         Column(modifier = Modifier.padding(horizontal = 24.dp)) {
             Text("Profile Information", style = MaterialTheme.typography.titleMedium)
+            InfoRow(icon = Icons.Default.AccountCircle, label = uiState.profile?.fullname ?: "Name")
             InfoRow(icon = Icons.Default.Person, label = uiState.profile?.username ?: "Username")
             InfoRow(icon = Icons.Default.Email, label = uiState.profile?.email ?: "Email")
 
@@ -158,7 +204,7 @@ fun ProfileContent(
                     modifier = Modifier.size(24.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text="Dark Mode", style = MaterialTheme.typography.bodyLarge)
+                Text(text = "Dark Mode", style = MaterialTheme.typography.bodyLarge)
                 Spacer(modifier = Modifier.weight(1f))
                 Switch(
                     checked = isDarkMode,
@@ -172,11 +218,13 @@ fun ProfileContent(
                     .clickable { onLogout() }
                     .padding(vertical = 8.dp)
             ) {
-                Icon(Icons.Default.ExitToApp, contentDescription = null)
+                Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text="Logout", style = MaterialTheme.typography.bodyLarge)
+                Text(text = "Logout", style = MaterialTheme.typography.bodyLarge)
             }
         }
+
+
     }
 }
 
@@ -220,7 +268,6 @@ fun PreviewProfileScreen() {
             isDarkMode = isDarkMode.value,
             onToggleDarkMode = { isDarkMode.value = it },
             onLogout = {},
-            onEditProfile = {}
         )
     }
 }

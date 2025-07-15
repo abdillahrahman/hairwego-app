@@ -1,4 +1,3 @@
-
 package com.app.hairwego.helper
 
 import android.content.Context
@@ -6,25 +5,22 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import android.util.Log
+import androidx.core.graphics.scale
 import com.app.hairwego.R
+import com.app.hairwego.data.Result
+import com.app.hairwego.data.local.TokenManager
 import com.app.hairwego.data.model.PredictResponse
 import com.app.hairwego.data.remote.retrofit.ApiConfig
 import com.app.hairwego.reduceFileImage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.FileOutputStream
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import com.app.hairwego.data.Result
-import com.app.hairwego.data.local.TokenManager
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-import androidx.core.graphics.scale
 
 class ImageClassifierHelper(
     private val context: Context,
@@ -62,17 +58,13 @@ class ImageClassifierHelper(
                     requestBody
                 )
 
-                Log.d("REDUCE_SIZE", "Before: ${imageFile.length()}, After: ${reducedFile.length()}")
-
                 withContext(Dispatchers.Main) {
                     classifierListener.onResult(Result.Loading)
                 }
 
-                val token = getToken()
-                Log.d("TOKEN_CHECK", "Token: $token")
                 val apiService = ApiConfig.getApiService(context, tokenManager)
                 val response = apiService.predict(multipartBody)
-                Log.d("TOKEN_CHECK", "Token: $token")
+
 
                 withContext(Dispatchers.Main) {
                     try {
@@ -119,7 +111,6 @@ class ImageClassifierHelper(
                 BitmapFactory.decodeStream(inputStream)
             }
         } catch (e: Exception) {
-            Log.e("ImageClassifierHelper", "uriToBitmap: Failed to load image. ${e.message}")
             null
         }
     }
@@ -129,7 +120,4 @@ class ImageClassifierHelper(
         fun onError(error: String)
     }
 
-    private suspend fun getToken(): String {
-        return tokenManager.getToken() ?: ""
-    }
 }

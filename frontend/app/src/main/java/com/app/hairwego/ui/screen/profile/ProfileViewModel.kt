@@ -32,11 +32,6 @@ class ProfileViewModel(
         }
     }
 
-    fun toggleDarkMode(enabled: Boolean) {
-        _uiState.update { it.copy(isDarkMode = enabled) }
-        // persist dark mode if needed
-    }
-
     fun logout(navController: NavController, dao: HistoryDao) {
         viewModelScope.launch {
             repository.logout(dao)

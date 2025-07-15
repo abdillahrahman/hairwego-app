@@ -23,6 +23,7 @@ import com.app.hairwego.ui.components.MyButton
 import com.app.hairwego.ui.components.WelcomeText
 import com.app.hairwego.R
 import com.app.hairwego.ViewModelFactory
+import com.app.hairwego.ui.components.AuthEnterFullnameOtf
 
 @Composable
 fun RegisterScreen(navController: NavController) {
@@ -31,6 +32,7 @@ fun RegisterScreen(navController: NavController) {
         factory = ViewModelFactory(context)
     )
 
+    var fullname by remember { mutableStateOf("") }
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -48,24 +50,40 @@ fun RegisterScreen(navController: NavController) {
     HairWeGoScaffold(modifier = Modifier) { paddingValues ->
         AuthBackgroundRegister()
         RegisterScreenContent(
+            fullname = fullname,
+            onFullnameChange = {
+                fullname = it
+                viewModel.onFullnameChanged(it)
+            },
             username = username,
-            onUsernameChange = { username = it },
+            onUsernameChange = {
+                username = it
+                viewModel.onUsernameChanged(it)
+            },
             email = email,
             onEmailChange = {
                 email = it
-                viewModel.onEmailChanged(it)},
+                viewModel.onEmailChanged(it)
+            },
             password = password,
             onPasswordChange = {
                 password = it
                 viewModel.onPasswordChanged(it)
-                viewModel.onConfirmPasswordChanged(password, confirmPassword)},
+                viewModel.onConfirmPasswordChanged(password, confirmPassword)
+            },
             confirmPassword = confirmPassword,
             onConfirmPasswordChange = {
                 confirmPassword = it
                 viewModel.onConfirmPasswordChanged(password, it)
             },
             onRegisterClick = {
-                viewModel.registerUser(username, email, password, confirmPassword) // Pass context here
+                viewModel.registerUser(
+                    fullname,
+                    username,
+                    email,
+                    password,
+                    confirmPassword
+                )
             },
             onLoginClick = {
                 navController.navigate("login")
@@ -78,6 +96,8 @@ fun RegisterScreen(navController: NavController) {
 
 @Composable
 fun RegisterScreenContent(
+    fullname: String,
+    onFullnameChange: (String) -> Unit,
     username: String,
     onUsernameChange: (String) -> Unit,
     email: String,
@@ -99,6 +119,23 @@ fun RegisterScreenContent(
         verticalArrangement = Arrangement.Bottom
     ) {
         WelcomeText(text = "Register")
+
+        AuthEnterFullnameOtf(
+            value = fullname,
+            onValueChange = onFullnameChange,
+            isError = uiState.fullnameError != null,
+            labelText = "Full Name"
+        )
+        if (uiState.fullnameError != null) {
+            Text(
+                text = uiState.fullnameError ?: "",
+                color = MaterialTheme.colorScheme.error,
+                fontSize = 12.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 5.dp)
+            )
+        }
 
         AuthEnterUsernameOtf(
             value = username,
